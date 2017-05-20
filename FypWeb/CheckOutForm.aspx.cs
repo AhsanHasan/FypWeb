@@ -1,0 +1,100 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace FypWeb
+{
+    public partial class CheckOutForm : System.Web.UI.Page
+    {
+        SqlConnection con = new SqlConnection(@"Data Source=Ahsan-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Session["user"] != null && Session["budget"] != null && Request.Cookies["aa"] != null || Request.Cookies["ab"] != null || Request.Cookies["ac"] != null)
+                {
+
+                    con.Open();
+                    string query = "Select * from Customers where UserName ='" + Session["user"] + "'";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        txt_name.Text = reader["CustName"].ToString();
+                        txt_phonenumber.Text = reader["Contact"].ToString();
+                        txt_address.Text = reader["CustAddress"].ToString();
+                        txt_cardnum.Text = reader["CustAccountNo"].ToString();
+                        txt_city.Text = reader["CustCity"].ToString();
+                        txt_emailaddress.Text = reader["Email"].ToString();
+                        txt_postalcode.Text = reader["CustPOBox"].ToString();
+                        Cnic.Text = reader["CustCNIC"].ToString();
+
+                    }
+
+
+                    con.Close();
+
+                }
+                else if(Session["user"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else if (Session["budget"] == null)
+                {
+                    Response.Redirect("success.aspx");
+                }
+                else if (Request.Cookies["aa"] == null || Request.Cookies["ab"] == null || Request.Cookies["ac"] == null)
+                {
+                    Response.Redirect("Category.aspx");
+                    
+                }
+                else
+                {
+                    Response.Redirect("EventType.aspx");
+                }
+            }
+        }
+        protected void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            con.Open();
+
+            SqlCommand cmd2 = con.CreateCommand();
+            SqlCommand cmd1 = con.CreateCommand();
+            cmd1.CommandType = CommandType.Text;
+            cmd1.CommandText = "Select CustID from Customers where UserName = '" + Session["user"]  + "'";
+            int id = (Int32)cmd1.ExecuteScalar();
+
+            cmd2.CommandType = CommandType.Text;
+            cmd2.CommandText = "update Customers set CustName='" + txt_name.Text + "',CustCNIC='" + Cnic.Text + "',Email='" + txt_emailaddress.Text +  "',CustAccountNo='" + txt_cardnum.Text + "',CustAddress='" + txt_address.Text + "',CustPOBox='" + txt_postalcode.Text + "' where CustID=" + id + "";
+            cmd2.ExecuteNonQuery();
+
+            con.Close();
+            try
+            {
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress("syed.khan7007@gmail.com");
+                msg.To.Add(txt_emailaddress.Text);
+                msg.Subject = "Confirmation From OnClickEvents";
+                msg.Body = "Hi Mr/Mrs "+txt_name.Text+ "this is to confirm you that your request have been recieved we will get back to you ASAP. Thanks\n -Team OnClick Event";
+                SmtpClient sc = new SmtpClient("smtp.gmail.com");
+                sc.Port = 587;
+                sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
+                sc.EnableSsl = true;
+                sc.Send(msg);
+                Response.Write("mail send");
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+    }
+}

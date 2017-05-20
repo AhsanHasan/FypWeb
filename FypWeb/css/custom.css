@@ -1,0 +1,46 @@
+﻿.center {
+height:300px;
+width:300px;
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+
+margin:auto;
+
+
+
+}
+.mid {
+width:100px;
+position:absolute;
+left:0;
+right:0;
+
+margin:auto;
+
+
+
+}
+
+.verticalgap {
+margin-top:20px;
+}
+
+
+.footerpos {
+
+height:auto;
+width:auto;
+position:absolute;
+top:700px;
+bottom:0;
+left:0;
+right:0;
+
+margin:auto;
+
+
+
+}
