@@ -9,9 +9,10 @@ namespace FypWeb
 {
     public partial class Venue : System.Web.UI.Page
     {
-        long a = 0;
+        long budget  = 0;
         float venueCost = 0;
         float foodCost = 0;
+        long guest = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,13 +23,18 @@ namespace FypWeb
             else
             {
 
-                a = Convert.ToInt64(Request.QueryString["budget"]);
-                venueCost = (a * 40) / 100;
-                Session["budget"] = a.ToString();
+                budget = Convert.ToInt64(Request.QueryString["budget"]);
+                guest = Convert.ToInt64(Request.QueryString["guest"]);
+                venueCost = (budget * 40) / 100;
+                foodCost = (budget * 25) / 100;
+
+                Session["budget"] = budget.ToString();
+                Session["guest"] = guest.ToString();
                 string b = Session["budget"].ToString();
 
-                Cart.setBudget(a);
+                Cart.setBudget(budget);
                 Cart.setVenueBudget(venueCost);
+                Cart.setFoodBudget(foodCost);
             }
 
           }

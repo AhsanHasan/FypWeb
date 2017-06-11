@@ -76,6 +76,8 @@
                title: "AHSAN KA GHAR",
                mapTypeId: google.maps.MapTypeId.ROADMAP
            };
+           
+           
            var pinImage = new google.maps.MarkerImage("http://www.googlemapsmarkers.com/v1/009900/");
            var infoWindow = new google.maps.InfoWindow();
            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
@@ -98,17 +100,23 @@
                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
                
                if(i==0){
+                   
+
+
+
                    var marker = new google.maps.Marker({
                        position: latl,
                        icon:pinImage,
                        map: map,
                        title: "AHSAN KA GHAR"
                    });
+
                 
                    (function (marker, data) {
                        google.maps.event.addListener(marker, "click", function (e) {
                            infoWindow.setContent(data.description);
                            infoWindow.open(map, marker);
+                           
                        });
                    })(marker, data);
                }
@@ -116,15 +124,24 @@
              //  alert(data.lat+" "+data.lng);
                var x = distance(lat,long,data.lat,data.lng,"K");
                if(x <= dist){
+
+
                    var marker = new google.maps.Marker({
                        position: myLatlng,
                        map: map,
+                       description: data.description,
                        title: data.title
+                       
                    });
-                   (function (marker, data) {
-                       google.maps.event.addListener(marker, "click", function (e) {
-                           infoWindow.setContent(data.description);
-                           infoWindow.open(map, marker);
+                  
+
+
+
+                  (function (marker, data) {
+                       google.maps.event.addListener(marker, 'click', function (e) {
+                       infoWindow.open(map, marker);
+                       infoWindow.setContent(data.description);
+                       
                        });
                    })(marker, data);
                }
@@ -144,6 +161,7 @@
               position: latl,
               center: new google.maps.LatLng(lat, long),
               zoom: 15,
+              
               title: "AHSAN KA GHAR",
               mapTypeId: google.maps.MapTypeId.ROADMAP
           };
@@ -173,6 +191,7 @@
                       position: latl,
                       icon:pinImage,
                       map: map,
+                      
                       title: "AHSAN KA GHAR"
                   });
                 
@@ -190,6 +209,7 @@
                   var marker = new google.maps.Marker({
                       position: myLatlng,
                       map: map,
+                      description: data.description,
                       title: data.title
                   });
                   (function (marker, data) {
@@ -237,7 +257,7 @@
   <body>  
       <select id="distanceinkm" class="bs-select form-control"><option>Nearest Venue</option><option value="1">1</option><option value="3">3</option><option value="5">5</option></select>
       <br />
-    <div id="dvMap" style="width: 1500px; height: 900px"></div>
+    <div id="dvMap" style="width: 1400px; height: 600px"></div>
         
   </body>  
         

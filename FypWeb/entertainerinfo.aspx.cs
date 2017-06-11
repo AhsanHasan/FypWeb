@@ -68,20 +68,25 @@ namespace FypWeb
             {
                 // Assign the Calendar control dates
                 // already contained in the database
-                //Calendar1.SelectedDates.Add((DateTime)dr.GetSqlDateTime(0));
+                Calendar1.SelectedDates.Add((DateTime)dr["Date"]);
             }
 
             // Close DataReader
             dr.Close();
             // Close database Connection
-            con.Close();
+            con.Close(); 
 
         }
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox1.Text = Calendar1.SelectedDate.ToShortDateString();
+            TextBox2.Text = Calendar1.SelectedDate.ToShortTimeString();
+        }
 
-        protected void B1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             DateTime date;
-            //date = Calendar1.SelectedDate;
+            date = Calendar1.SelectedDate;
             //if (Calendar1.Visible)
             //{
             //    Calendar1.Visible = false;
@@ -90,20 +95,27 @@ namespace FypWeb
             //{
             //    Calendar1.Visible = true;
             //}
+
             BindData();
             con.Open();
+
             // Set the color of Selected Calendar Cells to Red
-            //Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Red;
-           // query = "INSERT INTO EntertainerScedule values '" + date + "'";
-           // SqlCommand myCommand = new SqlCommand(query, con);
+            Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Red;
+            query = "INSERT INTO EntertainerSchedule (EntertainerID,Date,TimeSlot) values ('" + id + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
+            SqlCommand myCommand = new SqlCommand(query, con);
+
+
             // myCommand.ExecuteNonQuery();
             //myCommand.CommandType = CommandType.StoredProcedure;
             //myCommand.Parameters.Add(new SqlParameter("@v_DateTime", SqlDbType.DateTime));
             //myCommand.Parameters["@v_DateTime"].Value = selectedDate;
 
-            //myCommand.ExecuteNonQuery();
-            //con.Close();
+            myCommand.ExecuteNonQuery();
+            con.Close();
+            Response.Redirect("entertainerinfo.aspx");
+
         }
+        
         protected void btn_AddToCart(object sender, EventArgs e)
         {
             id = Convert.ToInt32(Request.QueryString["id"].ToString());

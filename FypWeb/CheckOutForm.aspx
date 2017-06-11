@@ -20,6 +20,13 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+        function showHide(checked) {
+            if (checked == true)
+                $("$txt_cardnum").fadeIn();
+                $("$txt_cardnum").fadeOut();
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -47,7 +54,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li> <a href="#">Account Setting</a></li>
-                                <li><a href="#">Logout</a></li>
+                                <li><asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="Black" OnClick="logout_click">Logout</asp:LinkButton></li>
                                 </ul>
                                 </li>
                         </ul> 
@@ -179,10 +186,23 @@
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
         <ul class="list-unstyled">
+            <li>
+                <span class="col-xs-11">Payment Method</span>
+                <label for="chkYes"></label>
+                <div class="col-xs-11">
+                 
+                    <asp:RadioButton ID="RadioButtonCC" runat="server" GroupName="PaymentMethod" Text="Credit Card" Checked="false" />
+                    <asp:RadioButton ID="RadioButtonEP" runat="server" GroupName="PaymentMethod" Text="Easy Paisa" />
+        
+                    </div>
+            </li>
+            <br />
+            <br />
+            
         <li>
-            <label class="col-xs-11"> <b>Credit Card Number</b></label>
+            <asp:Label runat="server" Visible="false" ID="lblCC" class="col-xs-11" > <b>Credit Card Number </b></asp:Label>
           <div class="col-xs-11">
-              <asp:TextBox ID="txt_cardnum" runat="server" class="form-control" placeholder=""></asp:TextBox>
+              <asp:TextBox ID="txt_cardnum" runat="server" class="form-control" placeholder="" Visible="true"></asp:TextBox>
           </div>
         </li>
             <li>

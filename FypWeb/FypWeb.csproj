@@ -115,6 +115,7 @@
     <Content Include="Location.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Mehndi.aspx" />
+    <Content Include="Packages.aspx" />
     <Content Include="pictures\04-Cafe-Zero-Degree-De-Party-Lounge-DHA-Karachi.jpg" />
     <Content Include="pictures\12.jpg" />
     <Content Include="pictures\abcc.jpg" />
@@ -186,6 +187,7 @@
     <Content Include="pictures\dh2.jpg" />
     <Content Include="pictures\dh3.jpg" />
     <Content Include="pictures\dh4.jpg" />
+    <Content Include="pictures\diamond.jpg" />
     <Content Include="pictures\dish2.jpg" />
     <Content Include="pictures\dish3.jpg" />
     <Content Include="pictures\dl.jpg" />
@@ -271,10 +273,12 @@
     <Content Include="pictures\food9_3.png" />
     <Content Include="pictures\foodicon.png" />
     <Content Include="pictures\foods.jpg" />
+    <Content Include="pictures\frenchBeach.jpg" />
     <Content Include="pictures\friedwings.jpeg" />
     <Content Include="pictures\gl2.jpg" />
     <Content Include="pictures\gl3.jpg" />
     <Content Include="pictures\gl4.jpg" />
+    <Content Include="pictures\golden.jpg" />
     <Content Include="pictures\haider.jpg" />
     <Content Include="pictures\icon.png" />
     <Content Include="pictures\images.jpg" />
@@ -327,14 +331,18 @@
     <Content Include="pictures\mv1.jpg" />
     <Content Include="pictures\mv2.jpg" />
     <Content Include="pictures\mv3.jpg" />
+    <Content Include="pictures\newKhanFarmHouse.jpg" />
     <Content Include="pictures\omer.jpg" />
     <Content Include="pictures\oo.jpg" />
+    <Content Include="pictures\palmVillage.jpg" />
+    <Content Include="pictures\paradisepoint.jpg" />
     <Content Include="pictures\pc1.jpg" />
     <Content Include="pictures\pc2.jpg" />
     <Content Include="pictures\pc3.jpg" />
     <Content Include="pictures\pchotel.jpg" />
     <Content Include="pictures\photo_meeting.jpg" />
     <Content Include="pictures\pilau.jpg" />
+    <Content Include="pictures\platinm.jpg" />
     <Content Include="pictures\pp.jpg" />
     <Content Include="pictures\r.jpg" />
     <Content Include="pictures\rb.jpg" />
@@ -346,6 +354,9 @@
     <Content Include="pictures\rida2.jpg" />
     <Content Include="pictures\rida3.jpg" />
     <Content Include="pictures\rida4.jpg" />
+    <Content Include="pictures\ruby.jpg" />
+    <Content Include="pictures\sandsPit.jpg" />
+    <Content Include="pictures\saphhire.jpg" />
     <Content Include="pictures\sc2.jpg" />
     <Content Include="pictures\sc3.jpg" />
     <Content Include="pictures\sc4.jpg" />
@@ -355,13 +366,16 @@
     <Content Include="pictures\shadi3.jpg" />
     <Content Include="pictures\shadi4.jpg" />
     <Content Include="pictures\shadi5.jpg" />
+    <Content Include="pictures\shamsiFarmHouse.jpg" />
     <Content Include="pictures\signup.jpg" />
+    <Content Include="pictures\silver.jpg" />
     <Content Include="pictures\t.jpg" />
     <Content Include="pictures\theme.jpg" />
     <Content Include="pictures\themeicon.png" />
     <Content Include="pictures\thepalm2.jpg" />
     <Content Include="pictures\thepalm3.jpg" />
     <Content Include="pictures\tp.jpg" />
+    <Content Include="pictures\turtlebeach.jpg" />
     <Content Include="pictures\venue1.jpg" />
     <Content Include="pictures\venue10.jpg" />
     <Content Include="pictures\venue11.jpg" />
@@ -1375,6 +1389,7 @@
       <DependentUpon>AdminPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Cart.cs" />
+    <Content Include="App_Code\MyCrypto1.cs" />
     <Compile Include="Baraat.aspx.cs">
       <DependentUpon>Baraat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1500,6 +1515,13 @@
     </Compile>
     <Compile Include="Mehndi.aspx.designer.cs">
       <DependentUpon>Mehndi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Packages.aspx.cs">
+      <DependentUpon>Packages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Packages.aspx.designer.cs">
+      <DependentUpon>Packages.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrivateParty.aspx.cs">
       <DependentUpon>PrivateParty.aspx</DependentUpon>

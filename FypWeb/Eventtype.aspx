@@ -185,6 +185,7 @@
 
         var foo;
         var eventtype;
+        
 
         function getParameterByName(name, url) {        // This function gets the budget value from Url
             if (!url) {
@@ -199,8 +200,10 @@
         }
         foo = getParameterByName('budget');
         eventtype = getParameterByName('eventype');
+        var guest = getParameterByName('guest');
 
-        //alert(foo);
+        alert(foo);
+         alert(guest);
         //document.getElementById("Label2").innerHTML = foo;
 
     </script>

@@ -21,6 +21,13 @@ namespace FypWeb
             {
                 if (Session["user"] != null && Session["budget"] != null && Request.Cookies["aa"] != null || Request.Cookies["ab"] != null || Request.Cookies["ac"] != null)
                 {
+                    if (RadioButtonCC.Checked == true)
+                    {
+                        lblCC.Visible = true;
+                        txt_cardnum.Visible = true;
+                    }
+                    else
+                        txt_cardnum.Visible = false;
 
                     con.Open();
                     string query = "Select * from Customers where UserName ='" + Session["user"] + "'";
@@ -95,6 +102,21 @@ namespace FypWeb
             {
                 Response.Write(ex.Message);
             }
+        }
+        protected void logout_click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            HttpCookie mycookie = new HttpCookie("aa");
+            HttpCookie mycookie1 = new HttpCookie("ab");
+            HttpCookie mycookie2 = new HttpCookie("ac");
+            mycookie.Expires = DateTime.Now.AddDays(-1);
+            mycookie1.Expires = DateTime.Now.AddDays(-1d);
+            mycookie2.Expires = DateTime.Now.AddDays(-1d);
+            Response.Cookies.Add(mycookie1);
+            Response.Cookies.Add(mycookie);
+            Response.Cookies.Add(mycookie2);
+
+            Response.Redirect("Login.aspx");
         }
     }
 }
