@@ -14,12 +14,12 @@ namespace FypWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        
+
             SqlConnection con = new SqlConnection(@"Data Source=Ahsan-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
-            con.Open();
+            
             SqlCommand cmd = con.CreateCommand();
             SqlCommand cmd1 = con.CreateCommand();
-            
+
             cmd.CommandType = CommandType.Text;
             cmd1.CommandType = CommandType.Text;
 
@@ -56,6 +56,7 @@ namespace FypWeb
                 {
                     if (food_budget >= myList[0])
                     {
+                        con.Open();
                         cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 1";
                         cmd1.ExecuteNonQuery();
                         //DataTable dt1 = new DataTable();
@@ -63,42 +64,53 @@ namespace FypWeb
                         //ds1.Fill(dt);
                         //d31.DataSource = dt1;
                         //d31.DataBind();
-                        //con.Close();
+                        con.Close();
 
                     }
                     else if (food_budget >= myList[1] && food_budget < myList[0])
                     {
+                        con.Open();
                         cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 2";
                         cmd1.ExecuteNonQuery();
+                        con.Close();
                     }
                     else if (food_budget >= myList[2] && food_budget < myList[1])
                     {
+                        con.Open();
                         cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 3";
                         cmd1.ExecuteNonQuery();
+                        con.Close();
                     }
                     else if (food_budget >= myList[3] && food_budget < myList[2])
                     {
+                        con.Open();
                         cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 4";
                         cmd1.ExecuteNonQuery();
+                        con.Close();
                     }
                     else if (food_budget >= myList[4] && food_budget < myList[3])
                     {
+                        con.Open();
                         cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 5";
                         cmd1.ExecuteNonQuery();
+                        con.Close();
                     }
                     else if (food_budget >= myList[5] && food_budget < myList[4])
                     {
+                        con.Open();
                         cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 6";
                         cmd1.ExecuteNonQuery();
+                        con.Close();
                     }
 
 
                     if (venue_budget >= 400000)
                     {
 
+                        con.Open();
 
-                    cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 1 and v.VenueType like '%" + eventType + "%'";
-                    cmd.ExecuteNonQuery();
+                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 1 and v.VenueType like '%" + eventType + "%'";
+                        cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
@@ -108,9 +120,10 @@ namespace FypWeb
                     }
                     else if (venue_budget >= 300000 && venue_budget < 400000)
                     {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID  where p.PackageID = 2 and v.VenueType like '%" + eventType + "%'";
-                    cmd.ExecuteNonQuery();
+                        con.Open();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID  where p.PackageID = 2 and v.VenueType like '%" + eventType + "%'";
+                        cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
@@ -121,9 +134,10 @@ namespace FypWeb
 
                     else if (venue_budget >= 200000 && venue_budget < 300000)
                     {
+                        con.Open();
                         cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 3 and v.VenueType like '%" + eventType + "%'";
-                    cmd.ExecuteNonQuery();
+                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 3 and v.VenueType like '%" + eventType + "%'";
+                        cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
@@ -134,9 +148,10 @@ namespace FypWeb
 
                     else if (venue_budget >= 100000 && venue_budget < 200000)
                     {
+                        con.Open();
                         cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 4 and v.VenueType like '%" + eventType + "%'";
-                    cmd.ExecuteNonQuery();
+                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 4 and v.VenueType like '%" + eventType + "%'";
+                        cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
@@ -147,10 +162,11 @@ namespace FypWeb
 
                     else if (venue_budget > 90000 && venue_budget <= 100000)
                     {
+                        con.Open();
                         cmd.CommandType = CommandType.Text;
 
-                    cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 5 and v.VenueType like '%" + eventType + "%'";
-                    cmd.ExecuteNonQuery();
+                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 5 and v.VenueType like '%" + eventType + "%'";
+                        cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
@@ -161,6 +177,7 @@ namespace FypWeb
 
                     else if (venue_budget < 90000 && food_budget > myList[5])
                     {
+                        con.Open();
                         cmd.CommandType = CommandType.Text;
 
                         cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 6 and v.VenueType like '%" + eventType + "%'";
@@ -174,6 +191,7 @@ namespace FypWeb
                     }
                 }
             }
+        }
 
 
         
