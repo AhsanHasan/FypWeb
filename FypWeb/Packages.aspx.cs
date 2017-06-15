@@ -103,6 +103,11 @@ namespace FypWeb
                         con.Close();
                     }
 
+                    else
+                    {
+                        Response.Write("<script>alert('Sorry .. You Do Not Have Sufficient Budget')</script>");
+                    }
+
 
                     if (venue_budget >= 400000)
                     {
@@ -188,6 +193,10 @@ namespace FypWeb
                         d3.DataSource = dt;
                         d3.DataBind();
                         con.Close();
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Sorry.. You Do Not Have Sufficient Budget!!!')</script>");
                     }
                 }
             }
