@@ -15,13 +15,13 @@ namespace FypWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            SqlConnection con = new SqlConnection(@"Data Source=Ahsan-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
-            
+            SqlConnection con = new SqlConnection(@"Data Source=AHSAN-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
+
             SqlCommand cmd = con.CreateCommand();
-            SqlCommand cmd1 = con.CreateCommand();
+            //SqlCommand cmd1 = con.CreateCommand();
 
             cmd.CommandType = CommandType.Text;
-            cmd1.CommandType = CommandType.Text;
+            //cmd1.CommandType = CommandType.Text;
 
             if (Session["user"] == null)
             {
@@ -30,84 +30,11 @@ namespace FypWeb
             else
             {
                 String eventType = Request.QueryString["eventtype"];
-                float food_budget = Cart.getFoodBudget();
-                int guest = Convert.ToInt32(Session["guest"]);
+                //float food_budget = Cart.getFoodBudget();
+                //int guest = Convert.ToInt32(Session["guest"]);
                 float venue_budget = Cart.getVenueBudget();
 
-                SqlDataAdapter da = new SqlDataAdapter("Select Price from FoodPackages", con);
-                DataSet dataset = new DataSet();
-                da.Fill(dataset, "FoodPackages");
-                List<int> myList = new List<int>();
-                List<int> package_price = new List<int>();
-                foreach (DataRow row in dataset.Tables["FoodPackages"].Rows)
-                {
-                    package_price.Add(Convert.ToInt32(row["Price"]));
-                }
-
-                for (int i = 0; i < package_price.Count; i++)
-                {
-                    int food = guest * package_price[i];  // Food = The total food cost 
-                    myList.Add(food);
-
-                }
-
-
-                for (int j = 0; j < myList.Count; j++)
-                {
-                    if (food_budget >= myList[0])
-                    {
-                        con.Open();
-                        cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 1";
-                        cmd1.ExecuteNonQuery();
-                        //DataTable dt1 = new DataTable();
-                        //SqlDataAdapter ds1 = new SqlDataAdapter(cmd1);
-                        //ds1.Fill(dt);
-                        //d31.DataSource = dt1;
-                        //d31.DataBind();
-                        con.Close();
-
-                    }
-                    else if (food_budget >= myList[1] && food_budget < myList[0])
-                    {
-                        con.Open();
-                        cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 2";
-                        cmd1.ExecuteNonQuery();
-                        con.Close();
-                    }
-                    else if (food_budget >= myList[2] && food_budget < myList[1])
-                    {
-                        con.Open();
-                        cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 3";
-                        cmd1.ExecuteNonQuery();
-                        con.Close();
-                    }
-                    else if (food_budget >= myList[3] && food_budget < myList[2])
-                    {
-                        con.Open();
-                        cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 4";
-                        cmd1.ExecuteNonQuery();
-                        con.Close();
-                    }
-                    else if (food_budget >= myList[4] && food_budget < myList[3])
-                    {
-                        con.Open();
-                        cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 5";
-                        cmd1.ExecuteNonQuery();
-                        con.Close();
-                    }
-                    else if (food_budget >= myList[5] && food_budget < myList[4])
-                    {
-                        con.Open();
-                        cmd1.CommandText = "Select f.Pictures, f.Price, p.Package_Name from FoodPackages as f join Packages as p on f.PackageID = p.PackageID where p.PackageID = 6";
-                        cmd1.ExecuteNonQuery();
-                        con.Close();
-                    }
-
-                    else
-                    {
-                        Response.Write("<script>alert('Sorry .. You Do Not Have Sufficient Budget')</script>");
-                    }
-
+                
 
                     if (venue_budget >= 400000)
                     {
@@ -180,7 +107,7 @@ namespace FypWeb
                         con.Close();
                     }
 
-                    else if (venue_budget < 90000 && food_budget > myList[5])
+                    else if (venue_budget < 90000)
                     {
                         con.Open();
                         cmd.CommandType = CommandType.Text;
@@ -200,15 +127,25 @@ namespace FypWeb
                     }
                 }
             }
-        }
-
-
         
+
+       
+
+
+        protected void btn_AddToCart(object sender, EventArgs e)
+        {
+            Response.Redirect("FPackages.aspx");
+        }
 
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();
             Response.Redirect("Login.aspx");
         }
+
+        protected void d3_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
     }
-    }
+}

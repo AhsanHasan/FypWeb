@@ -10,7 +10,7 @@
 namespace FypWeb {
     
     
-    public partial class Packages {
+    public partial class EntertainerPackages {
         
         /// <summary>
         /// Head1 control.

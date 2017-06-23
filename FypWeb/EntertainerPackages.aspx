@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Packages.aspx.cs" Inherits="FypWeb.Packages" EnableEventValidation="false" validateRequest="false" %>
-
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EntertainerPackages.aspx.cs" Inherits="FypWeb.EntertainerPackages" EnableEventValidation="false" validateRequest="false" %>
 
 <!DOCTYPE html>
 
@@ -63,7 +61,7 @@
             <br />
         <br />
 
-        <asp:Repeater id="d3" runat="server" OnItemCommand="d3_ItemCommand"  >
+        <asp:Repeater id="d3" runat="server"   >
               <ItemTemplate>
                   <div class="table-responsive">
     <table class="table product-table">
@@ -72,9 +70,8 @@
             <tr>
                 <th></th>
                 <th>Name</th>
-                <th>Price</th>
-                <th>Address</th>
-                <th>Contact</th>
+                <th>Type</th>
+                
                 
             </tr>
         </thead>
@@ -84,27 +81,26 @@
         <tbody>
                   <tr style="height:50px">
                   
-                  <td><img src='<%#Eval("Picture") %>' height="250" width="400" style="border: solid"></td>
-                      <td ><%#Eval("Name") %> </td>
-                  <td ><%#Eval("Price") %> </td>
-                  <td ><%#Eval("Address") %> </td>
-                  <td ><%#Eval("Contact") %> </td>
-               
+                  <td><img src='<%#Eval("Picture") %>' height="400" width="400" style="border: solid"></td>
+                  <td ><%#Eval("Name") %> </td>
+                  <td ><%#Eval("Type") %> </td>
+                  <td></td>
                       </tr>
-             <tr>
+            <tr>
                 <td></td>
                 <td></td>
-                 <td></td>
-
+                <td>
+                    <asp:Button ID="Button1" runat="server" Text="Skip"  CssClass="btn btn-info" OnClick="btn_Skip"/>
+                </td>
                     
-                <td></td>
-               
+                
                  <td>
-                  <a  href="FPackages.aspx">  <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
-                    </a>
+                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
+                    
                 </td>
                  
              </tr>
+            
            
         
             </tbody>

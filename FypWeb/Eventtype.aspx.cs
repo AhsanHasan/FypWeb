@@ -13,6 +13,7 @@ namespace FypWeb
         float venueCost = 0;
         float foodCost = 0;
         long guest = 0;
+        float entertainerCost = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +28,7 @@ namespace FypWeb
                 guest = Convert.ToInt64(Request.QueryString["guest"]);
                 venueCost = (budget * 40) / 100;
                 foodCost = (budget * 25) / 100;
+                entertainerCost = (budget * 25) / 100;
 
                 Session["budget"] = budget.ToString();
                 Session["guest"] = guest.ToString();
@@ -35,6 +37,7 @@ namespace FypWeb
                 Cart.setBudget(budget);
                 Cart.setVenueBudget(venueCost);
                 Cart.setFoodBudget(foodCost);
+                Cart.setEntertainerBudget(entertainerCost);
             }
 
           }

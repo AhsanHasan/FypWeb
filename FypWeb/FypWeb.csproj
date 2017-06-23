@@ -96,10 +96,12 @@
     <Content Include="employees.aspx" />
     <Content Include="entertainer.aspx" />
     <Content Include="entertainerinfo.aspx" />
+    <Content Include="EntertainerPackages.aspx" />
     <Content Include="Entertainers.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="foodinfos.aspx" />
     <Content Include="Foods.aspx" />
+    <Content Include="FPackages.aspx" />
     <Content Include="images\facebook.png" />
     <Content Include="js2\calendar.js" />
     <Content Include="js2\custom.js" />
@@ -1361,8 +1363,19 @@
     <Content Include="pictures\vendors\wysiwyg\bootstrap-wysihtml5.js" />
     <Content Include="pictures\vendors\wysiwyg\wysihtml5-0.3.0.js" />
     <Content Include="Eventtype.aspx" />
+    <Content Include="VBaraat.aspx" />
+    <Content Include="VBayParty.aspx" />
+    <Content Include="VEntertainers.aspx" />
+    <Content Include="VFoods.aspx" />
     <Content Include="ViewCart1.aspx" />
+    <Content Include="VisitorEventType.aspx" />
     <Content Include="visitors.aspx" />
+    <Content Include="VLive.aspx" />
+    <Content Include="VMeetings.aspx" />
+    <Content Include="VMehndi.aspx" />
+    <Content Include="VPrivateParty.aspx" />
+    <Content Include="VReception.aspx" />
+    <Content Include="VVenue.aspx" />
     <Content Include="Web.config" />
     <Content Include="Welcome.aspx" />
   </ItemGroup>
@@ -1467,6 +1480,13 @@
     <Compile Include="entertainerinfo.aspx.designer.cs">
       <DependentUpon>entertainerinfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EntertainerPackages.aspx.cs">
+      <DependentUpon>EntertainerPackages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EntertainerPackages.aspx.designer.cs">
+      <DependentUpon>EntertainerPackages.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entertainers.aspx.cs">
       <DependentUpon>Entertainers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1487,6 +1507,13 @@
     </Compile>
     <Compile Include="Foods.aspx.designer.cs">
       <DependentUpon>Foods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FPackages.aspx.cs">
+      <DependentUpon>FPackages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FPackages.aspx.designer.cs">
+      <DependentUpon>FPackages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Live.aspx.cs">
       <DependentUpon>Live.aspx</DependentUpon>
@@ -1594,6 +1621,34 @@
     <Compile Include="Eventtype.aspx.designer.cs">
       <DependentUpon>Eventtype.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VBaraat.aspx.cs">
+      <DependentUpon>VBaraat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VBaraat.aspx.designer.cs">
+      <DependentUpon>VBaraat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VBayParty.aspx.cs">
+      <DependentUpon>VBayParty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VBayParty.aspx.designer.cs">
+      <DependentUpon>VBayParty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VEntertainers.aspx.cs">
+      <DependentUpon>VEntertainers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VEntertainers.aspx.designer.cs">
+      <DependentUpon>VEntertainers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VFoods.aspx.cs">
+      <DependentUpon>VFoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VFoods.aspx.designer.cs">
+      <DependentUpon>VFoods.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewCart1.aspx.cs">
       <DependentUpon>ViewCart1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1601,12 +1656,61 @@
     <Compile Include="ViewCart1.aspx.designer.cs">
       <DependentUpon>ViewCart1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VisitorEventType.aspx.cs">
+      <DependentUpon>VisitorEventType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisitorEventType.aspx.designer.cs">
+      <DependentUpon>VisitorEventType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="visitors.aspx.cs">
       <DependentUpon>visitors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="visitors.aspx.designer.cs">
       <DependentUpon>visitors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VLive.aspx.cs">
+      <DependentUpon>VLive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VLive.aspx.designer.cs">
+      <DependentUpon>VLive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VMeetings.aspx.cs">
+      <DependentUpon>VMeetings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VMeetings.aspx.designer.cs">
+      <DependentUpon>VMeetings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VMehndi.aspx.cs">
+      <DependentUpon>VMehndi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VMehndi.aspx.designer.cs">
+      <DependentUpon>VMehndi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VPrivateParty.aspx.cs">
+      <DependentUpon>VPrivateParty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VPrivateParty.aspx.designer.cs">
+      <DependentUpon>VPrivateParty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VReception.aspx.cs">
+      <DependentUpon>VReception.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VReception.aspx.designer.cs">
+      <DependentUpon>VReception.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VVenue.aspx.cs">
+      <DependentUpon>VVenue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VVenue.aspx.designer.cs">
+      <DependentUpon>VVenue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Welcome.aspx.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>

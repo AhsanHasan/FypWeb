@@ -109,7 +109,7 @@
         <h1>Provide Wide Range Of Fooods</h1>
           <p>Delicious Food of town</p>
           <asp:Label ID="errorMessageLabel" runat="server" Text=""></asp:Label>
-          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner" style="width:150px">Signup Now</a> <a class="btn btn-lg btn-primary" href="visitors.aspx" role="banner" style="width:180px">Visitor's Lounge</a></p>
+          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner" style="width:150px">Signup Now</a> <a class="btn btn-lg btn-primary" href="VisitorEventType.aspx" role="banner" style="width:180px">Visitor's Lounge</a></p>
       </div>
     </div>
     <div class="item">
@@ -117,7 +117,7 @@
       <div class="carousel-caption">
           <h1>Ultimate Decoration</h1>
             <p>View you never seen!</p>
-          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner">Signup Now</a> <a class="btn btn-lg btn-primary" href="visitors.aspx" role="banner" style="width:150px">Visitor's Lounge</a></p>
+          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner">Signup Now</a> <a class="btn btn-lg btn-primary" href="VisitorEventType.aspx" role="banner" style="width:150px">Visitor's Lounge</a></p>
       
       </div>
     </div>
@@ -126,7 +126,7 @@
       <div class="carousel-caption">
         <h1>Best Lighting and DJ's</h1>
           <p >Feel The Goosebumps</p>
-          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner">Signup Now</a> <a class="btn btn-lg btn-primary" href="visitors.aspx" role="banner">Visitor's Lounge</a></p>
+          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner">Signup Now</a> <a class="btn btn-lg btn-primary" href="VisitorEventType.aspx" role="banner">Visitor's Lounge</a></p>
       
       </div>
     </div>

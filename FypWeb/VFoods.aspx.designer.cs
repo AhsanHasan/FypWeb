@@ -10,7 +10,7 @@
 namespace FypWeb {
     
     
-    public partial class Packages {
+    public partial class VFoods {
         
         /// <summary>
         /// Head1 control.
@@ -31,21 +31,21 @@ namespace FypWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LinkBtnlogout control.
+        /// Repeater2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkBtnlogout;
+        protected global::System.Web.UI.WebControls.Repeater Repeater2;
         
         /// <summary>
-        /// d3 control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater d3;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

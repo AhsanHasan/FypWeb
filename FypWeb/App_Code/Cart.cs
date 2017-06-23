@@ -15,6 +15,7 @@ namespace FypWeb.App_Code
         static int price;
         static float venuebudget;
         static float foodbudget;
+        static float entertainerbudget;
         static List<string> foodItem = new List<string>();
         static List<string> entertainers = new List<string>();
 
@@ -42,6 +43,15 @@ namespace FypWeb.App_Code
         public static void setVenueBudget(float vb)
         {
             venuebudget = vb;
+        }
+
+        public static float getEntertainerBudget()
+        {
+            return entertainerbudget;
+        }
+        public static void setEntertainerBudget(float eb)
+        {
+            entertainerbudget = eb;
         }
 
         public static float getFoodBudget()

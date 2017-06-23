@@ -15,7 +15,7 @@ namespace FypWeb
         string query;
         string Name, Picture, Price;
 
-        SqlConnection con = new SqlConnection(@"Data Source=Ahsan-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=AHSAN-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,19 +33,23 @@ namespace FypWeb
                 BindData();
             }
             Label4.Text = Request.QueryString["id"];
-            int a = Convert.ToInt32(Label4.Text);
-            id = Convert.ToInt32(Request.QueryString["id"].ToString());
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Entertainers WHERE EntertainerID= '" + a + "'";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter ds = new SqlDataAdapter(cmd);
-            ds.Fill(dt);
-            d1.DataSource = dt;
-            d1.DataBind();
-            con.Close();
+            
+                int a = Convert.ToInt32(Label4.Text);
+            
+                id = Convert.ToInt32(Request.QueryString["id"].ToString());
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from Entertainers WHERE EntertainerID= '" + a + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                ds.Fill(dt);
+                d1.DataSource = dt;
+                d1.DataBind();
+                con.Close();
+            
+           
 
         }
         protected void logout_click(object sender, EventArgs e)
@@ -56,8 +60,7 @@ namespace FypWeb
         public void BindData()
         {
 
-            SqlCommand myCommand = new SqlCommand("SELECT Date FROM EntertainerSchedule",
-                                                        con);
+            SqlCommand myCommand = new SqlCommand("SELECT Date FROM EntertainerSchedule",con);
             myCommand.CommandType = CommandType.Text;
             // Opens a Database Connection
             con.Open();
@@ -112,7 +115,7 @@ namespace FypWeb
 
             myCommand.ExecuteNonQuery();
             con.Close();
-            Response.Redirect("entertainerinfo.aspx");
+            Response.Redirect("ViewCart1.aspx");
 
         }
         

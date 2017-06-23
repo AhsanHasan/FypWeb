@@ -10,7 +10,7 @@
 namespace FypWeb {
     
     
-    public partial class Packages {
+    public partial class VMehndi {
         
         /// <summary>
         /// Head1 control.
@@ -29,23 +29,5 @@ namespace FypWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// LinkBtnlogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkBtnlogout;
-        
-        /// <summary>
-        /// d3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater d3;
     }
 }
