@@ -21,13 +21,16 @@ namespace FypWeb
             {
                 if (Session["user"] != null && Session["budget"] != null && Request.Cookies["aa"] != null || Request.Cookies["ab"] != null || Request.Cookies["ac"] != null)
                 {
-                    if (RadioButtonCC.Checked == true)
-                    {
-                        lblCC.Visible = true;
-                        txt_cardnum.Visible = true;
-                    }
-                    else
-                        txt_cardnum.Visible = false;
+                    //if (RadioButtonCC.Checked == true)
+                    //{
+                    //    lblCC.Visible = true;
+                    //    txt_cardnum.Visible = true;
+                    //}
+                    //else { 
+                    //     lblCC.Visible = false;
+                    //     txt_cardnum.Visible = false;
+                    //    }
+                    
 
                     con.Open();
                     string query = "Select * from Customers where UserName ='" + Session["user"] + "'";
@@ -35,7 +38,7 @@ namespace FypWeb
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        txt_name.Text = reader["CustName"].ToString();
+                            txt_name.Text = reader["CustName"].ToString();
                         txt_phonenumber.Text = reader["Contact"].ToString();
                         txt_address.Text = reader["CustAddress"].ToString();
                         txt_cardnum.Text = reader["CustAccountNo"].ToString();
@@ -117,6 +120,21 @@ namespace FypWeb
             Response.Cookies.Add(mycookie2);
 
             Response.Redirect("Login.aspx");
+        }
+
+        protected void OnCheckChanged(object sender, EventArgs e)
+        {
+            
+                lblCC.Visible = false;
+                txt_cardnum.Visible = false;
+            
+        }
+
+        protected void OnCheckChanged1(object sender, EventArgs e)
+        {
+            lblCC.Visible = true;
+            txt_cardnum.Visible = true;
+
         }
     }
 }

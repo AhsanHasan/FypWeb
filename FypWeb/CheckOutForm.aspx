@@ -191,8 +191,9 @@
                 <label for="chkYes"></label>
                 <div class="col-xs-11">
                  
-                    <asp:RadioButton ID="RadioButtonCC" runat="server" GroupName="PaymentMethod" Text="Credit Card" Checked="false" />
-                    <asp:RadioButton ID="RadioButtonEP" runat="server" GroupName="PaymentMethod" Text="Easy Paisa" />
+                    
+                    <asp:RadioButton ID="RadioButtonCC" runat="server" GroupName="PaymentMethod" Checked="true" CssClass="radio-inline" Text="Credit Card" AutoPostBack="true" OnCheckedChanged="OnCheckChanged1"/> 
+                    <asp:RadioButton ID="RadioButtonEP" runat="server" GroupName="PaymentMethod" Text="Easy Paisa" CssClass="radio-inline" AutoPostBack="true" OnCheckedChanged ="OnCheckChanged" />
         
                     </div>
             </li>
@@ -200,7 +201,7 @@
             <br />
             
         <li>
-            <asp:Label runat="server" Visible="false" ID="lblCC" class="col-xs-11" > <b>Credit Card Number </b></asp:Label>
+            <asp:Label ID="lblCC"  runat="server" class="col-xs-11" Visible="true" > <b>Credit Card Number </b></asp:Label>
           <div class="col-xs-11">
               <asp:TextBox ID="txt_cardnum" runat="server" class="form-control" placeholder="" Visible="true"></asp:TextBox>
           </div>

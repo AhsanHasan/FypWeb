@@ -8,7 +8,7 @@ namespace FypWeb.App_Code
     public static class Cart
     {
         static string venue;
-        static string username;
+        static String username;
         static int userid;
         static long budget;
         static int guest;
@@ -16,6 +16,7 @@ namespace FypWeb.App_Code
         static float venuebudget;
         static float foodbudget;
         static float entertainerbudget;
+        static string CookieValues;
         static List<string> foodItem = new List<string>();
         static List<string> entertainers = new List<string>();
 
@@ -69,6 +70,15 @@ namespace FypWeb.App_Code
         public static void setUsername(string name)
         {
             username = name;
+        }
+
+        public static string getCookieValues()
+        {
+            return CookieValues;
+        }
+        public static void setCookieValues(string value)
+        {
+            CookieValues = value;
         }
         public static int getId()
         {

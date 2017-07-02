@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,7 +22,7 @@ namespace FypWeb
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Venues where VenueType like '%" + type + "%'";
+                cmd.CommandText = "select * from Venues where VenueType like '%" + type + "%' ORDER BY Name";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter ds = new SqlDataAdapter(cmd);

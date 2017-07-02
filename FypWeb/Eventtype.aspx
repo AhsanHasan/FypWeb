@@ -180,7 +180,7 @@
         });
     </script>
 
-
+    
     <script type="text/javascript">
 
         var foo;
@@ -202,8 +202,7 @@
         eventtype = getParameterByName('eventype');
         var guest = getParameterByName('guest');
 
-        alert(foo);
-         alert(guest);
+       
         //document.getElementById("Label2").innerHTML = foo;
 
     </script>

@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -1642,6 +1643,11 @@
     <Compile Include="VEntertainers.aspx.designer.cs">
       <DependentUpon>VEntertainers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Venues.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Venues.dbml</DependentUpon>
+    </Compile>
     <Compile Include="VFoods.aspx.cs">
       <DependentUpon>VFoods.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1818,6 +1824,11 @@
     <Content Include="pictures\vendors\tinymce\js\tinymce\skins\lightgray\fonts\icomoon.ttf" />
     <Content Include="pictures\vendors\tinymce\js\tinymce\skins\lightgray\fonts\icomoon.woff" />
     <Content Include="pictures\vendors\tinymce\js\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Venues.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Venues.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1825,7 +1836,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Venues.dbml.layout">
+      <DependentUpon>Venues.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

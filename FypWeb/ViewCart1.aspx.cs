@@ -33,6 +33,7 @@ namespace FypWeb
                 dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Name"), new DataColumn("Address"), new DataColumn("Picture"), new DataColumn("Price") });
                 dt1.Columns.AddRange(new DataColumn[3] { new DataColumn("ItemName"), new DataColumn("Picture"), new DataColumn("Price") });
                 dt2.Columns.AddRange(new DataColumn[3] { new DataColumn("Name"), new DataColumn("Picture"), new DataColumn("Price") });
+
                 if (Request.Cookies["aa"] != null)
                 {
                     s = Convert.ToString(Request.Cookies["aa"].Value);
@@ -101,7 +102,8 @@ namespace FypWeb
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();
-            HttpCookie mycookie = new HttpCookie("aa");
+            HttpCookie mycookie = new HttpCookie("venue");
+            HttpCookie mycookie3 = new HttpCookie("aa");
             HttpCookie mycookie1 = new HttpCookie("ab");
             HttpCookie mycookie2 = new HttpCookie("ac");
             mycookie.Expires = DateTime.Now.AddDays(-1);

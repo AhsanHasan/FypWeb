@@ -5,6 +5,17 @@
 <head id="Head1" runat="server"><meta charset="utf-8"/> 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        function ajaxcall() {
+            var name = $(".name").html();
+            alert(name);
+            localStorage.setItem("varname", name);
+
+        }
+
+    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link href="StyleSheet.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -86,7 +97,7 @@
                     <img src='<%#Eval("Picture") %>' height="350" width="450" style="border: solid">
                 </th>
                     
-                <td ><%#Eval("Address") %> </td>
+                <td class="name" ><%#Eval("Address") %> </td>
                 <td ><%#Eval("Contact") %></td>
                 <td ><%#Eval("Price") %> </td>
                 <td><%#Eval("Capacity") %> </td>
@@ -103,7 +114,7 @@
                 <td><%--<button type="button" class="btn btn-primary">Complete purchase  <i class="fa fa-angle-right right"></i></button>--%></td>
                  <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
-                    
+                    <button onclick="ajaxcall();">Click me</button>
                 </td>
                  <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
              </tr>
