@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="productinfo.aspx.cs" Inherits="FypWeb.productinfo" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="productinfo.aspx.cs" Inherits="FypWeb.productinfo" EnableEventValidation="False" EnableSessionState="True" %>
 
 <!DOCTYPE html>
 <html  xmlns="http://www.w3.org/1999/xhtml">
@@ -116,7 +116,7 @@
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
                     <button onclick="ajaxcall();">Click me</button>
                 </td>
-                 <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
+                 <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping" OnClientClick="return false"/></td>
              </tr>
            
            

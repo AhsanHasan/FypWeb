@@ -17,10 +17,14 @@ namespace FypWeb.App_Code
         static float foodbudget;
         static float entertainerbudget;
         static string CookieValues;
+        static int venueid;
         static List<string> foodItem = new List<string>();
         static List<string> entertainers = new List<string>();
+        static List<int> venue_ID = new List<int>();
 
 
+
+        
         public static int getGuest()
         {
             return guest;
@@ -112,6 +116,16 @@ namespace FypWeb.App_Code
         public static void setFoodItem(string fd)
         {
             foodItem.Add(fd);
+        }
+
+
+        public static List<int> getVenue_ID()
+        {
+            return venue_ID;
+        }
+        public static void setVenue_ID(int vid)
+        {
+            venue_ID.Add(vid);
         }
 
     }

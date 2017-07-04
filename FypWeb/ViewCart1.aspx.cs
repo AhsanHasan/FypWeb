@@ -33,22 +33,27 @@ namespace FypWeb
                 dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Name"), new DataColumn("Address"), new DataColumn("Picture"), new DataColumn("Price") });
                 dt1.Columns.AddRange(new DataColumn[3] { new DataColumn("ItemName"), new DataColumn("Picture"), new DataColumn("Price") });
                 dt2.Columns.AddRange(new DataColumn[3] { new DataColumn("Name"), new DataColumn("Picture"), new DataColumn("Price") });
-
-                if (Request.Cookies["aa"] != null)
-                {
-                    s = Convert.ToString(Request.Cookies["aa"].Value);
-                    string[] strArr = s.Split('|');
-                    for (int i = 0; i < strArr.Length; i++)
+                try {
+                    if (Request.Cookies["aa"] != null)
                     {
-                        t = Convert.ToString(strArr[i].ToString());
-                        string[] strArr1 = t.Split(',');
-                        for (int j = 0; j < strArr1.Length; j++)
+                        s = Convert.ToString(Request.Cookies["aa"].Value);
+                        string[] strArr = s.Split('|');
+                        for (int i = 0; i < strArr.Length; i++)
                         {
-                            arr[j] = strArr1[j].ToString();
+                            t = Convert.ToString(strArr[i].ToString());
+                            string[] strArr1 = t.Split(',');
+                            for (int j = 0; j < strArr1.Length; j++)
+                            {
+                                arr[j] = strArr1[j].ToString();
+                            }
+                            dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
+                            // dt1.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString());
                         }
-                        dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
-                        // dt1.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString());
                     }
+                }
+                catch(IndexOutOfRangeException)
+                {
+                    // Catch here
                 }
                 if (Request.Cookies["ab"] != null)
                 {

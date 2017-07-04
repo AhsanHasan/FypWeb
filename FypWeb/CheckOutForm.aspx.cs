@@ -38,7 +38,7 @@ namespace FypWeb
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                            txt_name.Text = reader["CustName"].ToString();
+                        txt_name.Text = reader["CustName"].ToString();
                         txt_phonenumber.Text = reader["Contact"].ToString();
                         txt_address.Text = reader["CustAddress"].ToString();
                         txt_cardnum.Text = reader["CustAccountNo"].ToString();

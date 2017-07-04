@@ -26,10 +26,19 @@ namespace FypWeb
         string Name, Price, Address, Picture;
         int count = 1;
         List<string> list = new List<string>();
+        static List<int> venues = new List<int>();
+        static HashSet<int> hashset = new HashSet<int>();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
             if (Session["user"] != null && Session["budget"] != null)
             {
+
+
+
 
                 id = Convert.ToInt32(Request.QueryString["id"].ToString());
                 price = Convert.ToInt32(Request.QueryString["price"].ToString());
@@ -55,6 +64,8 @@ namespace FypWeb
                 Response.Redirect("success.aspx");
             }
         }
+
+
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();
@@ -72,64 +83,65 @@ namespace FypWeb
             //Cart.setVenue(name);
         }
 
-        List<int> venues = new List<int>();
+
         protected void btn_AddToCart(object sender, EventArgs e)
         {
 
-
-
             id = Convert.ToInt32(Request.QueryString["id"].ToString());
 
-
             venues.Add(id);
-
+            
             
 
-            int vid = id;
-
-            if (venues.Count != venues.Distinct().Count())
-            {
-                Response.Write("<script>alert('Duplicate Items');</script>");
-
-            }
-
-            else
+            foreach (var vid in venues)
             {
 
-                foreach (var items in venues)
+                if (!hashset.Add(vid))
                 {
-                    con.Open();
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "select * from Venues where VenueID = '" + items + "'";
-                    cmd.ExecuteNonQuery();
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
-                    ds.Fill(dt);
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        Name = dr["Name"].ToString();
-                        Address = dr["Address"].ToString();
-                        Picture = dr["Picture"].ToString();
-                        Price = dr["Price"].ToString();
-                    }
-                    con.Close();
-                    if (Request.Cookies["aa"] == null)
-                    {
-                        Response.Cookies["aa"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                        Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+                    Response.Write("<script>alert('Duplicate Items');</script>");
+                    break;
 
-                    }
-                    else
+                }
+
+                else
+                {
+
+                    foreach (var items in hashset)
                     {
-                        Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                        Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "select * from Venues where VenueID = '" + items + "'";
+                        cmd.ExecuteNonQuery();
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                        ds.Fill(dt);
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            Name = dr["Name"].ToString();
+                            Address = dr["Address"].ToString();
+                            Picture = dr["Picture"].ToString();
+                            Price = dr["Price"].ToString();
+                        }
+                        con.Close();
+                        if (Request.Cookies["aa"] == null)
+                        {
+                            Response.Cookies["aa"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                            Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+
+                        }
+                        else
+                        {
+                            Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                            Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+                        }
+
                     }
                 }
             }
+
+
         }
-
-
 
 
 
@@ -324,6 +336,7 @@ namespace FypWeb
         protected void btn_ContinueShopping(object sender, EventArgs e)
         {
             Response.Redirect("Foods.aspx");
+            Session.RemoveAll();
         }
     }
 }
