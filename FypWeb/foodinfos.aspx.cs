@@ -18,6 +18,9 @@ namespace FypWeb
         int price;
         string name;
         string ItemName, Picture, Price;
+        String food;
+        List<String> foodList = new List<String>();
+        HashSet<String> hashset = new HashSet<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] != null)
@@ -90,6 +93,13 @@ namespace FypWeb
             {
                 Response.Cookies["ab"].Value = Request.Cookies["ab"].Value + "|" + ItemName.ToString() + "," + Picture.ToString() + "," + Price.ToString();
                 Response.Cookies["ab"].Expires = DateTime.Now.AddDays(1d);
+                food = Response.Cookies["ab"].Value;
+                String[] foodArray = food.Split('|');
+                hashset = new HashSet<string>(foodArray);
+
+                String str = string.Join("|", hashset.ToArray());
+
+                Response.Cookies["ab"].Value = str;
             }
 
 

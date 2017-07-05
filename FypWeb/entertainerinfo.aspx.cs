@@ -14,6 +14,8 @@ namespace FypWeb
         //string selectedDate;
         string query;
         string Name, Picture, Price;
+        String entertainers;
+        HashSet<String> hashset = new HashSet<string>();
 
         SqlConnection con = new SqlConnection(@"Data Source=AHSAN-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
         int id;
@@ -148,6 +150,13 @@ namespace FypWeb
             {
                 Response.Cookies["ac"].Value = Request.Cookies["ac"].Value + "|" + Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
                 Response.Cookies["ac"].Expires = DateTime.Now.AddDays(1d);
+                entertainers = Response.Cookies["ac"].Value;
+                String[] entertainerArray = entertainers.Split('|');
+                hashset = new HashSet<string>(entertainerArray);
+
+                String str = string.Join("|", hashset.ToArray());
+
+                Response.Cookies["ac"].Value = str;
             }
 
 

@@ -18,16 +18,15 @@ namespace FypWeb
         SqlConnection con = new SqlConnection(@"Data Source=Ahsan-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
         int id;
         int price;
-        string cookieValues;
-        string cookieValues1;
-        string test;
-        string str1;
-        string str2;
+        string cookievalue1;
+        String venue;
+        
+        
         string Name, Price, Address, Picture;
         int count = 1;
         List<string> list = new List<string>();
-        static List<int> venues = new List<int>();
-        static HashSet<int> hashset = new HashSet<int>();
+        //static List<int> venues = new List<int>();
+        //static HashSet<int> hashset = new HashSet<int>();
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -59,6 +58,7 @@ namespace FypWeb
             {
                 Response.Redirect("Login.aspx");
             }
+
             else if (Session["budget"] == null)
             {
                 Response.Redirect("success.aspx");
@@ -83,167 +83,180 @@ namespace FypWeb
             //Cart.setVenue(name);
         }
 
-
+        List<String> venueList = new List<String>();
+        HashSet<String> hashset = new HashSet<string>();
         protected void btn_AddToCart(object sender, EventArgs e)
         {
 
             id = Convert.ToInt32(Request.QueryString["id"].ToString());
 
-            venues.Add(id);
-            
-            
+            //    venues.Add(id);
 
-            foreach (var vid in venues)
+
+
+            //    foreach (var vid in venues)
+            //    {
+
+            //        if (!hashset.Add(vid))
+            //        {
+            //            Response.Write("<script>alert('Duplicate Items');</script>");
+            //            break;
+
+            //        }
+
+            //        else
+            //        {
+
+            //            foreach (var items in hashset)
+            //            {
+            //                con.Open();
+            //                SqlCommand cmd = con.CreateCommand();
+            //                cmd.CommandType = CommandType.Text;
+            //                cmd.CommandText = "select * from Venues where VenueID = '" + items + "'";
+            //                cmd.ExecuteNonQuery();
+            //                DataTable dt = new DataTable();
+            //                SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            //                ds.Fill(dt);
+            //                foreach (DataRow dr in dt.Rows)
+            //                {
+            //                    Name = dr["Name"].ToString();
+            //                    Address = dr["Address"].ToString();
+            //                    Picture = dr["Picture"].ToString();
+            //                    Price = dr["Price"].ToString();
+            //                }
+            //                con.Close();
+            //                if (Request.Cookies["aa"] == null)
+            //                {
+            //                    Response.Cookies["aa"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+            //                    Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+
+            //                }
+            //                else
+            //                {
+            //                    Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+            //                    Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+            //                }
+
+            //            }
+            //        }
+            //    }
+
+
+            //}
+
+
+
+            /*string namevenue = Request.Cookies["aa"].Name.ToString();
+
+
+            VenuesDataContext db = new VenuesDataContext();
+            var x = from y in db.Venues
+                    where y.Name == namevenue
+                    select y.VenueID;
+
+
+            */
+
+
+            //price = Convert.ToInt32(Request.QueryString["price"].ToString());
+            //name = Request.QueryString["name"];
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Venues where VenueID = '" + id + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            ds.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
             {
-
-                if (!hashset.Add(vid))
-                {
-                    Response.Write("<script>alert('Duplicate Items');</script>");
-                    break;
-
-                }
-
-                else
-                {
-
-                    foreach (var items in hashset)
-                    {
-                        con.Open();
-                        SqlCommand cmd = con.CreateCommand();
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "select * from Venues where VenueID = '" + items + "'";
-                        cmd.ExecuteNonQuery();
-                        DataTable dt = new DataTable();
-                        SqlDataAdapter ds = new SqlDataAdapter(cmd);
-                        ds.Fill(dt);
-                        foreach (DataRow dr in dt.Rows)
-                        {
-                            Name = dr["Name"].ToString();
-                            Address = dr["Address"].ToString();
-                            Picture = dr["Picture"].ToString();
-                            Price = dr["Price"].ToString();
-                        }
-                        con.Close();
-                        if (Request.Cookies["aa"] == null)
-                        {
-                            Response.Cookies["aa"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                            Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
-
-                        }
-                        else
-                        {
-                            Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                            Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
-                        }
-
-                    }
-                }
+                Name = dr["Name"].ToString();
+                Address = dr["Address"].ToString();
+                Picture = dr["Picture"].ToString();
+                Price = dr["Price"].ToString();
+            }
+            con.Close();
+            if (Request.Cookies["aa"] == null)
+            {
+                Response.Cookies["aa"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+                HttpCookie cookie = Request.Cookies["aa"];
+                cookievalue1 = cookie.Value.ToString();
+                Cart.setCookieValues(cookievalue1);
             }
 
 
+            else
+            {
+                Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+                venue = Response.Cookies["aa"].Value;
+                String[] venueArray = venue.Split('|');
+                hashset =new HashSet<string>(venueArray);
+               
+                String str = string.Join("|", hashset.ToArray());
+
+                Response.Cookies["aa"].Value = str;
+                
+            }
         }
 
 
+            //    //str1 = Cart.getCookieValues();
+            //    //test = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+            //    //list.Add(str1);
+            //    //// list.Add(test);
 
-        /*string namevenue = Request.Cookies["aa"].Name.ToString();
+            //    //if (list.Count() == 1)
+            //    //{
 
-
-        VenuesDataContext db = new VenuesDataContext();
-        var x = from y in db.Venues
-                where y.Name == namevenue
-                select y.VenueID;
-
-
-        */
-
-
-        // price = Convert.ToInt32(Request.QueryString["price"].ToString());
-        // name = Request.QueryString["name"];
-        //con.Open();
-        //SqlCommand cmd = con.CreateCommand();
-        //cmd.CommandType = CommandType.Text;
-        //cmd.CommandText = "select * from Venues where VenueID = '" + id + "'";
-        //cmd.ExecuteNonQuery();
-        //DataTable dt = new DataTable();
-        //SqlDataAdapter ds = new SqlDataAdapter(cmd);
-        //ds.Fill(dt);
-        //foreach (DataRow dr in dt.Rows)
-        //{
-        //    Name = dr["Name"].ToString();
-        //    Address = dr["Address"].ToString();
-        //    Picture = dr["Picture"].ToString();
-        //    Price = dr["Price"].ToString();
-        //}
-        //con.Close();
-        //if (Request.Cookies["aa"] == null)
-        //{
-        //    Response.Cookies["aa"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-        //    Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
-        //    HttpCookie cookie = Request.Cookies["aa"];
-        //    cookieValues = cookie.Value.ToString();
-        //    Cart.setCookieValues(cookieValues);
-        //}
-
-
-        //else
-        //{
-
-
-        //    //str1 = Cart.getCookieValues();
-        //    //test = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-        //    //list.Add(str1);
-        //    //// list.Add(test);
-
-        //    //if (list.Count() == 1)
-        //    //{
-
-        //    //    if (list.Equals(test))
-        //    //    {
-        //    //        //list.Remove(test);
-        //    //        Response.Write("<script>alert('You have already selected this item...');</script>");
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        list.Add(test);
-        //    //    }
-        //    //}
-        //    //else if (list.Count() > 1)
-        //    //{
-        //    //    //if (list.Equals(str1))
-        //    //    //{
-        //    //    //    list.Remove(str1);
-        //    //    //    Response.Write("<script>alert('You have already selected this item...');</script>");
-        //    //    //}
-        //    //    //else if(!list.Equals(str1)) 
-        //    //    //{
-        //    //    //    list.Add(str1);
-        //    //    //}
-        //    //    if (list.Equals(test))
-        //    //    {
-        //    //        //list.Remove(test);
-        //    //        Response.Write("<script>alert('You have already selected this item...');</script>");
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        list.Add(test);
-        //    //    }
+            //    //    if (list.Equals(test))
+            //    //    {
+            //    //        //list.Remove(test);
+            //    //        Response.Write("<script>alert('You have already selected this item...');</script>");
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        list.Add(test);
+            //    //    }
+            //    //}
+            //    //else if (list.Count() > 1)
+            //    //{
+            //    //    //if (list.Equals(str1))
+            //    //    //{
+            //    //    //    list.Remove(str1);
+            //    //    //    Response.Write("<script>alert('You have already selected this item...');</script>");
+            //    //    //}
+            //    //    //else if(!list.Equals(str1)) 
+            //    //    //{
+            //    //    //    list.Add(str1);
+            //    //    //}
+            //    //    if (list.Equals(test))
+            //    //    {
+            //    //        //list.Remove(test);
+            //    //        Response.Write("<script>alert('You have already selected this item...');</script>");
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        list.Add(test);
+            //    //    }
 
 
 
-        //    names.Add(Request.Cookies["aa"].[""]);
-        //    //names.Distinct();
+            //    names.Add(Request.Cookies["aa"].[""]);
+            //    //names.Distinct();
 
 
-        //    if (names.Count != names.Distinct().Count())
-        //    {
-        //        // Duplicates exist
-        //        Response.Write("<script>alert('Duplicate Items In Your Cart');</script>");
-        //    }
-        //    else
-        //    {
-        //        Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-        //        Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
-        //    }
+            //    if (names.Count != names.Distinct().Count())
+            //    {
+            //        // Duplicates exist
+            //        Response.Write("<script>alert('Duplicate Items In Your Cart');</script>");
+            //    }
+            //    else
+            //    {
+            //        Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+            //        Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+            //    }
 
 
 
@@ -253,80 +266,80 @@ namespace FypWeb
 
 
 
-        //    //if (check == true)
-        //    //{
-        //    //    Response.Write("<script>alert('You have already selected this item...');</script>");
-        //    //    //int pipeIndex = cookieValues1.IndexOf("|");
-        //    //    //cookieValues1 = cookieValues1.Split('|')[0];
+            //    //if (check == true)
+            //    //{
+            //    //    Response.Write("<script>alert('You have already selected this item...');</script>");
+            //    //    //int pipeIndex = cookieValues1.IndexOf("|");
+            //    //    //cookieValues1 = cookieValues1.Split('|')[0];
 
-        //    //    Response.Cookies["aa"].Value = str1;
+            //    //    Response.Cookies["aa"].Value = str1;
 
-        //    //}
-        //    //else
-        //    //{
-        //    //    Response.Cookies["aa"].Value = str1 + "|" + test;
-        //    //}
-
-
+            //    //}
+            //    //else
+            //    //{
+            //    //    Response.Cookies["aa"].Value = str1 + "|" + test;
+            //    //}
 
 
 
 
-        //    //list.Add(str1);
-
-        //    //for (int i = 1; i <= list.Count(); i++)
-        //    //{
-        //    //    if (list[i].Equals("null"))
-        //    //    {
-        //    //        list.Add(test);
-        //    //    }
-
-        //    //    else if (list[i].Equals(list[i - 1]))
-        //    //    {
-        //    //        list.Remove(list[i]);
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        list.Add(test);
-        //    //    }
-
-        //    //}
 
 
-        //    //cookieValues1 = str1 + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+            //    //list.Add(str1);
 
-        //    //bool check;
-        //    //check = str1.Equals(test);
+            //    //for (int i = 1; i <= list.Count(); i++)
+            //    //{
+            //    //    if (list[i].Equals("null"))
+            //    //    {
+            //    //        list.Add(test);
+            //    //    }
 
-        //    //if (check == true)
-        //    //{
-        //    //    Response.Write("<script>alert('You have already selected this item...');</script>");
-        //    //    //int pipeIndex = cookieValues1.IndexOf("|");
-        //    //    //cookieValues1 = cookieValues1.Split('|')[0];
+            //    //    else if (list[i].Equals(list[i - 1]))
+            //    //    {
+            //    //        list.Remove(list[i]);
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        list.Add(test);
+            //    //    }
 
-        //    //    Response.Cookies["aa"].Value = str1;
-
-        //    //}
-        //    //else
-        //    //{
-        //    //    Response.Cookies["aa"].Value = str1 +"|" + test;
-        //    //}
-
-
-        //    // Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
-        //    //Response.Cookies["aa"].Value = cookieValues1;
+            //    //}
 
 
+            //    //cookieValues1 = str1 + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
 
-        //    // Checking For Duplication
+            //    //bool check;
+            //    //check = str1.Equals(test);
+
+            //    //if (check == true)
+            //    //{
+            //    //    Response.Write("<script>alert('You have already selected this item...');</script>");
+            //    //    //int pipeIndex = cookieValues1.IndexOf("|");
+            //    //    //cookieValues1 = cookieValues1.Split('|')[0];
+
+            //    //    Response.Cookies["aa"].Value = str1;
+
+            //    //}
+            //    //else
+            //    //{
+            //    //    Response.Cookies["aa"].Value = str1 +"|" + test;
+            //    //}
 
 
-        //    //cookieValues1 = Request.Cookies["aa"].Value;
+            //    // Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+            //    //Response.Cookies["aa"].Value = cookieValues1;
 
-        //    //str1 = Cart.getCookieValues();
 
 
-        //}
+            //    // Checking For Duplication
+
+
+            //    //cookieValues1 = Request.Cookies["aa"].Value;
+
+            //    //str1 = Cart.getCookieValues();
+
+
+            //}
 
 
 
