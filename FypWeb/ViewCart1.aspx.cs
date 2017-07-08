@@ -46,7 +46,7 @@ namespace FypWeb
                             {
                                 arr[j] = strArr1[j].ToString();
                             }
-                            dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
+                            dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString() );
                             // dt1.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString());
                         }
                     }
@@ -55,37 +55,49 @@ namespace FypWeb
                 {
                     // Catch here
                 }
-                if (Request.Cookies["ab"] != null)
-                {
-                    s1 = Convert.ToString(Request.Cookies["ab"].Value);
-                    string[] strArr2 = s1.Split('|');
-                    for (int k = 0; k < strArr2.Length; k++)
+                try {
+                    if (Request.Cookies["ab"] != null)
                     {
-                        t1 = Convert.ToString(strArr2[k].ToString());
-                        string[] strArr3 = t1.Split(',');
-                        for (int a = 0; a < strArr3.Length; a++)
+                        s1 = Convert.ToString(Request.Cookies["ab"].Value);
+                        string[] strArr2 = s1.Split('|');
+                        for (int k = 0; k < strArr2.Length; k++)
                         {
-                            arr1[a] = strArr3[a].ToString();
+                            t1 = Convert.ToString(strArr2[k].ToString());
+                            string[] strArr3 = t1.Split(',');
+                            for (int a = 0; a < strArr3.Length; a++)
+                            {
+                                arr1[a] = strArr3[a].ToString();
+                            }
+                            //dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
+                            dt1.Rows.Add(arr1[0].ToString(), arr1[1].ToString(), arr1[2].ToString());
                         }
-                        //dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
-                        dt1.Rows.Add(arr1[0].ToString(), arr1[1].ToString(), arr1[2].ToString());
                     }
                 }
-                if (Request.Cookies["ac"] != null)
+                catch (IndexOutOfRangeException)
                 {
-                    s2 = Convert.ToString(Request.Cookies["ac"].Value);
-                    string[] strArr5 = s2.Split('|');
-                    for (int z = 0; z < strArr5.Length; z++)
+                    //something goes here
+                }
+                try {
+                    if (Request.Cookies["ac"] != null)
                     {
-                        t2 = Convert.ToString(strArr5[z].ToString());
-                        string[] strArr6 = t2.Split(',');
-                        for (int c = 0; c < strArr6.Length; c++)
+                        s2 = Convert.ToString(Request.Cookies["ac"].Value);
+                        string[] strArr5 = s2.Split('|');
+                        for (int z = 0; z < strArr5.Length; z++)
                         {
-                            arr2[c] = strArr6[c].ToString();
+                            t2 = Convert.ToString(strArr5[z].ToString());
+                            string[] strArr6 = t2.Split(',');
+                            for (int c = 0; c < strArr6.Length; c++)
+                            {
+                                arr2[c] = strArr6[c].ToString();
+                            }
+                            //dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
+                            dt2.Rows.Add(arr2[0].ToString(), arr2[1].ToString(), arr2[2].ToString());
                         }
-                        //dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
-                        dt2.Rows.Add(arr2[0].ToString(), arr2[1].ToString(), arr2[2].ToString());
                     }
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    // something goes here
                 }
                 d1.DataSource = dt;
                 d3.DataSource = dt1;
@@ -107,15 +119,15 @@ namespace FypWeb
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();
-            HttpCookie mycookie = new HttpCookie("venue");
+           
             HttpCookie mycookie3 = new HttpCookie("aa");
             HttpCookie mycookie1 = new HttpCookie("ab");
             HttpCookie mycookie2 = new HttpCookie("ac");
-            mycookie.Expires = DateTime.Now.AddDays(-1);
+            mycookie3.Expires = DateTime.Now.AddDays(-1);
             mycookie1.Expires = DateTime.Now.AddDays(-1d);
             mycookie2.Expires = DateTime.Now.AddDays(-1d);
             Response.Cookies.Add(mycookie1);
-            Response.Cookies.Add(mycookie);
+            Response.Cookies.Add(mycookie3);
             Response.Cookies.Add(mycookie2);
 
             Response.Redirect("Login.aspx");

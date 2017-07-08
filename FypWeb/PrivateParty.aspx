@@ -68,7 +68,7 @@
            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 " style="left:10px; ">
                                      
     <div class="thumbnail" style="border:double">
-        <a href="#"><img src="pictures/cat-theme.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
+        <a href="Packages.aspx?eventtype=party&"><img src="pictures/cat-theme.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
          <div class="caption">
 
  
@@ -83,7 +83,7 @@
        
            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" style="left:10px">
     <div class="thumbnail" style="border:double">
-       <a href="#"><img src="pictures/cat-dec.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
+       <a href="entertainer.aspx?eventtype=party&"><img src="pictures/cat-dec.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
         <div class="caption">
        
  
@@ -112,7 +112,7 @@
            </div>
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:10px">
     <div  class="thumbnail" style="border:double">
-       <a href="#"> <img src="pictures/cat-fd.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
+       <a href="Foods.aspx?eventtype=party&"> <img src="pictures/cat-fd.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
         <div class="caption">
         
  

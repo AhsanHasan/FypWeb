@@ -98,7 +98,7 @@
     <Content Include="entertainer.aspx" />
     <Content Include="entertainerinfo.aspx" />
     <Content Include="EntertainerPackages.aspx" />
-    <Content Include="Entertainers.aspx" />
+    <Content Include="ent.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="foodinfos.aspx" />
     <Content Include="Foods.aspx" />
@@ -428,7 +428,6 @@
     <Content Include="PrivateParty.aspx" />
     <Content Include="product.aspx" />
     <Content Include="productinfo.aspx" />
-    <Content Include="RealityShow.aspx" />
     <Content Include="Reception.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Stats.aspx" />
@@ -1488,12 +1487,12 @@
     <Compile Include="EntertainerPackages.aspx.designer.cs">
       <DependentUpon>EntertainerPackages.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entertainers.aspx.cs">
-      <DependentUpon>Entertainers.aspx</DependentUpon>
+    <Compile Include="ent.aspx.cs">
+      <DependentUpon>ent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Entertainers.aspx.designer.cs">
-      <DependentUpon>Entertainers.aspx</DependentUpon>
+    <Compile Include="ent.aspx.designer.cs">
+      <DependentUpon>ent.aspx</DependentUpon>
     </Compile>
     <Compile Include="foodinfos.aspx.cs">
       <DependentUpon>foodinfos.aspx</DependentUpon>
@@ -1573,13 +1572,6 @@
       <DependentUpon>productinfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RealityShow.aspx.cs">
-      <DependentUpon>RealityShow.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RealityShow.aspx.designer.cs">
-      <DependentUpon>RealityShow.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Reception.aspx.cs">
       <DependentUpon>Reception.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

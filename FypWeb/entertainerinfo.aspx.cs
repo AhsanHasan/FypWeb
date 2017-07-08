@@ -15,6 +15,7 @@ namespace FypWeb
         string query;
         string Name, Picture, Price;
         String entertainers;
+        int a;
         HashSet<String> hashset = new HashSet<string>();
 
         SqlConnection con = new SqlConnection(@"Data Source=AHSAN-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
@@ -29,20 +30,18 @@ namespace FypWeb
             {
                 Response.Redirect("success.aspx");
             }
-            if (!IsPostBack)
+            else
             {
-                //Calendar1.Visible = false;
-                BindData();
-            }
-            Label4.Text = Request.QueryString["id"];
-            
-                int a = Convert.ToInt32(Label4.Text);
-            
+                
+                // Label4.Text = Request.QueryString["id"];
+
+                // a = Convert.ToInt32(Label4.Text);
+
                 id = Convert.ToInt32(Request.QueryString["id"].ToString());
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Entertainers WHERE EntertainerID= '" + a + "'";
+                cmd.CommandText = "select * from Entertainers WHERE EntertainerID= '" + id + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -50,9 +49,11 @@ namespace FypWeb
                 d1.DataSource = dt;
                 d1.DataBind();
                 con.Close();
-            
-           
+                BindData();
 
+
+
+            }
         }
         protected void logout_click(object sender, EventArgs e)
         {
@@ -62,7 +63,7 @@ namespace FypWeb
         public void BindData()
         {
 
-            SqlCommand myCommand = new SqlCommand("SELECT Date FROM EntertainerSchedule",con);
+            SqlCommand myCommand = new SqlCommand("SELECT Date FROM EntertainerSchedule where EntertainerID= '" + id + "'", con);
             myCommand.CommandType = CommandType.Text;
             // Opens a Database Connection
             con.Open();
@@ -92,16 +93,7 @@ namespace FypWeb
         {
             DateTime date;
             date = Calendar1.SelectedDate;
-            //if (Calendar1.Visible)
-            //{
-            //    Calendar1.Visible = false;
-            //}
-            //else
-            //{
-            //    Calendar1.Visible = true;
-            //}
 
-            BindData();
             con.Open();
 
             // Set the color of Selected Calendar Cells to Red
@@ -153,7 +145,7 @@ namespace FypWeb
                 entertainers = Response.Cookies["ac"].Value;
                 String[] entertainerArray = entertainers.Split('|');
                 hashset = new HashSet<string>(entertainerArray);
-
+                    
                 String str = string.Join("|", hashset.ToArray());
 
                 Response.Cookies["ac"].Value = str;

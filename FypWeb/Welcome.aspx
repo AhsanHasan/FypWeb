@@ -10,6 +10,9 @@
     <title>OnClickEvent</title>
 
     <!-- Bootstrap -->
+
+
+
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/login.css" rel="stylesheet" />
 
@@ -20,6 +23,27 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#4366e6"
+    }
+  }
+})});
+</script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -75,7 +99,7 @@
 								 </form>
 							</div>
 							<div class="bottom text-center">
-								New here ? <a href="Signup.aspx"><b>Join Us</b></a>
+								New here ? <a href="Signup.aspx" style="width:200px"><b>Join Us</b></a>
 							</div>
 					 </div>
 				</li>
@@ -117,7 +141,10 @@
       <div class="carousel-caption">
           <h1>Ultimate Decoration</h1>
             <p>View you never seen!</p>
-          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner">Signup Now</a> <a class="btn btn-lg btn-primary" href="VisitorEventType.aspx" role="banner" style="width:150px">Visitor's Lounge</a></p>
+          <p><a type="button" class="btn btn-lg btn-primary" href="Signup.aspx" style="width:150px">Signup Now</a>
+             <a type="button" class="btn btn-lg btn-primary" href="VisitorEventType.aspx" style="width:150px">Visitor's Lounge</a>
+
+          </p>
       
       </div>
     </div>
@@ -160,6 +187,25 @@
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
 </body>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+        appId: '1965095117101177',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/jquery-3.2.1.js"></script>

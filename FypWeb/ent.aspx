@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Entertainers.aspx.cs" Inherits="FypWeb.Entertainers" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ent.aspx.cs" Inherits="FypWeb.Entertainers" %>
 
 <!DOCTYPE html>
 <html>

@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,31 +15,20 @@ namespace FypWeb
         string type;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (Session["user"] != null)
-            {
-                type = Request.QueryString["eventtype"];
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Venues where VenueType like '%" + type + "%' ORDER BY Name";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter ds = new SqlDataAdapter(cmd);
-                ds.Fill(dt);
-                abc.DataSource = dt;
-                abc.DataBind();
-                con.Close();
-            }
-           else if (Session["user"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
-            else if (Session["budget"] == null)
-            {
-                Response.Redirect("success.aspx");
-            }
+            type= Request.QueryString["eventtype"];
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Venues where VenueType like '%" +type+"%'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter ds = new SqlDataAdapter(cmd);
+            ds.Fill(dt);
+            abc.DataSource = dt;
+            abc.DataBind();
+            con.Close();
         }
+
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();

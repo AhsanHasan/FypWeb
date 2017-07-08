@@ -104,6 +104,7 @@ namespace FypWeb
                     }
                     else
                     {
+                    noBalance.Text = ("Sorry.. You Do Not Have Sufficient Budget Left!!!!");
                         Response.Write("<script>alert('Sorry.. You Do Not Have Sufficient Budget!!!')</script>");
                     }
 

@@ -67,6 +67,8 @@
         <h1>Welcome here </h1>
         <p> Now you can select events of your own types from the Dropdown Event Type Menu and enter your budget! </p>
         <p>       <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="text-align:center;width:180px">Enter Budget</button>
+            <a  type="button" href="EventType.aspx" class="btn btn-info btn-lg" style="text-align:center;width:200px">Enter Without Budget</a>
+
         </p>
     </div>
 </div>

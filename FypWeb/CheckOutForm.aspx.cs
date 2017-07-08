@@ -15,6 +15,11 @@ namespace FypWeb
     public partial class CheckOutForm : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(@"Data Source=Ahsan-PC\SQLEXPRESS;Initial Catalog=OnClickEvents;Integrated Security=True");
+        String s, t;
+        int CustID;
+        String venueName;
+        
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -72,6 +77,7 @@ namespace FypWeb
                 }
             }
         }
+        String dateTime = DateTime.Now.ToString("h:mm:ss tt");
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             con.Open();
@@ -79,11 +85,11 @@ namespace FypWeb
             SqlCommand cmd2 = con.CreateCommand();
             SqlCommand cmd1 = con.CreateCommand();
             cmd1.CommandType = CommandType.Text;
-            cmd1.CommandText = "Select CustID from Customers where UserName = '" + Session["user"]  + "'";
-            int id = (Int32)cmd1.ExecuteScalar();
+            cmd1.CommandText = "Select CustID from Customers where UserName = '" + Session["user"] + "'";
+            CustID = (Int32)cmd1.ExecuteScalar();
 
             cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "update Customers set CustName='" + txt_name.Text + "',CustCNIC='" + Cnic.Text + "',Email='" + txt_emailaddress.Text +  "',CustAccountNo='" + txt_cardnum.Text + "',CustAddress='" + txt_address.Text + "',CustPOBox='" + txt_postalcode.Text + "' where CustID=" + id + "";
+            cmd2.CommandText = "update Customers set CustName='" + txt_name.Text + "',CustCNIC='" + Cnic.Text + "',Email='" + txt_emailaddress.Text + "',CustAccountNo='" + txt_cardnum.Text + "',CustAddress='" + txt_address.Text + "',CustPOBox='" + txt_postalcode.Text + "' where CustID=" + CustID + "";
             cmd2.ExecuteNonQuery();
 
             con.Close();
@@ -93,7 +99,7 @@ namespace FypWeb
                 msg.From = new MailAddress("syed.khan7007@gmail.com");
                 msg.To.Add(txt_emailaddress.Text);
                 msg.Subject = "Confirmation From OnClickEvents";
-                msg.Body = "Hi Mr/Mrs "+txt_name.Text+ "this is to confirm you that your request have been recieved we will get back to you ASAP. Thanks\n -Team OnClick Event";
+                msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP. Thanks\n -Team OnClick Event";
                 SmtpClient sc = new SmtpClient("smtp.gmail.com");
                 sc.Port = 587;
                 sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
@@ -104,6 +110,35 @@ namespace FypWeb
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
+            }
+
+            // Inserting Order To Database
+            try
+            {
+                if (Request.Cookies["aa"] != null)
+                {
+                    s = Convert.ToString(Request.Cookies["aa"].Value);
+                    string[] strArr = s.Split('|');
+                    for (int i = 0; i < strArr.Length; i++)
+                    {
+                        t = Convert.ToString(strArr[i].ToString());
+                        string[] strArr1 = t.Split(',');
+  
+                            venueName = strArr1[0];
+
+                        con.Open();
+                        String query = "INSERT INTO Orders values('" + CustID + "','" + dateTime + "','" + venueName + "','" + " " + "','" + " " + "')";
+                        SqlCommand comm = new SqlCommand(query, con);
+                        comm.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+            }
+
+
+            catch (IndexOutOfRangeException)
+            {
+                //something goes here
             }
         }
         protected void logout_click(object sender, EventArgs e)

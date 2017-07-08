@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="product.aspx.cs" Inherits="FypWeb.product" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="product.aspx.cs" Inherits="FypWeb.product" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 

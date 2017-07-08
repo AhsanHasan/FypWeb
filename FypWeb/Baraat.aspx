@@ -83,7 +83,7 @@
        
            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" style="left:10px">
     <div class="thumbnail" style="border:double">
-       <a href="#"><img src="pictures/cat-dec.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
+       <a href="entertainer.aspx?eventtype=baraat&"><img src="pictures/cat-dec.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
         <div class="caption">
        
  
@@ -112,7 +112,7 @@
            </div>
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:10px">
     <div  class="thumbnail" style="border:double">
-       <a href="Foods.aspx"> <img src="pictures/cat-fd.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
+       <a href="Foods.aspx?eventtype=baraat&"> <img src="pictures/cat-fd.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
         <div class="caption">
         
  
@@ -164,8 +164,6 @@
 </body>
      <!--<script src="js/JavaScript1.js"></script>-->
     <script type="text/javascript">
-
-
         function getParameterByName(name, url) {        // This function gets the budget value from Url
             if (!url) {
                 url = window.location.href;
@@ -179,15 +177,12 @@
         }
         var foo = getParameterByName('budget');
         var type = getParameterByName('eventtype');
-
-
     </script>
      
     <script type="text/javascript">
         $(document).ready(function () {
             $("#reception").click(function () {
                 window.location = "Reception.aspx?budget=" + foo;
-
             });
         });
     </script>
@@ -196,7 +191,6 @@
         $(document).ready(function () {
             $("#Mehndi").click(function () {
                 window.location = "Mehndi.aspx?budget=" + foo;
-
             });
         });
         
@@ -206,14 +200,12 @@
        $(document).ready(function () {
            $("#Baraat").click(function () {
                window.location = "Baraat.aspx?budget=" + foo;
-
            });
        });
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#ac").click(function () {
-
                 var cl = $("#ac").attr("href");
                 var eventtype = cl + "budget=" + foo;
                 $("#ac").attr("href", eventtype);

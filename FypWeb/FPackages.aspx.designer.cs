@@ -10,7 +10,7 @@
 namespace FypWeb {
     
     
-    public partial class EntertainerPackages {
+    public partial class FPackages {
         
         /// <summary>
         /// Head1 control.
@@ -38,15 +38,6 @@ namespace FypWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkBtnlogout;
-        
-        /// <summary>
-        /// noBalance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label noBalance;
         
         /// <summary>
         /// d3 control.

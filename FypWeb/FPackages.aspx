@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EntertainerPackages.aspx.cs" Inherits="FypWeb.EntertainerPackages" EnableEventValidation="false" validateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FPackages.aspx.cs" Inherits="FypWeb.FPackages" EnableEventValidation="false" validateRequest="false" %>
 
 <!DOCTYPE html>
 
@@ -60,7 +60,6 @@
             <br />
             <br />
         <br />
-        <asp:Label ID="noBalance" runat="server" Visible="True" Text=""></asp:Label>
 
         <asp:Repeater id="d3" runat="server"   >
               <ItemTemplate>
@@ -71,7 +70,7 @@
             <tr>
                 <th></th>
                 <th>Name</th>
-                <th>Type</th>
+                <th>Price</th>
                 
                 
             </tr>
@@ -80,25 +79,22 @@
 
         <!--Table body-->
         <tbody>
-            
                   <tr style="height:50px">
                   
-                  <td><img src='<%#Eval("Picture") %>' height="400" width="400" style="border: solid"></td>
-                  <td ><%#Eval("Name") %> </td>
-                  <td ><%#Eval("Type") %> </td>
+                  <td><img src='<%#Eval("Pictures") %>' height="400" width="400" style="border: solid"></td>
+                  <td ><%#Eval("Package_Name") %> </td>
+                  <td ><%#Eval("Price") %> </td>
                   <td></td>
                       </tr>
             <tr>
                 <td></td>
                 <td></td>
-                <td>
-                    <asp:Button ID="Button1" runat="server" Text="Skip"  CssClass="btn btn-info" OnClick="btn_Skip"/>
-                </td>
+                <td></td>
                     
                 
                  <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
-                    
+                   
                 </td>
                  
              </tr>
@@ -120,3 +116,4 @@
     </form>
 </body>
 </html>
+

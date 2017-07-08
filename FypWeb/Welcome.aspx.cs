@@ -25,12 +25,12 @@ public partial class _Default : System.Web.UI.Page
             {
                 //errorMessageLabel.Text = "Cookies enabled?: No";
                 //System.Web.HttpContext.Current.Response.Write("<SCRIPT LANGUAGE=""JavaScript"">alert("Hello this is an Alert")</SCRIPT>");
-                Response.Write("<script>alert('This website uses Cookies, Kindly enable Cookies in your browser settings for shopping!!');</script>");
+                //Response.Write("<script>alert('This website uses Cookies, Kindly enable Cookies in your browser settings for shopping!!');</script>");
             }
         }
         else
         {
-            Response.Write("<script>alert('Cookies will be used for this site...');</script>");
+            //Response.Write("<script>alert('Cookies will be used for this site...');</script>");
         }
     }
     
