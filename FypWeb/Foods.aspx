@@ -109,31 +109,25 @@
          
       
             
-            <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource1">
-
-                <ItemTemplate>
-               <div class="col-xs-4">
+          <asp:Repeater ID="Repeater2" runat="server">
+            <ItemTemplate>
+             
+                <div class="col-xs-4">
                     <table>
+                       
+                          <tr><td> <td><th> <a href="foodinfos.aspx?id=<%#Eval("foodPackage_ID") %>&price=<%#Eval("Price") %>&name=<%#Eval("Names") %>"><img src='<%#Eval("Pictures") %>' height="200" width="300" style="border: solid" /></a></th></td></td></tr>
+                        <tr><td><td><th>Name: <%#Eval("Names") %></th></td></td></tr>
+                        <tr><td><td><th>Price: <%#Eval("Price") %> </th></td></td></tr>
                         
-                       <tr><td><th><a href="foodinfos.aspx?id=<%#Eval("FoodItemID") %>&price=<%#Eval("Price") %>&name=<%#Eval("ItemName") %>"><img src='<%#Eval("Picture") %>' height="200" width="200" style="border: solid" /></a></th></td></tr>
-                       <tr><td><th> <%# Eval("ItemName") %></th></td></tr>
-                         <tr><td><th>Price: <%# Eval("Price") %></th></td></tr>
-                        
-                         <tr>
-                             <tr></tr>
-                             <td>&nbsp;</td>   
-                            </tr>
-                         <br />
-                      </table>
-                    </div>
-                      
+                       
+                         </table>
+                    <br />
+                    <br />
+                          </div>
                      </ItemTemplate>
-                     </asp:Repeater>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OnClickEventsConnectionString2 %>" SelectCommand="SELECT * FROM [FoodItems]"></asp:SqlDataSource>
-           </div>
-                   
-            
-            
+                        </asp:Repeater>
+       </div>   
+        </div>
             
         
     </form>

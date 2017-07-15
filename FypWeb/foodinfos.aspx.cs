@@ -32,7 +32,7 @@ namespace FypWeb
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from FoodItems WHERE FoodItemID= '" + id + "'";
+                cmd.CommandText = "select * from FoodPackages WHERE foodPackage_ID= '" + id + "'";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -72,41 +72,43 @@ namespace FypWeb
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from FoodItems where FoodItemID = '" + id + "'";
+            cmd.CommandText = "select * from FoodPackages where foodPackage_ID = '" + id + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter ds = new SqlDataAdapter(cmd);
             ds.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                ItemName = dr["ItemName"].ToString();
-                Picture = dr["Picture"].ToString();
+                ItemName = dr["Names"].ToString();
+                Picture = dr["Pictures"].ToString();
                 Price = dr["Price"].ToString();
             }
             con.Close();
-            if (Request.Cookies["ab"] == null)
+            if (Request.Cookies["food"] == null)
             {
-                Response.Cookies["ab"].Value = ItemName.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                Response.Cookies["ab"].Expires = DateTime.Now.AddDays(1d);
+                Response.Cookies["food"].Value = ItemName.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["food"].Expires = DateTime.Now.AddDays(1d);
             }
             else
             {
-                Response.Cookies["ab"].Value = Request.Cookies["ab"].Value + "|" + ItemName.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                Response.Cookies["ab"].Expires = DateTime.Now.AddDays(1d);
-                food = Response.Cookies["ab"].Value;
-                String[] foodArray = food.Split('|');
-                hashset = new HashSet<string>(foodArray);
+                //Response.Cookies["food"].Value = Request.Cookies["ab"].Value + "|" + ItemName.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                //Response.Cookies["food"].Expires = DateTime.Now.AddDays(1d);
+                //food = Response.Cookies["food"].Value;
+                //String[] foodArray = food.Split('|');
+                //hashset = new HashSet<string>(foodArray);
 
-                String str = string.Join("|", hashset.ToArray());
+                //String str = string.Join("|", hashset.ToArray());
 
-                Response.Cookies["ab"].Value = str;
+                //Response.Cookies["ab"].Value = str;
+
+                ErrorMessage.Text = "Sorry You've Already Picked One Package";
             }
 
 
         }
         protected void btn_ContinueShopping(object sender, EventArgs e)
         {
-            Response.Redirect("Foods.aspx");
+            Response.Redirect("entertainer.aspx");
         }
     }
 }

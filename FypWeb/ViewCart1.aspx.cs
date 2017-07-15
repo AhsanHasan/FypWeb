@@ -34,9 +34,9 @@ namespace FypWeb
                 dt1.Columns.AddRange(new DataColumn[3] { new DataColumn("ItemName"), new DataColumn("Picture"), new DataColumn("Price") });
                 dt2.Columns.AddRange(new DataColumn[3] { new DataColumn("Name"), new DataColumn("Picture"), new DataColumn("Price") });
                 try {
-                    if (Request.Cookies["aa"] != null)
+                    if (Request.Cookies["venue"] != null)
                     {
-                        s = Convert.ToString(Request.Cookies["aa"].Value);
+                        s = Convert.ToString(Request.Cookies["venue"].Value);
                         string[] strArr = s.Split('|');
                         for (int i = 0; i < strArr.Length; i++)
                         {
@@ -56,9 +56,9 @@ namespace FypWeb
                     // Catch here
                 }
                 try {
-                    if (Request.Cookies["ab"] != null)
+                    if (Request.Cookies["food"] != null)
                     {
-                        s1 = Convert.ToString(Request.Cookies["ab"].Value);
+                        s1 = Convert.ToString(Request.Cookies["food"].Value);
                         string[] strArr2 = s1.Split('|');
                         for (int k = 0; k < strArr2.Length; k++)
                         {
@@ -120,10 +120,10 @@ namespace FypWeb
         {
             Session.RemoveAll();
            
-            HttpCookie mycookie3 = new HttpCookie("aa");
-            HttpCookie mycookie1 = new HttpCookie("ab");
+            HttpCookie mycookie3 = new HttpCookie("venue");
+            HttpCookie mycookie1 = new HttpCookie("food");
             HttpCookie mycookie2 = new HttpCookie("ac");
-            mycookie3.Expires = DateTime.Now.AddDays(-1);
+            mycookie3.Expires = DateTime.Now.AddDays(-1d);
             mycookie1.Expires = DateTime.Now.AddDays(-1d);
             mycookie2.Expires = DateTime.Now.AddDays(-1d);
             Response.Cookies.Add(mycookie1);
@@ -134,7 +134,7 @@ namespace FypWeb
         }
         protected void btn_Proceed(object sender, EventArgs e)
         {
-
+            Response.Redirect("CheckOutForm.aspx");
         }
        
     }

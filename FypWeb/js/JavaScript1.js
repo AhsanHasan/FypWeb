@@ -8,6 +8,7 @@ $(document).ready(function () {
     $('#budgetbtn').click(function () {
     var guest = $("#totalguests").val();
     var budget = $("#budgetamount").val();
+        
     if (budget >= 500000 && guest >= 100 && guest <= 500) {
         $('#myModal').modal('hide');
         $('body').removeClass('modal-open');

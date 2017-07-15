@@ -62,7 +62,7 @@
             <br />
             <br />
 
-         
+         <asp:Label ID="ErrorMessage" runat="server" Text="" ForeColor="Red"></asp:Label>
          <asp:Repeater id="d1" runat="server" OnItemCommand="d1_ItemCommand"  >
               <ItemTemplate>
 <div class="table-responsive">
@@ -71,10 +71,10 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Item Name</th>
-                <th>Item Taste</th>
+                <th>Deal Name</th>
                 <th>Price</th>
-                <th>People</th>
+                <th></th>
+                
                 
             </tr>
         </thead>
@@ -86,13 +86,12 @@
             <!--First row-->
             <tr>
                 <th scope="col">
-                    <img src='<%#Eval("Picture") %>' height="350" width="450" style="border: solid">
+                    <img src='<%#Eval("Pictures") %>' height="350" width="450" style="border: solid">
                 </th>
                     
-                <td ><%#Eval("ItemName") %> </td>
-                <td ><%#Eval("ItemTaste") %></td>
-                <td ><%#Eval("Price") %> </td>
-                <td><%#Eval("People") %> </td>
+                <td ><%#Eval("Names") %> </td>
+                <td ><%#Eval("Price") %></td>
+                <td><p>We provide  healthy eating options for your memorable events. Enjoy our freshly prepared, delicious and health food without worrying about the quality because we believe in making relations not customers.</p></td>
                 
               
             </tr>
@@ -105,9 +104,8 @@
                     <h4><strong>1200 $</strong></h4></td>
                 <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
-                    
                 </td>
-                 <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
+                 <td><asp:Button ID="Btn_MoveToEnt" runat="server" Text="Go Ahead"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
             </tr>
            
            

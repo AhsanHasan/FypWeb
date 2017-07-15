@@ -76,7 +76,7 @@
             <br />
             <br />
 
-            <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+            <asp:Label ID="ErrorMessage" runat="server" Text="" ForeColor="Red"></asp:Label>
             <asp:Repeater ID="d3" runat="server" OnItemCommand="d3_ItemCommand">
                 <ItemTemplate>
                     <div class="table-responsive">

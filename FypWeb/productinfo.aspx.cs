@@ -178,11 +178,11 @@ namespace FypWeb
                 Price = dr["Price"].ToString();
             }
             con.Close();
-            if (Request.Cookies["aa"] == null)
+            if (Request.Cookies["venues"] == null)
             {
-                Response.Cookies["aa"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
-                HttpCookie cookie = Request.Cookies["aa"];
+                Response.Cookies["venues"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["venues"].Expires = DateTime.Now.AddDays(1);
+                HttpCookie cookie = Request.Cookies["venues"];
                 cookievalue1 = cookie.Value.ToString();
                 Cart.setCookieValues(cookievalue1);
             }
@@ -190,15 +190,16 @@ namespace FypWeb
 
             else
             {
-                Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
-                venue = Response.Cookies["aa"].Value;
-                String[] venueArray = venue.Split('|');
-                hashset =new HashSet<string>(venueArray);
-               
-                String str = string.Join("|", hashset.ToArray());
+                //Response.Cookies["aa"].Value = Request.Cookies["aa"].Value + "|" + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                //Response.Cookies["aa"].Expires = DateTime.Now.AddDays(1);
+                //venue = Response.Cookies["aa"].Value;
+                //String[] venueArray = venue.Split('|');
+                //hashset =new HashSet<string>(venueArray);
 
-                Response.Cookies["aa"].Value = str;
+                //String str = string.Join("|", hashset.ToArray());
+
+                //Response.Cookies["aa"].Value = str;
+                ErrorMessage.Text = " Sorry You Can Only Select One Venue";
                 
             }
         }
