@@ -91,6 +91,7 @@
                 <td ><%#Eval("Name") %> </td>
                 <td ><%#Eval("Address") %></td>
                 <td ><%#Eval("Price") %> </td>
+                <td> <asp:LinkButton ID="Venue_Del" runat="server" OnClick="venue_delete">Delete</asp:LinkButton></td>
                 
                 
               
@@ -135,6 +136,7 @@
                     
                 <td ><%#Eval("ItemName") %> </td>
                 <td ><%#Eval("Price") %> </td>
+                 <td> <asp:LinkButton ID="food_Del" runat="server" OnClick="food_delete">Delete</asp:LinkButton></td>
             </tr>
            
            </tbody>

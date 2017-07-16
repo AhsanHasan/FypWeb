@@ -134,7 +134,7 @@ namespace FypWeb
 
         protected void btn_AddToCart(object sender, EventArgs e)
         {
-            Response.Redirect("FPackages.aspx");
+            
         }
 
         protected void logout_click(object sender, EventArgs e)

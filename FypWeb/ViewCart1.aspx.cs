@@ -10,9 +10,9 @@ namespace FypWeb
 {
     public partial class ViewCart1 : System.Web.UI.Page
     {
-        string s,s1,s2;
-        string t,t1,t2;
-      
+        string s, s1, s2;
+        string t, t1, t2;
+
         string[] arr = new string[4];
         string[] arr1 = new string[3];
 
@@ -33,10 +33,11 @@ namespace FypWeb
                 dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Name"), new DataColumn("Address"), new DataColumn("Picture"), new DataColumn("Price") });
                 dt1.Columns.AddRange(new DataColumn[3] { new DataColumn("ItemName"), new DataColumn("Picture"), new DataColumn("Price") });
                 dt2.Columns.AddRange(new DataColumn[3] { new DataColumn("Name"), new DataColumn("Picture"), new DataColumn("Price") });
-                try {
-                    if (Request.Cookies["venue"] != null)
+                try
+                {
+                    if (Request.Cookies["venues"] != null)
                     {
-                        s = Convert.ToString(Request.Cookies["venue"].Value);
+                        s = Convert.ToString(Request.Cookies["venues"].Value);
                         string[] strArr = s.Split('|');
                         for (int i = 0; i < strArr.Length; i++)
                         {
@@ -46,16 +47,17 @@ namespace FypWeb
                             {
                                 arr[j] = strArr1[j].ToString();
                             }
-                            dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString() );
+                            dt.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString());
                             // dt1.Rows.Add(arr[0].ToString(), arr[1].ToString(), arr[2].ToString());
                         }
                     }
                 }
-                catch(IndexOutOfRangeException)
+                catch (IndexOutOfRangeException)
                 {
                     // Catch here
                 }
-                try {
+                try
+                {
                     if (Request.Cookies["food"] != null)
                     {
                         s1 = Convert.ToString(Request.Cookies["food"].Value);
@@ -77,7 +79,8 @@ namespace FypWeb
                 {
                     //something goes here
                 }
-                try {
+                try
+                {
                     if (Request.Cookies["ac"] != null)
                     {
                         s2 = Convert.ToString(Request.Cookies["ac"].Value);
@@ -119,8 +122,8 @@ namespace FypWeb
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();
-           
-            HttpCookie mycookie3 = new HttpCookie("venue");
+
+            HttpCookie mycookie3 = new HttpCookie("venues");
             HttpCookie mycookie1 = new HttpCookie("food");
             HttpCookie mycookie2 = new HttpCookie("ac");
             mycookie3.Expires = DateTime.Now.AddDays(-1d);
@@ -136,7 +139,21 @@ namespace FypWeb
         {
             Response.Redirect("CheckOutForm.aspx");
         }
-       
-    }
+        protected void venue_delete(object sender, EventArgs e)
+        {
+            HttpCookie mycookie3 = new HttpCookie("venues");
+            mycookie3.Expires = DateTime.Now.AddDays(-1d);
+            Response.Cookies.Add(mycookie3);
+            Response.Redirect("product.aspx");
+        }
+        protected void food_delete(object sender, EventArgs e)
+        {
+            HttpCookie mycookie1 = new HttpCookie("food");
+            mycookie1.Expires = DateTime.Now.AddDays(-1d);
+            Response.Cookies.Add(mycookie1);
+            Response.Redirect("Foods.aspx");
+        }
+        
 
+    }
 }
