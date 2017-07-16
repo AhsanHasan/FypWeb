@@ -129,12 +129,12 @@
     </table>s
 </div>
       
-    <%-- <footer>
+     <footer style="position:fixed; bottom:0; width:100%">
              <br />
             <div class="container">
                 <p>&copy; 2016 OnClickEvent.com &middot; <a href="Welcome.aspx">Home</a> &middot; <a href="About.aspx">About</a>&middot; </p>
             </div>
-        </footer>--%>
+        </footer>
          </form>
 </body>
     <script type="text/javascript">

@@ -80,7 +80,7 @@
         </div>
             </div>            
         </div>
-         <footer>
+         <footer style="position:fixed; bottom:0; width:100%">
              <br />
             <div class="container">
                 <p>&copy; 2016 OnClickEvent.com &middot; <a href="Welcome.aspx">Home</a> &middot; <a href="#">About</a>&middot; <a href="Login.aspx">Login</a>  </p>

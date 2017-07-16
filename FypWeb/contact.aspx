@@ -118,7 +118,7 @@
 
 
 
-       <footer class="navbar-bottom">
+       <footer style="position:fixed; bottom:0; width:100%">
 
             <br />
             <div class="container">

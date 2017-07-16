@@ -99,7 +99,7 @@ namespace FypWeb
                 msg.From = new MailAddress("syed.khan7007@gmail.com");
                 msg.To.Add(txt_emailaddress.Text);
                 msg.Subject = "Confirmation From OnClickEvents";
-                msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP. Thanks\n -Team OnClick Event";
+                msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + Support. getTotalCost() +" . Thanks\n -Team OnClick Event";
                 SmtpClient sc = new SmtpClient("smtp.gmail.com");
                 sc.Port = 587;
                 sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
