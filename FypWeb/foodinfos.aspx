@@ -63,6 +63,8 @@
             <br />
 
          <asp:Label ID="ErrorMessage" runat="server" Text="" ForeColor="Red"></asp:Label>
+             <asp:TextBox ID="guestcount" runat="server" placeholder="Number Of Guest" CssClass="form-control"> </asp:TextBox>
+                    <asp:RequiredFieldValidator runat="server" id="reqgst" ControlToValidate="guestcount" ErrorMessage="Please enter guest count" ForeColor="Red"></asp:RequiredFieldValidator>
          <asp:Repeater id="d1" runat="server" OnItemCommand="d1_ItemCommand"  >
               <ItemTemplate>
 <div class="table-responsive">
@@ -73,7 +75,9 @@
                 <th></th>
                 <th>Deal Name</th>
                 <th>Price</th>
-                <th></th>
+                <th>
+               
+                </th>
                 
                 
             </tr>
@@ -91,17 +95,18 @@
                     
                 <td ><%#Eval("Names") %> </td>
                 <td ><%#Eval("Price") %></td>
-                <td><p>We provide  healthy eating options for your memorable events. Enjoy our freshly prepared, delicious and health food without worrying about the quality because we believe in making relations not customers.</p></td>
+                <td><p style="font-style:italic">We provide  healthy eating options for your memorable events. Enjoy our freshly prepared, <br /> delicious and health food without worrying about the quality because we believe in making <br /> relations not customers.</p></td>
                 
               
             </tr>
             <!--/First row-->
              <tr>
-                <td></td>
                 <td>
-                    <h4><strong>Total</strong></h4></td>
+                    
+                </td>
+
                 <td>
-                    <h4><strong>1200 $</strong></h4></td>
+                    <h4><strong>Total Rs <asp:Label ID="foodtotal" runat="server"></asp:Label></strong></h4></td>
                 <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
                 </td>

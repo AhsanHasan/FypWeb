@@ -21,6 +21,7 @@ namespace FypWeb
         String food;
         List<String> foodList = new List<String>();
         HashSet<String> hashset = new HashSet<string>();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] != null)
@@ -66,6 +67,8 @@ namespace FypWeb
         }
         protected void btn_AddToCart(object sender, EventArgs e)
         {
+            int gc = Convert.ToInt32( guestcount.Text);
+            Support.setGuest(gc);
             id = Convert.ToInt32(Request.QueryString["id"].ToString());
             // price = Convert.ToInt32(Request.QueryString["price"].ToString());
             // name = Request.QueryString["name"];
@@ -103,6 +106,8 @@ namespace FypWeb
 
                 ErrorMessage.Text = "Sorry You've Already Picked One Package";
             }
+
+          
 
 
         }
