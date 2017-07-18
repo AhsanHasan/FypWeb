@@ -97,7 +97,7 @@
         </div>
         <div class="modal-footer">
         
-              <button type="button" class="btn btn-success" id="budgetbtn">Enter</button>
+              <a href="packageEntry.html" type="button" class="btn btn-success" id="budgetbtn">Enter</a>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

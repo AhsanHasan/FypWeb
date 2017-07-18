@@ -133,22 +133,22 @@ namespace FypWeb
                 Price = dr["Price"].ToString();
             }
             con.Close();
-            if (Request.Cookies["ac"] == null)
+            if (Request.Cookies["entertainer"] == null)
             {
-                Response.Cookies["ac"].Value = Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                Response.Cookies["ac"].Expires = DateTime.Now.AddDays(1d);
+                Response.Cookies["entertainer"].Value = Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["entertainer"].Expires = DateTime.Now.AddDays(1d);
             }
             else
             {
-                Response.Cookies["ac"].Value = Request.Cookies["ac"].Value + "|" + Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
-                Response.Cookies["ac"].Expires = DateTime.Now.AddDays(1d);
-                entertainers = Response.Cookies["ac"].Value;
+                Response.Cookies["entertainer"].Value = Request.Cookies["entertainer"].Value + "|" + Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["entertainer"].Expires = DateTime.Now.AddDays(1d);
+                entertainers = Response.Cookies["entertainer"].Value;
                 String[] entertainerArray = entertainers.Split('|');
                 hashset = new HashSet<string>(entertainerArray);
                     
                 String str = string.Join("|", hashset.ToArray());
 
-                Response.Cookies["ac"].Value = str;
+                Response.Cookies["entertainer"].Value = str;
             }
 
 

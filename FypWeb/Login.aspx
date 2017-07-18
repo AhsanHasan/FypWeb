@@ -59,8 +59,17 @@
                     </div>
  </div>   
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         
-  <img src="pictures/logo.png" alt="logo" style="vertical-align:central"/>
+        <img src="pictures/logo.png" alt="logo" style="vertical-align:central"/>
+            
         <div class="center">
 
             <label class="col-xs-11"> <h4>Username</h4></label>
