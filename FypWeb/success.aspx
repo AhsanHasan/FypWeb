@@ -20,7 +20,7 @@
     <![endif]-->
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" method="post" action ="Eventtype.aspx">
     <div>
         
          <div class="navbar navbar-default navbar-fixed-top navbar-inverse"role="navigation" >
@@ -67,7 +67,7 @@
         <h1>Welcome here </h1>
         <p> Now you can select events of your own types from the Dropdown Event Type Menu and enter your budget! </p>
         <p>       <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="text-align:center;width:180px">Enter Budget</button>
-            <a  type="button" href="EventType.aspx" class="btn btn-info btn-lg" style="text-align:center;width:200px">Enter Without Budget</a>
+            <a  type="button" href="nonbudgetevent.aspx" class="btn btn-info btn-lg" style="text-align:center;width:200px">Enter Without Budget</a>
 
         </p>
     </div>
@@ -89,15 +89,16 @@
         
             <label class="col-xs-11"> <h4>Budget amount</h4></label>
             
-              <input name="TextBox1" type="number" id="budgetamount" class="form-control" placeholder="Please Enter Budget More Then 100000" />
+              <input name="TextBox1" type="number"  class="form-control" placeholder="Please Enter Budget More Then 100000" />
           
             <label class="col-xs-11"> <h4>Number Of Guests</h4></label>
-              <input name="TextBox1" type="number" id="totalguests" class="form-control" placeholder="Enter Number Of Budget" />
+              <input name="TextBox2" type="number"  class="form-control" placeholder="Enter Number Of Budget" />
             
         </div>
         <div class="modal-footer">
         
-              <a href="packageEntry.html" type="button" class="btn btn-success" id="budgetbtn">Enter</a>
+              <%--<a href="packageEntry.html" type="button" class="btn btn-success" id="budgetbtn">Enter</a>--%>
+               <input type ="submit" value="Submit" class="btn btn-success" />
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

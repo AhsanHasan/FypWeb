@@ -196,3 +196,10 @@ margin:auto;
 height:100%;
 
 }
+
+ .line{
+width: 280px;
+height: 47px;
+border-bottom: 1px solid black;
+position: absolute;
+}

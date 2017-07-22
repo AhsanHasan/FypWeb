@@ -142,7 +142,7 @@ window.cookieconsent.initialise({
           <h1>Ultimate Decoration</h1>
             <p>View you never seen!</p>
           <p><a type="button" class="btn btn-lg btn-primary" href="Signup.aspx" style="width:150px">Signup Now</a>
-             <a type="button" class="btn btn-lg btn-primary" href="VisitorEventType.aspx" style="width:150px">Visitor's Lounge</a>
+             <a type="button" class="btn btn-lg btn-primary" href="VisitorEventType.aspx" style="width:160px">Visitor's Lounge</a>
 
           </p>
       
@@ -153,7 +153,7 @@ window.cookieconsent.initialise({
       <div class="carousel-caption">
         <h1>Best Lighting and DJ's</h1>
           <p >Feel The Goosebumps</p>
-          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner">Signup Now</a> <a class="btn btn-lg btn-primary" href="VisitorEventType.aspx" role="banner">Visitor's Lounge</a></p>
+          <p><a class="btn btn-lg btn-primary" href="Signup.aspx" role="banner" style="width:150px">Signup Now</a> <a class="btn btn-lg btn-primary" href="VisitorEventType.aspx" role="banner" style="width:160px">Visitor's Lounge</a></p>
       
       </div>
     </div>

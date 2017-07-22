@@ -135,12 +135,12 @@ namespace FypWeb
             con.Close();
             if (Request.Cookies["entertainer"] == null)
             {
-                Response.Cookies["entertainer"].Value = Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["entertainer"].Value = id.ToString() + "," + Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
                 Response.Cookies["entertainer"].Expires = DateTime.Now.AddDays(1d);
             }
             else
             {
-                Response.Cookies["entertainer"].Value = Request.Cookies["entertainer"].Value + "|" + Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["entertainer"].Value = Request.Cookies["entertainer"].Value + "|" + id.ToString() + "," + Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();
                 Response.Cookies["entertainer"].Expires = DateTime.Now.AddDays(1d);
                 entertainers = Response.Cookies["entertainer"].Value;
                 String[] entertainerArray = entertainers.Split('|');

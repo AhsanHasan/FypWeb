@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Eventtype.aspx.cs" Inherits="FypWeb.Venue" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nonbudgetevent.aspx.cs" Inherits="FypWeb.nonbudgetevent" %>
 
 <!DOCTYPE html>
 
@@ -49,7 +49,7 @@
                             <ul class="dropdown-menu">
                                  <li><a href="#">Account Setting</a></li>
                                  <%--<li><a href="#" >Logout</a></li>--%>
-                               <li> <asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="Black" OnClick="logout_click">Logout</asp:LinkButton></li>
+                               <%--<li> <asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="Black" OnClick="logout_click">Logout</asp:LinkButton></li>--%>
                         </ul> 
                                 </li>
                         </ul> 
@@ -81,9 +81,9 @@
  
   <ul class="dropdown-menu" aria-labelledby="abc">
         <li role="separator" class="divider"></li>
-   <li> <a id="mehndiid" class="dropdown-item" href="Mehndi.aspx?eventtype=mehndi&">Mehndi</a></li>
-      <li> <a id="baraatid" class="dropdown-item" href="Baraat.aspx?eventtype=Baraat&">Baraat</a></li>
-    <li><a id="receptionid" class="dropdown-item"  href="Reception.aspx?eventtype=reception&">Reception</a></li>
+   <li> <a id="mehndiid" class="dropdown-item" href="nbevent.aspx?eventtype=mehndi&">Mehndi</a></li>
+      <li> <a id="baraatid" class="dropdown-item" href="nbevent.aspx?eventtype=Baraat&">Baraat</a></li>
+    <li><a id="receptionid" class="dropdown-item"  href="nbevent.aspx?eventtype=reception&">Reception</a></li>
           <li role="separator" class="divider"></li>
   </ul>
 </div>
@@ -103,7 +103,7 @@
  
   <ul class="dropdown-menu" aria-labelledby="abc">
         <li role="separator" class="divider"></li>
-   <li> <a id="liveid"class="dropdown-item" href="Live.aspx?eventtype=live&">Live Concerts</a></li>
+   <li> <a id="liveid"class="dropdown-item" href="nbevent.aspx?eventtype=live&">Live Concerts</a></li>
    
   </ul>
 </div>
@@ -122,8 +122,8 @@
  
   <ul class="dropdown-menu" aria-labelledby="abc">
         <li role="separator" class="divider"></li>
-   <li> <a id="ppartyid"class="dropdown-item" href="PrivateParty.aspx?eventtype=party&">Private Party</a></li>
-      <li> <a id="bpartyid"class="dropdown-item" href="BayParty.aspx?eventtype=party&">Beach Party</a></li>
+   <li> <a id="ppartyid"class="dropdown-item" href="nbevent.aspx?eventtype=party&">Private Party</a></li>
+      <li> <a id="bpartyid"class="dropdown-item" href="nbevent.aspx?eventtype=party&">Beach Party</a></li>
    
   </ul>
 </div>
@@ -142,7 +142,7 @@
  
   <ul class="dropdown-menu" aria-labelledby="abc">
         <li role="separator" class="divider"></li>
-   <li> <a id="meetingid"class="dropdown-item" href="BusinessMeetings.aspx?eventtype=meeting&">Meetings</a></li>
+   <li> <a id="meetingid"class="dropdown-item" href="nbevent.aspx?eventtype=meeting&">Meetings</a></li>
       
    
   </ul>

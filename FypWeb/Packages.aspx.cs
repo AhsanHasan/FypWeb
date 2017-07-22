@@ -12,6 +12,8 @@ namespace FypWeb
 {
     public partial class Packages : System.Web.UI.Page
     {
+        string type;
+        int id;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -46,8 +48,8 @@ namespace FypWeb
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        d3.DataSource = dt;
-                        d3.DataBind();
+                        abc.DataSource = dt;
+                        abc.DataBind();
                         con.Close();
                     }
                     else if (venue_budget >= 300000 && venue_budget < 400000)
@@ -59,8 +61,8 @@ namespace FypWeb
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        d3.DataSource = dt;
-                        d3.DataBind();
+                        abc.DataSource = dt;
+                        abc.DataBind();
                         con.Close();
                     }
 
@@ -73,8 +75,8 @@ namespace FypWeb
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        d3.DataSource = dt;
-                        d3.DataBind();
+                        abc.DataSource = dt;
+                        abc.DataBind();
                         con.Close();
                     }
 
@@ -87,8 +89,8 @@ namespace FypWeb
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        d3.DataSource = dt;
-                        d3.DataBind();
+                        abc.DataSource = dt;
+                        abc.DataBind();
                         con.Close();
                     }
 
@@ -102,8 +104,8 @@ namespace FypWeb
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        d3.DataSource = dt;
-                        d3.DataBind();
+                        abc.DataSource = dt;
+                        abc.DataBind();
                         con.Close();
                     }
 
@@ -117,8 +119,8 @@ namespace FypWeb
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        d3.DataSource = dt;
-                        d3.DataBind();
+                        abc.DataSource = dt;
+                        abc.DataBind();
                         con.Close();
                     }
                     else

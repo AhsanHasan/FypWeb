@@ -89,7 +89,7 @@ namespace FypWeb
             con.Close();
             if (Request.Cookies["food"] == null)
             {
-                Response.Cookies["food"].Value = ItemName.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["food"].Value = id.ToString() + "," + ItemName.ToString() + "," + Picture.ToString() + "," + Price.ToString();
                 Response.Cookies["food"].Expires = DateTime.Now.AddDays(1d);
             }
             else
