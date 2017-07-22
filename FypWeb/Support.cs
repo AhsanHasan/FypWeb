@@ -7,6 +7,7 @@
         static double entCost;
         static double totalCost;
         static int guest;
+        static int orderID;
 
         public static double getVenueCost()
         {
@@ -42,6 +43,15 @@
         public static void setGuest(int g)
         {
             guest = g;
+        }
+
+        public static int getOrderID()
+        {
+            return orderID;
+        }
+        public static void setOrderID(int o)
+        {
+            orderID = o;
         }
 
         public static double getTotalCost()

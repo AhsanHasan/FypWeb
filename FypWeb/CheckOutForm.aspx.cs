@@ -18,6 +18,7 @@ namespace FypWeb
         string s, t, f, entr, ent;
         int CustID;
         int venueID;
+        int OrderID;
         int foodPackageID;
         List<int> entertainerID = new List<int>();
         string[] arr2 = new string[4];
@@ -27,19 +28,8 @@ namespace FypWeb
         {
             if (!IsPostBack)
             {
-                if (Session["user"] != null && Session["budget"] != null && Request.Cookies["venues"] != null || Request.Cookies["food"] != null || Request.Cookies["entertainer"] != null)
+                if (Session["user"] != null && Request.Cookies["venues"] != null || Request.Cookies["food"] != null || Request.Cookies["entertainer"] != null)
                 {
-                    //if (RadioButtonCC.Checked == true)
-                    //{
-                    //    lblCC.Visible = true;
-                    //    txt_cardnum.Visible = true;
-                    //}
-                    //else { 
-                    //     lblCC.Visible = false;
-                    //     txt_cardnum.Visible = false;
-                    //    }
-                    
-
                     con.Open();
                     string query = "Select * from Customers where UserName ='" + Session["user"] + "'";
                     SqlCommand cmd = new SqlCommand(query, con);
@@ -69,7 +59,7 @@ namespace FypWeb
                 {
                     Response.Redirect("success.aspx");
                 }
-                else if (Request.Cookies["aa"] == null || Request.Cookies["ab"] == null || Request.Cookies["ac"] == null)
+                else if (Request.Cookies["venues"] == null || Request.Cookies["food"] == null || Request.Cookies["entertainer"] == null)
                 {
                     Response.Redirect("Category.aspx");
                     
@@ -81,6 +71,7 @@ namespace FypWeb
             }
         }
         String dateTime = DateTime.Now.ToString("h:mm:ss tt");
+        string date;
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             con.Open();
@@ -96,53 +87,55 @@ namespace FypWeb
             cmd2.ExecuteNonQuery();
 
             con.Close();
-            try
-            {
-                //MailMessage msg = new MailMessage();
-                //msg.From = new MailAddress("syed.khan7007@gmail.com");
-                //msg.To.Add(txt_emailaddress.Text);
-                //msg.Subject = "Confirmation From OnClickEvents";
-                //msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + Support. getTotalCost() +" . Thanks\n -Team OnClick Event";
-                //SmtpClient sc = new SmtpClient("smtp.gmail.com");
-                //sc.Port = 587;
-                //sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
-                //sc.EnableSsl = true;
-                //sc.Send(msg);
-                //Response.Write("mail send");
-            }
-            catch (Exception ex)
-            {
-                Response.Write(ex.Message);
-            }
 
-            // Inserting Order To Database
+            // Generating Order
+
+            con.Open();
+            String query = "INSERT INTO Orders values('" + dateTime + "')";
+            SqlCommand comm = new SqlCommand(query, con);
+            comm.ExecuteNonQuery();
+
+            date = dateTime;
+
+            SqlCommand cmd3 = con.CreateCommand();
+            cmd3.CommandType = CommandType.Text;
+            cmd3.CommandText = "Select OrderID from Orders where OrderDateTime = '" + date + "'";
+            Support.setOrderID( (Int32)cmd1.ExecuteScalar() ) ;
+            con.Close();
+
+            //Extracting IDs
             try
             {
                 if (Request.Cookies["venues"] != null)
                 {
-                    //s = Convert.ToString(Request.Cookies["venues"].Value);
-                    //string[] strArr = s.Split('|');
-                    //for (int i = 0; i < strArr.Length; i++)
-                    //{
+                  
                     t = Convert.ToString(Request.Cookies["venues"].Value);
-                    //f = Convert.ToString(Request.Cookies["food"].Value);
                     string[] strArr1 = t.Split(',');
-
                     venueID = Convert.ToInt32(strArr1[0]);
-
-
-                    //con.Open();
-                    //String query = "INSERT INTO Orders values('" + CustID + "','" + dateTime + "','" + venueName + "','" + " " + "','" + " " + "')";
-                    //SqlCommand comm = new SqlCommand(query, con);
-                    //comm.ExecuteNonQuery();
-                    //con.Close();
+                    // inserting Venue Details
+                    con.Open();
+                    String venueQuery = "INSERT INTO VenueDetails values('" + Support.getOrderID() + "','" + venueID + "')";
+                    SqlCommand com = new SqlCommand(venueQuery, con);
+                    com.ExecuteNonQuery();
+                    con.Close();
                 }
+
+
                 if (Request.Cookies["food"] != null)
                 {
                     f = Convert.ToString(Request.Cookies["food"].Value);
                     string[] strArr2 = f.Split(',');
                     foodPackageID = Convert.ToInt32(strArr2[0]);
+                    // inserting Food Details
+                    con.Open();
+                    String foodQuery = "INSERT INTO FoodDetails values('" + Support.getOrderID() + "','" + foodPackageID + "')";
+                    SqlCommand com1 = new SqlCommand(foodQuery, con);
+                    com1.ExecuteNonQuery();
+                    con.Close();
                 }
+
+
+
                 if (Request.Cookies["entertainer"] != null)
                 {
                     ent = Convert.ToString(Request.Cookies["entertainer"].Value);
@@ -156,12 +149,48 @@ namespace FypWeb
                             entertainerID.Add(Convert.ToInt32(strArr6[0]));
                         
                     }
-                }
+                    con.Open();
+                    for (int j = 0; j < entertainerID.Count(); j++)
+                    {
+                        
+                            String entertainerQuery = "INSERT INTO EntertainerDetails values('" + Support.getOrderID() + "','" + entertainerID[j] + "')";
+                            SqlCommand com2 = new SqlCommand(entertainerQuery, con);
+                            com2.ExecuteNonQuery();
+
+                     }
+                    con.Close();
+             
+        }
+                // Inserting into Place Orders
+                con.Open();
+                String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + Support.getOrderID() + "')";
+                SqlCommand com3 = new SqlCommand(placeOrderQuery, con);
+                com3.ExecuteNonQuery();
+                con.Close();
             }
 
-            catch (IndexOutOfRangeException)
+            catch (Exception ex)
             {
-                //something goes here
+                Response.Write(ex.Message);
+            }
+            //Sending Mail To The Customer
+            try
+            {
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress("syed.khan7007@gmail.com");
+                msg.To.Add(txt_emailaddress.Text);
+                msg.Subject = "Confirmation From OnClickEvents";
+                msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + Support.getTotalCost() + " Against the OrderID : " + OrderID + ". Thanks\n -Team OnClick Event";
+                SmtpClient sc = new SmtpClient("smtp.gmail.com");
+                sc.Port = 587;
+                sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
+                sc.EnableSsl = true;
+                sc.Send(msg);
+                Response.Write("mail send");
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
             }
         }
         protected void logout_click(object sender, EventArgs e)
