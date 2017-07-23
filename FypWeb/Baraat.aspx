@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body >
     <form id="form1" runat="server">
         <div class="page-header">
         <div class="navbar navbar-default navbar-fixed-top navbar-inverse"role="navigation" >
@@ -68,7 +68,7 @@
            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 " style="left:10px; ">
                                      
     <div class="thumbnail" style="border:double">
-        <a href="Packages.aspx?eventtype=baraat&"><img src="pictures/cat-theme.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
+        <a href="Packages.aspx?eventtype=baraat"><img src="pictures/cat-theme.jpg" alt="Lights" style="min-height:350px; height:350px"/></a>
          <div class="caption">
 
  

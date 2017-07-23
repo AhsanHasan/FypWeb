@@ -18,10 +18,10 @@ namespace FypWeb
         string s, t, f, entr, ent;
         int CustID;
         int venueID;
-        int OrderID;
         int foodPackageID;
         List<int> entertainerID = new List<int>();
         string[] arr2 = new string[4];
+        int row1, row2, row3, row4;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace FypWeb
             SqlCommand cmd3 = con.CreateCommand();
             cmd3.CommandType = CommandType.Text;
             cmd3.CommandText = "Select OrderID from Orders where OrderDateTime = '" + date + "'";
-            Support.setOrderID( (Int32)cmd1.ExecuteScalar() ) ;
+            Support.setOrderID((Int32)cmd1.ExecuteScalar());
             con.Close();
 
             //Extracting IDs
@@ -108,7 +108,7 @@ namespace FypWeb
             {
                 if (Request.Cookies["venues"] != null)
                 {
-                  
+
                     t = Convert.ToString(Request.Cookies["venues"].Value);
                     string[] strArr1 = t.Split(',');
                     venueID = Convert.ToInt32(strArr1[0]);
@@ -116,7 +116,7 @@ namespace FypWeb
                     con.Open();
                     String venueQuery = "INSERT INTO VenueDetails values('" + Support.getOrderID() + "','" + venueID + "')";
                     SqlCommand com = new SqlCommand(venueQuery, con);
-                    com.ExecuteNonQuery();
+                    row1 = com.ExecuteNonQuery();
                     con.Close();
                 }
 
@@ -130,7 +130,7 @@ namespace FypWeb
                     con.Open();
                     String foodQuery = "INSERT INTO FoodDetails values('" + Support.getOrderID() + "','" + foodPackageID + "')";
                     SqlCommand com1 = new SqlCommand(foodQuery, con);
-                    com1.ExecuteNonQuery();
+                    row2 = com1.ExecuteNonQuery();
                     con.Close();
                 }
 
@@ -144,28 +144,28 @@ namespace FypWeb
                     {
                         entr = Convert.ToString(strArr5[z].ToString());
                         string[] strArr6 = entr.Split(',');
-                       
-                            //arr2[c] = strArr6[c].ToString();
-                            entertainerID.Add(Convert.ToInt32(strArr6[0]));
-                        
+
+                        //arr2[c] = strArr6[c].ToString();
+                        entertainerID.Add(Convert.ToInt32(strArr6[0]));
+
                     }
                     con.Open();
                     for (int j = 0; j < entertainerID.Count(); j++)
                     {
-                        
-                            String entertainerQuery = "INSERT INTO EntertainerDetails values('" + Support.getOrderID() + "','" + entertainerID[j] + "')";
-                            SqlCommand com2 = new SqlCommand(entertainerQuery, con);
-                            com2.ExecuteNonQuery();
 
-                     }
+                        String entertainerQuery = "INSERT INTO EntertainerDetails values('" + Support.getOrderID() + "','" + entertainerID[j] + "')";
+                        SqlCommand com2 = new SqlCommand(entertainerQuery, con);
+                        row3 = com2.ExecuteNonQuery();
+
+                    }
                     con.Close();
-             
-        }
+
+                }
                 // Inserting into Place Orders
                 con.Open();
                 String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + Support.getOrderID() + "')";
                 SqlCommand com3 = new SqlCommand(placeOrderQuery, con);
-                com3.ExecuteNonQuery();
+                row4 = com3.ExecuteNonQuery();
                 con.Close();
             }
 
@@ -173,24 +173,31 @@ namespace FypWeb
             {
                 Response.Write(ex.Message);
             }
-            //Sending Mail To The Customer
-            try
+            if (row1 >= 1 || row2 >= 1 || row3 >= 1 || row4 >= 1)
             {
-                MailMessage msg = new MailMessage();
-                msg.From = new MailAddress("syed.khan7007@gmail.com");
-                msg.To.Add(txt_emailaddress.Text);
-                msg.Subject = "Confirmation From OnClickEvents";
-                msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + Support.getTotalCost() + " Against the OrderID : " + OrderID + ". Thanks\n -Team OnClick Event";
-                SmtpClient sc = new SmtpClient("smtp.gmail.com");
-                sc.Port = 587;
-                sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
-                sc.EnableSsl = true;
-                sc.Send(msg);
-                Response.Write("mail send");
+                //Sending Mail To The Customer
+                try
+                {
+                    MailMessage msg = new MailMessage();
+                    msg.From = new MailAddress("syed.khan7007@gmail.com");
+                    msg.To.Add(txt_emailaddress.Text);
+                    msg.Subject = "Confirmation From OnClickEvents";
+                    msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + Support.getTotalCost() + " Against the OrderID : " + Support.getOrderID() + ". Thanks\n -Team OnClick Event";
+                    SmtpClient sc = new SmtpClient("smtp.gmail.com");
+                    sc.Port = 587;
+                    sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
+                    sc.EnableSsl = true;
+                    sc.Send(msg);
+                    Response.Write("mail send");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Response.Write(ex.Message);
+                orderError.Text = "Sorry Due To Some Error Order Can Not Be Place At The Moment,Go through the procedure again..";
             }
         }
         protected void logout_click(object sender, EventArgs e)

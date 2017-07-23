@@ -19,10 +19,7 @@ namespace FypWeb
             {
                 Response.Redirect("Login.aspx");
             }
-            else if (Session["budget"] == null)
-            {
-                Response.Redirect("success.aspx");
-            }
+          
             else
             {
 

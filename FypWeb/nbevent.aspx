@@ -73,38 +73,46 @@
         <div>
             
              <div class="row">
-       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:160px">
+       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:130px">
       
-       <a href="entertainer.aspx?eventtype=baraat&"><img src="pictures/cat-dec.jpg" class="img-circle"width="304" height="255"/> </a>
-    <div class="caption">
-            </div>
+       <a href="entertainer.aspx?eventtype=baraat&"><img src="pictures/entlogo.jpg" class="img-circle"width="304" height="255"/> </a>
+        <br />
+           <div style="height:50px"></div>
+           <div style="background-color:#f2eaf2;border-color:black;height:250px;">
+            <br />
+            <h3 style="text-align:center;color:deepskyblue;stroke:black"> Entertainer Picker </h3>
+            <p style="text-align:center"> We are having best entertainer of Town with the best prices. Make your event memorable by picking atleast one entertainer</p>
+        </div>
            
         </div>  
-   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:160px">
+   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:130px">
             
             
-      <a id="ac" href="product.aspx?eventtype=baraat&"> <img src="pictures/cat-venue.jpg" class="img-circle";alt="Lights" width="304" height="255""/></a>
-        <div class="caption">
-       
- 
-  <ul class="dropdown-menu" aria-labelledby="abc">
-        
-  </ul>
-
-            <input id="wedtyp2"type="hidden" value="party" />
+      <a id="ac" href="product.aspx?eventtype=baraat&"> <img src="pictures/venue_logo.jpg" class="img-circle";alt="Lights" width="304" height="255""/></a>
+         <div style="height:50px"></div>
+           <div style="background-color:#f2eaf2;border-color:black;height:250px;">
+            <br />
+            <h3 style="text-align:center;color:deepskyblue;stroke:black"> Venue Picker </h3>
+            <p style="text-align:center"> We are having best venues of Town with the best prices. Make your event memorable by picking one of the best venues</p>
+        </div>
         
         </div>
      
     </div>
-             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:160px">
-       <a href="Foods.aspx?eventtype=baraat&"> <img src="pictures/cat-venue.jpg" class="img-circle";alt="Lights" width="304" height="255""/></a>
-        <div class="caption">
+             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:50px">
+                 <div class="circleBase type1">
+       <a href="Foods.aspx?eventtype=baraat&"> <img src="pictures/foodimage.png" style="border-color:black;" class="img-circle";alt="" width="304" height="255""/></a>
+                </div>
+        <div style="height:50px"></div>
+           <div style="background-color:#f2eaf2;border-color:black;height:250px;">
+            <br />
+            <h3 style="text-align:center;color:deepskyblue;stroke:black"> Food Picker </h3>
+            <p style="text-align:center"> We are having best food deals of the Town with the best prices. Make your event memorable by picking delicious food deal</p>
+        </div>
         
- 
-  
-</div>
+        </div>
             <input id="wedtype3"type="hidden" value="meetings" />
-        
+                 <input id="wedtyp2"type="hidden" value="party" />
      
       
     </div>
@@ -114,33 +122,6 @@
  <br />
         <br />  
         <div class="row">
-  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:160px">
-   <div class="line"></div>
-    <br />
-      <br />
-      <br />
-         <h1 style="color:blue;left:25px">Entertainer</h1>
-               <p>We are having best entertainer of Town</p>
-                 
-    </div>
-            
-  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:160px">
-   <div class="line"></div>
-    <br />
-      <br />
-      <br />          
-                  <h1 style="color:blue">Venue</h1>
-               <p>Presenting you the Event of your type in City</p>
-    </div>
-  
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"style="left:160px">
-   <div class="line"></div>
-              <br />
-      <br />
-      <br />
-                               <h1 style="color:blue">Our Food Ranges</h1>
-               <p>Providing you the best Food in town! With Affordable Packages</p>
-      </div> 
           </div>
          
      

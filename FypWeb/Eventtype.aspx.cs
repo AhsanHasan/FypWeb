@@ -17,7 +17,7 @@ namespace FypWeb
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] == null && Session["budget"] == null)
+            if (Session["user"] == null)
             {
                 Response.Redirect("Login.aspx");
             }

@@ -110,7 +110,7 @@
                 <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
                 </td>
-                 <td><asp:Button ID="Btn_MoveToEnt" runat="server" Text="Go Ahead"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
+                 <td><a href="entertainer.aspx" class="btn btn-success" >Continue Shopping</a></td>
             </tr>
            
            

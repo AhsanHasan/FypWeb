@@ -23,7 +23,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body onload = window.location="packageEntry.html">
     <form id="form1" runat="server">
     <div>
         <div class="navbar navbar-default navbar-fixed-top navbar-inverse"role="navigation" >
