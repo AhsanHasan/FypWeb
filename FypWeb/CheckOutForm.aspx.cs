@@ -114,6 +114,7 @@ namespace FypWeb
                     venueID = Convert.ToInt32(strArr1[0]);
                     // inserting Venue Details
                     con.Open();
+                      
                     String venueQuery = "INSERT INTO VenueDetails values('" + orderID + "','" + venueID + "')";
                     SqlCommand com = new SqlCommand(venueQuery, con);
                     row1 = com.ExecuteNonQuery();
@@ -203,9 +204,9 @@ namespace FypWeb
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();
-            HttpCookie mycookie = new HttpCookie("aa");
-            HttpCookie mycookie1 = new HttpCookie("ab");
-            HttpCookie mycookie2 = new HttpCookie("ac");
+            HttpCookie mycookie = new HttpCookie("venues");
+            HttpCookie mycookie1 = new HttpCookie("food");
+            HttpCookie mycookie2 = new HttpCookie("entertainer");
             mycookie.Expires = DateTime.Now.AddDays(-1);
             mycookie1.Expires = DateTime.Now.AddDays(-1d);
             mycookie2.Expires = DateTime.Now.AddDays(-1d);

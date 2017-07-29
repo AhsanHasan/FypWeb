@@ -9,9 +9,10 @@ namespace FypWeb
 {
     public partial class nbevent : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["eventType"] = Convert.ToString(Request.QueryString["eventtype"]);
         }
     }
 }

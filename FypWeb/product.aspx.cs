@@ -15,7 +15,7 @@ namespace FypWeb
         string type;
         protected void Page_Load(object sender, EventArgs e)
         {
-            type= Request.QueryString["eventtype"];
+            type = Session["eventType"].ToString();
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;

@@ -33,6 +33,16 @@ namespace FypWeb
         protected void logout_click(object sender, EventArgs e)
         {
             Session.RemoveAll();
+            HttpCookie mycookie = new HttpCookie("venues");
+            HttpCookie mycookie1 = new HttpCookie("food");
+            HttpCookie mycookie2 = new HttpCookie("entertainer");
+            mycookie.Expires = DateTime.Now.AddDays(-1);
+            mycookie1.Expires = DateTime.Now.AddDays(-1d);
+            mycookie2.Expires = DateTime.Now.AddDays(-1d);
+            Response.Cookies.Add(mycookie1);
+            Response.Cookies.Add(mycookie);
+            Response.Cookies.Add(mycookie2);
+
             Response.Redirect("Login.aspx");
         }
     }
