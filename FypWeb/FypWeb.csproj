@@ -117,6 +117,7 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\JavaScript1.js" />
+    <Content Include="js\jquery-3.2.1.js" />
     <Content Include="js\npm.js" />
     <Content Include="Live.aspx" />
     <Content Include="Loader.html" />

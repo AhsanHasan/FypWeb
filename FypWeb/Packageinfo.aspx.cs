@@ -26,7 +26,7 @@ namespace FypWeb
         //static HashSet<int> hashset = new HashSet<int>();
         protected void Page_Load(object sender, EventArgs e)
         {
-             if (Session["user"] != null && Session["budget"] != null)
+            if (Session["user"] != null && Session["budget"] != null)
             {
 
 
@@ -118,6 +118,70 @@ namespace FypWeb
 
         List<String> venueList = new List<String>();
         HashSet<String> hashset = new HashSet<string>();
-        
+        public void BindData()
+        {
+
+            SqlCommand myCommand = new SqlCommand("SELECT Date FROM VenueSchedule where VenueID = '" + id + "'", con);
+            myCommand.CommandType = CommandType.Text;
+            // Opens a Database Connection
+            con.Open();
+            // Execute DataReader
+            SqlDataReader dr = myCommand.ExecuteReader();
+            // Read DataReader till it reaches the end
+            while (dr.Read() == true)
+            {
+                // Assign the Calendar control dates
+                // already contained in the database
+                Calendar1.SelectedDates.Add((DateTime)dr["Date"]);
+            }
+
+            // Close DataReader
+            dr.Close();
+            // Close database Connection
+            con.Close();
+
         }
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            TextBox1.Text = Calendar1.SelectedDate.ToShortDateString();
+            TextBox2.Text = Calendar1.SelectedDate.ToShortTimeString();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            DateTime date;
+            date = Calendar1.SelectedDate;
+            //if (Calendar1.Visible)
+            //{
+            //    Calendar1.Visible = false;
+            //}
+            //else
+            //{
+            //    Calendar1.Visible = true;
+            //}
+
+            BindData();
+            con.Open();
+
+            // Set the color of Selected Calendar Cells to Red
+            Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Red;
+            query = "INSERT INTO VenueSchedule (VenueID,Date,TimeSlot) values ('" + id + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
+            SqlCommand myCommand = new SqlCommand(query, con);
+
+
+            // myCommand.ExecuteNonQuery();
+            //myCommand.CommandType = CommandType.StoredProcedure;
+            //myCommand.Parameters.Add(new SqlParameter("@v_DateTime", SqlDbType.DateTime));
+            //myCommand.Parameters["@v_DateTime"].Value = selectedDate;
+
+            myCommand.ExecuteNonQuery();
+            con.Close();
+            Response.Redirect("ViewCart1.aspx");
+
+        }
+
     }
+
+    
+
+}

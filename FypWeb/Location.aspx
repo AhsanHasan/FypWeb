@@ -19,7 +19,7 @@
     </style>  
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script type="text/jscript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript " src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDBY4lqlkqAjqvVVL9gYi-VSAQibg4nqx0" async="" defer="defer"></script>  
+    <script type="text/javascript " src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&key=AIzaSyBVg7tU1dHbjkAA7XtLr4joyhvDdPauLdo"></script>  
    
       <script type="text/javascript">
           var dist=1;
@@ -46,10 +46,12 @@
                  <asp:Repeater ID="rptMarkers" runat="server">
                  
                  <ItemTemplate>
-                             {
+				   {
+								 "markerid": '<%# Eval("VenueID") %>',
                                  "title": '<%# Eval("Name") %>',
                                  "lat": '<%# Eval("Latitude") %>',
                                  "lng": '<%# Eval("Longitude") %>',
+                                 "Price": '<%# Eval("Price") %>',
                                  "description": '<%# Eval("Address") %>'
                              },
                 </ItemTemplate>
@@ -73,11 +75,9 @@
                position: latl,
                center: new google.maps.LatLng(lat, long),
                zoom: 15,
-               title: "Home",
+               title: "AHSAN KA GHAR",
                mapTypeId: google.maps.MapTypeId.ROADMAP
            };
-           
-           
            var pinImage = new google.maps.MarkerImage("http://www.googlemapsmarkers.com/v1/009900/");
            var infoWindow = new google.maps.InfoWindow();
            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
@@ -99,60 +99,65 @@
                
                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
                
-               if(i==0){
-                   
-
-
-
-                   var marker = new google.maps.Marker({
-                       position: latl,
-                       icon:pinImage,
-                       map: map,
-                       title: "Home"
-                   });
-
+			   if (i == 0) {
+				   createMarker(latl, "i'm Here", 0, 0);
+        //           var marker = new google.maps.Marker({
+        //               position: latl,
+        //               icon:pinImage,
+        //               map: map,
+        //               title: "I'm Here!"
+        //           });
                 
-                   (function (marker, data) {
-                       google.maps.event.addListener(marker, "click", function (e) {
-                           infoWindow.setContent(data.description);
-                           infoWindow.open(map, marker);
-                           
-                       });
-                   })(marker, data);
+        //           (function (marker, data) {
+					   //google.maps.event.addListener(marker, "click", function (e) {
+						  // infoWindow.setContent(marker.title);
+        //                   infoWindow.open(map, marker);
+        //               });
+        //           })(marker, data);
                }
                //alert(distance(lat,long,data.lat,data.long,"K"));
              //  alert(data.lat+" "+data.lng);
-               var x = distance(lat,long,data.lat,data.lng,"K");
-               if(x <= dist){
-
-
-                   var marker = new google.maps.Marker({
-                       position: myLatlng,
-                       map: map,
-                       description: data.description,
-                       title: data.title
-                       
-                   });
-                  
-
-
-
-                  (function (marker, data) {
-                       google.maps.event.addListener(marker, 'click', function (e) {
-                       infoWindow.open(map, marker);
-                       infoWindow.setContent(data.description);
-                       
-                       });
-                   })(marker, data);
-               }
-               
+			  
+				   var x = distance(lat, long, data.lat, data.lng, "K");
+				   if (x <= dist) {
+					   createMarker(myLatlng, data.title, data.markerid, data.Price);
+					   //var marker = new google.maps.Marker({
+						  // position: myLatlng,
+						  // map: map,
+						  // title: data.title
+					   //});
+					   //(function (marker, data) {
+						  // google.maps.event.addListener(marker, "click", function (e) {
+							 //  infoWindow.setContent(marker.title);
+							 //  infoWindow.open(map, marker);
+						  // });
+					   //})(marker, data);
+				   }
+			  
            }
        //}
-       
+		   function createMarker(pos, name, markerid, Price) {
+			   var marker = new google.maps.Marker({
+				   position: pos,
+				   map: map,  // google.maps.Map 
+				   title: name,
+				   id: markerid,
+				   price: Price,
+			   });
+			   google.maps.event.addListener(marker, 'click', function () {
+				   if (marker.price > 0) {
+					   window.location.href = "productinfo.aspx?id=" + marker.id + "&price=" + marker.price + "&name=" + marker.title;
+				   }
+				   else {
+					   alert("That's your Position");
+				   }
+			   });
+			   return marker;
+		   }
               });
           });
            
-       
+		  
            window.onload = function () {
                 
           var latl = new google.maps.LatLng(lat, long);
@@ -161,8 +166,7 @@
               position: latl,
               center: new google.maps.LatLng(lat, long),
               zoom: 15,
-              
-              title: "Home",
+              title: "AHSAN KA GHAR",
               mapTypeId: google.maps.MapTypeId.ROADMAP
           };
           var pinImage = new google.maps.MarkerImage("http://www.googlemapsmarkers.com/v1/009900/");
@@ -186,44 +190,64 @@
                
               var myLatlng = new google.maps.LatLng(data.lat, data.lng);
                
-              if(i==0){
-                  var marker = new google.maps.Marker({
-                      position: latl,
-                      icon:pinImage,
-                      map: map,
-                      
-                      title: "Home"
-                  });
+			  if (i == 0) {
+				  createMarker(latl,"i'm Here",0,0);
+                  //var marker = new google.maps.Marker({
+                  //    position: latl,
+                  //    icon:pinImage,
+                  //    map: map,
+                  //    title: "I'm Here !"
+                  //});
                 
-                  (function (marker, data) {
-                      google.maps.event.addListener(marker, "click", function (e) {
-                          infoWindow.setContent(data.description);
-                          infoWindow.open(map, marker);
-                      });
-                  })(marker, data);
+                  //(function (marker, data) {
+                  //    google.maps.event.addListener(marker, "click", function (e) {
+                  //        infoWindow.setContent("<a href='google.com'>"+marker.title+"</a>");
+                  //        infoWindow.open(map, marker);
+                  //    });
+                  //})(marker, data);
               }
               //alert(distance(lat,long,data.lat,data.long,"K"));
               //  alert(data.lat+" "+data.lng);
               var x = distance(lat,long,data.lat,data.lng,"K");
-              if(x <= dist){
-                  var marker = new google.maps.Marker({
-                      position: myLatlng,
-                      map: map,
-                      description: data.description,
-                      title: data.title
-                  });
-                  (function (marker, data) {
-                      google.maps.event.addListener(marker, "click", function (e) {
-                          infoWindow.setContent(data.description);
-                          infoWindow.open(map, marker);
-                      });
-                  })(marker, data);
-              }
-               
-          }
+			  if (x <= dist) {
+				  createMarker(myLatlng, data.title, data.markerid,data.Price);
+      //            var marker = new google.maps.Marker({
+      //                position: myLatlng,
+      //                map: map,
+      //                title: data.title
+      //            });
+
+				  //(function (marker, data) {
+					 // google.maps.event.addListener(marker, "click", function (e) {
+						//  infoWindow.setContent(marker.title);
+						//  infoWindow.open(map, marker);
+					 // });
+				  //})(marker, data);
+
+			  }
+			  
+		  }
+		  function createMarker(pos, name, markerid,Price) {
+			  var marker = new google.maps.Marker({
+				  position: pos,
+				  map: map,  // google.maps.Map 
+				  title: name,
+				  id: markerid,
+				  price: Price,
+			  });
+			  google.maps.event.addListener(marker, 'click', function () {
+				  if (marker.price > 0) {
+					  window.location.href = "productinfo.aspx?id=" + marker.id + "&price=" + marker.price + "&name=" + marker.title;
+				  }
+				  else {
+					  alert("That's your Position");
+				  }
+			  });
+			  return marker;
+		  }
         }
      
-      
+		   
            function getParameterByName(name, url) {        // This function gets the budget value from Url
                if (!url) {
                    url = window.location.href;
@@ -257,7 +281,7 @@
   <body>  
       <select id="distanceinkm" class="bs-select form-control"><option>Nearest Venue</option><option value="1">1</option><option value="3">3</option><option value="5">5</option></select>
       <br />
-    <div id="dvMap" style="width: 1400px; height: 600px"></div>
+    <div id="dvMap" style="width: 1500px; height: 900px"></div>
         
   </body>  
         
