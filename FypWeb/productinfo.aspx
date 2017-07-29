@@ -8,15 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script>
-        function ajaxcall() {
-            var name = $(".name").html();
-            alert(name);
-            localStorage.setItem("varname", name);
-
-        }
-
-    </script>
+   
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="StyleSheet.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,8 +46,8 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="Welcome.aspx">Home</a></li>
-
+                            <li><a href="Foods.aspx">Food</a></li>
+                            <li><a href="entertainer.aspx">Entertainers</a></li>
                             <li><a href="ViewCart1.aspx">View Cart</a></li>
 
                             <li class="dropdown">
@@ -106,7 +98,7 @@
                                     <td><%#Eval("Name") %></td>
                                     <td><%#Eval("Address") %> </td>
                                     <td><%#Eval("Contact") %></td>
-                                    <td><%#Eval("Price") %> </td>
+                                    <td>Rs <%#Eval("Price") %> </td>
                                     <td><%#Eval("Capacity") %> </td>
                                     <td></td>
 
@@ -119,7 +111,6 @@
                     <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
 
                     <asp:TextBox ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
-                    <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click" />
                     <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="220px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="400px" OnSelectionChanged="Calendar1_SelectionChanged">
                         <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
                         <DayStyle Width="14%" />
@@ -131,19 +122,24 @@
                         <TodayDayStyle BackColor="#CCCC99" />
                     </asp:Calendar>
                 </td>
-                <td>
-                    <h4><strong>Total</strong></h4>
-                </td>
+               <%-- <td>
+                    <h4><strong>Total <asp:Label ID="price" runat="server" Text=""></asp:Label></strong></h4>
+                </td>--%>
                 <td>
                     <h4><strong><%#Eval("Price") %> </strong></h4>
                 </td>
                 <td><%--<button type="button" class="btn btn-primary">Complete purchase  <i class="fa fa-angle-right right"></i></button>--%></td>
                 <td>
+                                        <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click" />
+
+                </td>
+                <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart" CssClass="btn btn-info" OnClick="btn_AddToCart" />
 
                 </td>
                 <td>
-                    <asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping" CssClass="btn btn-success" OnClick="btn_ContinueShopping" OnClientClick="return false" /></td>
+                   <%-- <asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping" CssClass="btn btn-success" OnClick="btn_ContinueShopping" OnClientClick="return false" /></td>--%>
+                    <a href="Foods.aspx" class="btn btn-success" >Continue Shopping</a>
             </tr>
 
 

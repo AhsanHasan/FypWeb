@@ -134,10 +134,12 @@
                 </td>
                 
                     
-                <td ><%#Eval("ItemName") %> </td>
+                <td ><%#Eval("Names") %> </td>
                 <td ><%#Eval("Price") %> </td>
-                 <td> <asp:LinkButton ID="food_Del" runat="server" OnClick="food_delete">Delete</asp:LinkButton></td>
-            </tr>
+               <%-- <td> <%#Eval("foodPackage_ID") %> </td>--%>
+                <td> <asp:LinkButton ID="food_Del" runat="server" OnClick="food_delete">Delete</asp:LinkButton></td>
+                
+               </tr>
            
            </tbody>
         <!--/Table body-->
@@ -181,17 +183,21 @@
 </div>
                   </ItemTemplate>
              </asp:DataList>
-        <div>
-            <asp:Button ID="btn_checkout" runat="server" Text="Proceed" CssClass="btn btn-success" OnClick="btn_checkout_Click" />
+        <div class="col-md-6">
+            <p style="font-size:20px" class="text-danger"> Total:  <asp:Label ID="total_Cost" runat="server" Text=""></asp:Label> </p>
         </div>
-
+        <div class="col-md-6">
+          <span class="pull-right"> <a href="CheckOutForm.aspx" type="button" class="btn btn-success" id="proceed">Proceed</a></span>
+        </div>
+        <br />
+        <br />
         
-     <footer>
+    <%-- <footer style="position:fixed; bottom:0%; margin-bottom:0%;">
              <br />
             <div class="container">
                 <p>&copy; 2016 OnClickEvent.com &middot; <a href="Welcome.aspx">Home</a> &middot; <a href="About.aspx">About</a>&middot; </p>
             </div>
-        </footer>
+        </footer>--%>
         </div>
 
     </form>

@@ -92,6 +92,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\custom.css" />
+    <Content Include="css\Hover.css" />
     <Content Include="css\login.css" />
     <Content Include="emp.aspx" />
     <Content Include="employees.aspx" />
@@ -99,15 +100,18 @@
     <Content Include="entertainerinfo.aspx" />
     <Content Include="EntertainerPackages.aspx" />
     <Content Include="ent.aspx" />
+    <Content Include="epackageinfo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="foodinfos.aspx" />
     <Content Include="Foods.aspx" />
+    <Content Include="FPackageinfo.aspx" />
     <Content Include="FPackages.aspx" />
     <Content Include="images\facebook.png" />
     <Content Include="js2\calendar.js" />
     <Content Include="js2\custom.js" />
     <Content Include="js2\editors.js" />
     <Content Include="js2\forms.js" />
+    <Content Include="js2\hover.js" />
     <Content Include="js2\stats.js" />
     <Content Include="js2\tables.js" />
     <Content Include="js\bootstrap.js" />
@@ -115,9 +119,14 @@
     <Content Include="js\JavaScript1.js" />
     <Content Include="js\npm.js" />
     <Content Include="Live.aspx" />
+    <Content Include="Loader.html" />
     <Content Include="Location.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Mehndi.aspx" />
+    <Content Include="nbevent.aspx" />
+    <Content Include="nonbudgetevent.aspx" />
+    <Content Include="packageEntry.html" />
+    <Content Include="Packageinfo.aspx" />
     <Content Include="Packages.aspx" />
     <Content Include="pictures\04-Cafe-Zero-Degree-De-Party-Lounge-DHA-Karachi.jpg" />
     <Content Include="pictures\12.jpg" />
@@ -146,6 +155,7 @@
     <Content Include="pictures\beefpilau.jpg" />
     <Content Include="pictures\bg2.jpg" />
     <Content Include="pictures\bg3.jpg" />
+    <Content Include="pictures\bluebg.jpg" />
     <Content Include="pictures\bp.jpg" />
     <Content Include="pictures\budget.png" />
     <Content Include="pictures\budgeticon.png" />
@@ -223,6 +233,7 @@
     <Content Include="pictures\entertainer8.jpg" />
     <Content Include="pictures\entertainer9.jpg" />
     <Content Include="pictures\entertainerk.jpg" />
+    <Content Include="pictures\entlogo.jpg" />
     <Content Include="pictures\fbbtn.png" />
     <Content Include="pictures\fish.jpg" />
     <Content Include="pictures\food.png" />
@@ -275,6 +286,8 @@
     <Content Include="pictures\food9_2.jpg" />
     <Content Include="pictures\food9_3.png" />
     <Content Include="pictures\foodicon.png" />
+    <Content Include="pictures\foodimage.jpg" />
+    <Content Include="pictures\foodimage.png" />
     <Content Include="pictures\foods.jpg" />
     <Content Include="pictures\frenchBeach.jpg" />
     <Content Include="pictures\friedwings.jpeg" />
@@ -417,6 +430,7 @@
     <Content Include="pictures\venue7.jpg" />
     <Content Include="pictures\venue8.jpg" />
     <Content Include="pictures\venue9.jpg" />
+    <Content Include="pictures\venue_logo.jpg" />
     <Content Include="pictures\visitoricon.png" />
     <Content Include="pictures\western.jpg" />
     <Content Include="pictures\western1.jpg" />
@@ -1366,6 +1380,7 @@
     <Content Include="VBaraat.aspx" />
     <Content Include="VBayParty.aspx" />
     <Content Include="VEntertainers.aspx" />
+    <Content Include="venuePackagesinfo.aspx" />
     <Content Include="VFoods.aspx" />
     <Content Include="ViewCart1.aspx" />
     <Content Include="VisitorEventType.aspx" />
@@ -1494,6 +1509,13 @@
     <Compile Include="ent.aspx.designer.cs">
       <DependentUpon>ent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="epackageinfo.aspx.cs">
+      <DependentUpon>epackageinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="epackageinfo.aspx.designer.cs">
+      <DependentUpon>epackageinfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="foodinfos.aspx.cs">
       <DependentUpon>foodinfos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1507,6 +1529,13 @@
     </Compile>
     <Compile Include="Foods.aspx.designer.cs">
       <DependentUpon>Foods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FPackageinfo.aspx.cs">
+      <DependentUpon>FPackageinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FPackageinfo.aspx.designer.cs">
+      <DependentUpon>FPackageinfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="FPackages.aspx.cs">
       <DependentUpon>FPackages.aspx</DependentUpon>
@@ -1542,6 +1571,27 @@
     </Compile>
     <Compile Include="Mehndi.aspx.designer.cs">
       <DependentUpon>Mehndi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nbevent.aspx.cs">
+      <DependentUpon>nbevent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nbevent.aspx.designer.cs">
+      <DependentUpon>nbevent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nonbudgetevent.aspx.cs">
+      <DependentUpon>nonbudgetevent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nonbudgetevent.aspx.designer.cs">
+      <DependentUpon>nonbudgetevent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Packageinfo.aspx.cs">
+      <DependentUpon>Packageinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Packageinfo.aspx.designer.cs">
+      <DependentUpon>Packageinfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Packages.aspx.cs">
       <DependentUpon>Packages.aspx</DependentUpon>
@@ -1614,6 +1664,7 @@
     <Compile Include="Eventtype.aspx.designer.cs">
       <DependentUpon>Eventtype.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Support.cs" />
     <Compile Include="VBaraat.aspx.cs">
       <DependentUpon>VBaraat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1635,10 +1686,12 @@
     <Compile Include="VEntertainers.aspx.designer.cs">
       <DependentUpon>VEntertainers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Venues.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Venues.dbml</DependentUpon>
+    <Compile Include="venuePackagesinfo.aspx.cs">
+      <DependentUpon>venuePackagesinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="venuePackagesinfo.aspx.designer.cs">
+      <DependentUpon>venuePackagesinfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="VFoods.aspx.cs">
       <DependentUpon>VFoods.aspx</DependentUpon>
@@ -1816,11 +1869,6 @@
     <Content Include="pictures\vendors\tinymce\js\tinymce\skins\lightgray\fonts\icomoon.ttf" />
     <Content Include="pictures\vendors\tinymce\js\tinymce\skins\lightgray\fonts\icomoon.woff" />
     <Content Include="pictures\vendors\tinymce\js\tinymce\skins\lightgray\fonts\readme.md" />
-    <Content Include="Venues.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Venues.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1830,11 +1878,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Venues.dbml.layout">
-      <DependentUpon>Venues.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

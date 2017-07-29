@@ -34,11 +34,8 @@ namespace FypWeb
 
 
 
-            if (Session["user"] != null && Session["budget"] != null)
+            if (Session["user"] != null)
             {
-
-
-
 
                 id = Convert.ToInt32(Request.QueryString["id"].ToString());
                 price = Convert.ToInt32(Request.QueryString["price"].ToString());
@@ -180,11 +177,9 @@ namespace FypWeb
             con.Close();
             if (Request.Cookies["venues"] == null)
             {
-                Response.Cookies["venues"].Value = Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
+                Response.Cookies["venues"].Value = id.ToString() + "," + Name.ToString() + "," + Address.ToString() + "," + Picture.ToString() + "," + Price.ToString();
                 Response.Cookies["venues"].Expires = DateTime.Now.AddDays(1);
-                HttpCookie cookie = Request.Cookies["venues"];
-                cookievalue1 = cookie.Value.ToString();
-                Cart.setCookieValues(cookievalue1);
+              
             }
 
 
@@ -409,11 +404,7 @@ namespace FypWeb
 
         }
 
-        protected void btn_ContinueShopping(object sender, EventArgs e)
-        {
-            Response.Redirect("Foods.aspx");
-            Session.RemoveAll();
-        }
+      
     }
 }
     

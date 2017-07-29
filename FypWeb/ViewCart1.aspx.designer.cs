@@ -67,12 +67,12 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.DataList d2;
         
         /// <summary>
-        /// btn_checkout control.
+        /// total_Cost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_checkout;
+        protected global::System.Web.UI.WebControls.Label total_Cost;
     }
 }
