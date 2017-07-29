@@ -34,7 +34,7 @@ namespace FypWeb
                     {
                         con.Open();
 
-                        cmd.CommandText = "Select e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 1";
+                        cmd.CommandText = "Select e.EntertainerID,e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 1";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -48,7 +48,7 @@ namespace FypWeb
                     {
                         con.Open();
 
-                        cmd.CommandText = "Select e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 2";
+                        cmd.CommandText = "Select e.EntertainerID,e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 2";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -63,7 +63,7 @@ namespace FypWeb
                     {
                         con.Open();
 
-                        cmd.CommandText = "Select e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 3";
+                        cmd.CommandText = "Select e.EntertainerID,e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 3";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -78,7 +78,7 @@ namespace FypWeb
                     {
                         con.Open();
 
-                        cmd.CommandText = "Select e.Name,e.Picture,e.Price, e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 5";
+                        cmd.CommandText = "Select e.EntertainerID,e.Name,e.Picture,e.Price, e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 5";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -92,7 +92,7 @@ namespace FypWeb
                     {
                         con.Open();
 
-                        cmd.CommandText = "Select e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 6";
+                        cmd.CommandText = "Select e.EntertainerID,e.Name,e.Picture,e.Price,e.Type, p.Package_Name from Entertainers as e join Packages as p on e.PackageID = p.PackageID where p.PackageID = 6";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -104,7 +104,6 @@ namespace FypWeb
                     }
                     else
                     {
-                    noBalance.Text = ("Sorry.. You Do Not Have Sufficient Budget Left!!!!");
                         Response.Write("<script>alert('Sorry.. You Do Not Have Sufficient Budget!!!')</script>");
                     }
 

@@ -38,10 +38,8 @@
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
-                            <li> <a href="contact.aspx">Contact</a></li>
-                            
+                            <li ><a href="Foods.aspx">Food</a></li>
+                            <li> <a href="entertainer.aspx">Entertainer</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
                             <ul class="dropdown-menu">

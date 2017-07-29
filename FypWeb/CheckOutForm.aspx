@@ -47,9 +47,7 @@
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
-                            <li> <a href="Contact.aspx">Contact</a></li>
+                            <li><a href="ViewCart1.aspx">View Cart</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -187,17 +185,7 @@
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
         <ul class="list-unstyled">
-            <li>
-                <span class="col-xs-11">Payment Method</span>
-                <label for="chkYes"></label>
-                <div class="col-xs-11">
-                 
-                    
-                    <asp:RadioButton ID="RadioButtonCC" runat="server" GroupName="PaymentMethod" Checked="true" CssClass="radio-inline" Text="Credit Card" AutoPostBack="true" OnCheckedChanged="OnCheckChanged1"/> 
-                    <asp:RadioButton ID="RadioButtonEP" runat="server" GroupName="PaymentMethod" Text="Easy Paisa" CssClass="radio-inline" AutoPostBack="true" OnCheckedChanged ="OnCheckChanged" />
-        
-                    </div>
-            </li>
+           
             <br />
             <br />
             

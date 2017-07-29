@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="entertainerinfo.aspx.cs" Inherits="FypWeb.entertainerinfo" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="epackageinfo.aspx.cs" Inherits="FypWeb.epackageinfo" %>
 
 <!DOCTYPE html>
 
@@ -39,14 +39,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                    <a class="navbar-brand" href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+                    <a class="navbar-brand" href="Default.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="Foods.aspx">Food</a></li>
-                            <li><a href="product.aspx">Venues</a></li>
-                            <li ><a href="ViewCart1.aspx">ViewCart</a></li>
-                            <li> <a href="AccountSetting.aspx">MyProfile</a></li>
+                            <li ><a href="Welcome.aspx">Home</a></li>
+                            <li class="active"> <a href="About.aspx">About</a></li>
+                            <li> <a href="contact.aspx">Contact</a></li>
                             <li> <a href="#">Signout</a></li>
                            
                             
@@ -90,7 +89,6 @@
                 <td ><%#Eval("Contact") %></td>
                 <td ><%#Eval("Type") %> </td>
                 <td><%#Eval("Price") %> </td>
-               
                 
               
             </tr>
@@ -99,37 +97,29 @@
             <!--/First row-->
              <tr>
                  
-                <td>
-                    <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
-
-                    <asp:TextBox ID="TextBox2" runat="server" Visible="false"></asp:TextBox>
-                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="220px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="400px" OnSelectionChanged="Calendar1_SelectionChanged" >
-                        <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
-                        <DayStyle Width="14%" />
-                        <NextPrevStyle Font-Size="8pt" ForeColor="White" />
-                        <OtherMonthDayStyle ForeColor="#999999" />
-                        <SelectedDayStyle BackColor="#CC3333" ForeColor="White" />
-                        <SelectorStyle BackColor="#CCCCCC" Font-Bold="True" Font-Names="Verdana" Font-Size="8pt" ForeColor="#333333" Width="1%" />
-                        <TitleStyle BackColor="Black" Font-Bold="True" Font-Size="13pt" ForeColor="White" Height="14pt" />
-                        <TodayDayStyle BackColor="#CCCC99" />
-         </asp:Calendar>
-                </td>
                
-               <td>                  <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click"  />
-</td>
+                <td>
+                    <h4><strong></strong></h4></td>
+                <td>
+                    <h4><strong></strong></h4></td>
                 <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
                     
                 </td>
                  <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
             </tr>
-  
-     <footer style="position:fixed; bottom:0; width:100%">
+                
+     </tbody>
+        <!--/Table body-->
+    </table>s
+</div>
+      
+    <%-- <footer>
              <br />
             <div class="container">
-                <p>&copy; 2016 OnClickEvent.com &middot; <a href="#">Home</a> &middot; <a href="#">About</a>&middot; </p>
+                <p>&copy; 2016 OnClickEvent.com &middot; <a href="Welcome.aspx">Home</a> &middot; <a href="About.aspx">About</a>&middot; </p>
             </div>
-        </footer>
+        </footer>--%>
          </form>
 </body>
     <script type="text/javascript">
@@ -151,4 +141,3 @@
 
         </script>
 </html>
-

@@ -78,7 +78,7 @@
          <div class="caption">
             <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" id="abc">Marriages</button>
- F
+ 
   <ul class="dropdown-menu" aria-labelledby="abc">
         <li role="separator" class="divider"></li>
    <li> <a id="mehndiid" class="dropdown-item" href="Mehndi.aspx?eventtype=mehndi&">Mehndi</a></li>

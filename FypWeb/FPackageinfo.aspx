@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="foodinfos.aspx.cs" Inherits="FypWeb.foodinfos" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FPackageinfo.aspx.cs" Inherits="FypWeb.FPackageinfo" EnableEventValidation="false" %>
+
 
 <!DOCTYPE html>
 
@@ -35,12 +36,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-             <a class="navbar-brand " href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+             <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="product.aspx">Venues</a></li>
+                            <li ><a href="Welcome.aspx">Home</a></li>
+                            <li> <a href="About.aspx">About</a></li>
                             <li> <a href="ViewCart1.aspx">View Cart</a></li>
+                            <li> <a href="contact.aspx">Contact</a></li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
@@ -59,11 +62,9 @@
            <br />
             <br />
             <br />
-            <asp:Label ID="ErrorMessage" runat="server" Text="" ForeColor="Red"></asp:Label>
-            <asp:TextBox ID="guestcount" runat="server" placeholder="Number Of Guest" CssClass="form-control"> </asp:TextBox>
-            <asp:RequiredFieldValidator runat="server" id="reqgst" ControlToValidate="guestcount" ErrorMessage="Please enter guest count" ForeColor="Red"></asp:RequiredFieldValidator>
-       
-          <asp:Repeater id="d1" runat="server" OnItemCommand="d1_ItemCommand"  >
+
+         <asp:Label ID="ErrorMessage" runat="server" Text=""></asp:Label>
+         <asp:Repeater id="d1" runat="server" OnItemCommand="d1_ItemCommand"  >
               <ItemTemplate>
 <div class="table-responsive">
     <table class="table product-table">
@@ -71,12 +72,9 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Deal Name</th>
+                <th>Item Name</th>
                 <th>Price</th>
-                <th>
-               
-                </th>
-                
+              
                 
             </tr>
         </thead>
@@ -92,22 +90,23 @@
                 </th>
                     
                 <td ><%#Eval("Names") %> </td>
-                <td ><%#Eval("Price") %></td>
-                <td><p style="font-style:italic">We provide  healthy eating options for your memorable events. Enjoy our freshly prepared, <br /> delicious and health food without worrying about the quality because we believe in making <br /> relations not customers.</p></td>
+                <td ><%#Eval("Price") %> </td>
+                
                 
               
             </tr>
             <!--/First row-->
              <tr>
+                <td></td>
                 <td>
+                    <h4><strong>Total</strong></h4></td>
+                <td>
+                    <h4><strong>1200 $</strong></h4></td>
+                <td>
+                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
                     
                 </td>
-                 <td> 
-             </td>
-                 <td>
-                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
-                </td>
-                 <td><a href="entertainer.aspx" class="btn btn-success" >Continue Shopping</a></td>
+                 <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
             </tr>
            
            

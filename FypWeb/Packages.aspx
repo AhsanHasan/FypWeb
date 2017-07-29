@@ -23,7 +23,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body onload = window.location="packageEntry.html">
+<body>
     <form id="form1" runat="server">
     <div>
         <div class="navbar navbar-default navbar-fixed-top navbar-inverse"role="navigation" >
@@ -131,16 +131,18 @@
         <label id="Label2"></label>
        <div class="col-lg-10">
       
-          <asp:Repeater ID="abc" runat="server">
+          <asp:Repeater ID="d3" runat="server">
             <ItemTemplate>
              
                 <div class="col-xs-4">
                     <table>
                        
-                         <tr><td> <td><th> <a href="productinfo.aspx?id=<%#Eval("v.VenueID") %>&price=<%#Eval("v.Price") %>&name=<%#Eval("v.Name") %>"><img src='<%#Eval("Picture") %>' height="200" width="300" style="border: solid" /></a></th></td></td></tr>
+                         <tr><td> <td><th> <a href="Packageinfo.aspx?id=<%#Eval("VenueID") %>&price=<%#Eval("Price") %>&name=<%#Eval("Name") %>"> <img src='<%#Eval("Picture") %>' height="200" width="300" style="border: solid" /></a></th></td></td></tr>
                         <tr><td><td><th>Name: <%#Eval("Name") %></th></td></td></tr>
+                        <tr><td><td><th>Contact: <%#Eval("Price") %> </th></td></td></tr>
                         <tr><td><td><th>Address: <%#Eval("Address") %> </th></td></td></tr>
                          <tr><td><td><th>Contact: <%#Eval("Contact") %> </th></td></td></tr>
+                        
                        
                        
                          </table>
@@ -166,41 +168,41 @@
             // var x = document.getElementById("demo");
             $('#myModal').modal('show');
             $('#Button1').click(function () {
-                
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    alert("Geolocation is not supported by this browser.");
+
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        alert("Geolocation is not supported by this browser.");
+                    }
                 }
-            }
 
-            function showPosition(position) {
-                var x = position.coords.latitude;
-                var y = position.coords.longitude;
+                function showPosition(position) {
+                    var x = position.coords.latitude;
+                    var y = position.coords.longitude;
 
-                window.location = "Location.aspx?latitude="+x+"&longitude="+y;
+                    window.location = "Location.aspx?latitude=" + x + "&longitude=" + y;
 
-            }
-            getLocation();
+                }
+                getLocation();
 
             });
         });
   </script>
       <script type="text/javascript">
-       function getParameterByName(name, url) {        // This function gets the budget value from Url
-            if (!url) {
-                url = window.location.href;
-            }
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-        var foo = getParameterByName('budget');
-        var type = getParameterByName('eventtype');
+          function getParameterByName(name, url) {        // This function gets the budget value from Url
+              if (!url) {
+                  url = window.location.href;
+              }
+              name = name.replace(/[\[\]]/g, "\\$&");
+              var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                  results = regex.exec(url);
+              if (!results) return null;
+              if (!results[2]) return '';
+              return decodeURIComponent(results[2].replace(/\+/g, " "));
+          }
+          var foo = getParameterByName('budget');
+          var type = getParameterByName('eventtype');
 
 
     </script>

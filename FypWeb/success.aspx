@@ -17,7 +17,11 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+
 </head>
 <body>
     <form id="form1" runat="server" method="post" action ="Eventtype.aspx">
@@ -112,28 +116,11 @@
     </form>
     </body>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-<script src="js/JavaScript1.js"></script>
-  <!--  <script type="text/javascript">
-       // var x = document.getElementById("demo");
+    <script src="js/JavaScript1.js"></script>
+     
+     <script src="js/bootstrap.min.js"></script>
+     
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function showPosition(position) {
-            var x = "Latitude: " + position.coords.latitude +
-           " /// Longitude: " + position.coords.longitude;
-
-            alert(x);
-        }
-        getLocation();
-  </script>
-      -->
     </html>

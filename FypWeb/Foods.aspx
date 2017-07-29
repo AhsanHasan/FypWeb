@@ -36,13 +36,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-             <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+             <a class="navbar-brand " href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
-                            <li> <a href="contact.aspx">Contact</a></li>
+                            <li> <a href="entertainer.aspx">Entertainer</a></li>
                             <li> <a href="ViewCart1.aspx">View Cart</a></li>
                             
                             <li class="dropdown">

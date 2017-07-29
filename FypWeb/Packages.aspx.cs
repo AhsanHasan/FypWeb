@@ -12,8 +12,6 @@ namespace FypWeb
 {
     public partial class Packages : System.Web.UI.Page
     {
-        string type;
-        int id;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -43,26 +41,26 @@ namespace FypWeb
 
                         con.Open();
 
-                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 1 and v.VenueType like '%" + eventType + "%'";
+                        cmd.CommandText = "Select v.VenueID,v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 1 and v.VenueType like '%" + eventType + "%'";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        abc.DataSource = dt;
-                        abc.DataBind();
+                        d3.DataSource = dt;
+                        d3.DataBind();
                         con.Close();
                     }
                     else if (venue_budget >= 300000 && venue_budget < 400000)
                     {
                         con.Open();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID  where p.PackageID = 2 and v.VenueType like '%" + eventType + "%'";
+                        cmd.CommandText = "Select v.VenueID,v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID  where p.PackageID = 2 and v.VenueType like '%" + eventType + "%'";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        abc.DataSource = dt;
-                        abc.DataBind();
+                        d3.DataSource = dt;
+                        d3.DataBind();
                         con.Close();
                     }
 
@@ -70,13 +68,13 @@ namespace FypWeb
                     {
                         con.Open();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 3 and v.VenueType like '%" + eventType + "%'";
+                        cmd.CommandText = "Select v.VenueID,v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 3 and v.VenueType like '%" + eventType + "%'";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        abc.DataSource = dt;
-                        abc.DataBind();
+                        d3.DataSource = dt;
+                        d3.DataBind();
                         con.Close();
                     }
 
@@ -84,13 +82,13 @@ namespace FypWeb
                     {
                         con.Open();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 4 and v.VenueType like '%" + eventType + "%'";
+                        cmd.CommandText = "Select v.VenueID,v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 4 and v.VenueType like '%" + eventType + "%'";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        abc.DataSource = dt;
-                        abc.DataBind();
+                        d3.DataSource = dt;
+                        d3.DataBind();
                         con.Close();
                     }
 
@@ -99,13 +97,13 @@ namespace FypWeb
                         con.Open();
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 5 and v.VenueType like '%" + eventType + "%'";
+                        cmd.CommandText = "Select v.VenueID,v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 5 and v.VenueType like '%" + eventType + "%'";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        abc.DataSource = dt;
-                        abc.DataBind();
+                        d3.DataSource = dt;
+                        d3.DataBind();
                         con.Close();
                     }
 
@@ -114,13 +112,13 @@ namespace FypWeb
                         con.Open();
                         cmd.CommandType = CommandType.Text;
 
-                        cmd.CommandText = "Select v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 6 and v.VenueType like '%" + eventType + "%'";
+                        cmd.CommandText = "Select v.VenueID,v.Name,v.Picture,v.Price,v.Address,v.Contact, p.Package_Name from Venues as v join Packages as p on v.PackageID = p.PackageID where p.PackageID = 6 and v.VenueType like '%" + eventType + "%'";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter ds = new SqlDataAdapter(cmd);
                         ds.Fill(dt);
-                        abc.DataSource = dt;
-                        abc.DataBind();
+                        d3.DataSource = dt;
+                        d3.DataBind();
                         con.Close();
                     }
                     else
@@ -136,7 +134,7 @@ namespace FypWeb
 
         protected void btn_AddToCart(object sender, EventArgs e)
         {
-            
+            Response.Redirect("FPackages.aspx");
         }
 
         protected void logout_click(object sender, EventArgs e)

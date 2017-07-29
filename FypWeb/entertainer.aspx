@@ -34,15 +34,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                    <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+                    <a class="navbar-brand " href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
-                            <li> <a href="contact.aspx">Contact</a></li>
+                            <li><a href="Foods.aspx">Food</a></li>
+                            <li> <a href="product.aspx">Venues</a></li>
+                            <li> <a href="AccountSetting.aspx">My Profile</a></li>
                             <li> <a href="#">Signout</a></li>
-         
+                            
 			
                     </div> 
                     </div>
@@ -64,14 +64,14 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="pictures/ent1.png" alt="event" style="height:350px" width="100%"/>
+      <img src="pictures/r.jpg" alt="event" style="height:350px" width="100%"/>
       
     </div>
     <div class="item">
-      <img src="pictures/ent2.jpg" alt="Event" style="height:350px" width="100%"/>
+      <img src="pictures/t.jpg" alt="Event" style="height:350px" width="100%"/>
       </div>
       <div class="item">
-      <img src="pictures/ent3.jpg" alt="Event" style="height:350px" width="100%"/>
+      <img src="pictures/y.jpg" alt="Event" style="height:350px" width="100%"/>
        </div>
     
     ...
@@ -117,7 +117,7 @@
             <footer style="position:fixed; bottom:0; width:100%">
             <br />
             <div class="container">
-                <p>&copy; 2016 OnClickEvent.com &middot; <a href="Welcome.aspx">Home</a> &middot; <a href="About.aspx">About</a>&middot; </p>
+                <p>&copy; 2016 OnClickEvent.com &middot; <a href="#">Home</a> &middot; <a href="#">About</a>&middot; </p>
             </div>
         </footer>
         

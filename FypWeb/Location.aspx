@@ -73,7 +73,7 @@
                position: latl,
                center: new google.maps.LatLng(lat, long),
                zoom: 15,
-               title: "AHSAN KA GHAR",
+               title: "Home",
                mapTypeId: google.maps.MapTypeId.ROADMAP
            };
            
@@ -108,7 +108,7 @@
                        position: latl,
                        icon:pinImage,
                        map: map,
-                       title: "AHSAN KA GHAR"
+                       title: "Home"
                    });
 
                 
@@ -162,7 +162,7 @@
               center: new google.maps.LatLng(lat, long),
               zoom: 15,
               
-              title: "AHSAN KA GHAR",
+              title: "Home",
               mapTypeId: google.maps.MapTypeId.ROADMAP
           };
           var pinImage = new google.maps.MarkerImage("http://www.googlemapsmarkers.com/v1/009900/");
@@ -192,7 +192,7 @@
                       icon:pinImage,
                       map: map,
                       
-                      title: "AHSAN KA GHAR"
+                      title: "Home"
                   });
                 
                   (function (marker, data) {

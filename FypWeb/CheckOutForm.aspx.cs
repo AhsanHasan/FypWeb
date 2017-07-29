@@ -22,7 +22,7 @@ namespace FypWeb
         List<int> entertainerID = new List<int>();
         string[] arr2 = new string[4];
         int row1, row2, row3, row4;
-
+        int orderID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -70,8 +70,8 @@ namespace FypWeb
                 }
             }
         }
-        String dateTime = DateTime.Now.ToString("h:mm:ss tt");
-        string date;
+        DateTime dateTime = DateTime.Now;
+        DateTime date;
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
             con.Open();
@@ -89,18 +89,18 @@ namespace FypWeb
             con.Close();
 
             // Generating Order
-
+            Console.Write(orderID);
             con.Open();
             String query = "INSERT INTO Orders values('" + dateTime + "')";
             SqlCommand comm = new SqlCommand(query, con);
             comm.ExecuteNonQuery();
-
+            con.Close();
             date = dateTime;
-
+            con.Open();
             SqlCommand cmd3 = con.CreateCommand();
             cmd3.CommandType = CommandType.Text;
             cmd3.CommandText = "Select OrderID from Orders where OrderDateTime = '" + date + "'";
-            Support.setOrderID((Int32)cmd1.ExecuteScalar());
+            orderID = (Int32)cmd3.ExecuteScalar();
             con.Close();
 
             //Extracting IDs
@@ -114,7 +114,7 @@ namespace FypWeb
                     venueID = Convert.ToInt32(strArr1[0]);
                     // inserting Venue Details
                     con.Open();
-                    String venueQuery = "INSERT INTO VenueDetails values('" + Support.getOrderID() + "','" + venueID + "')";
+                    String venueQuery = "INSERT INTO VenueDetails values('" + orderID + "','" + venueID + "')";
                     SqlCommand com = new SqlCommand(venueQuery, con);
                     row1 = com.ExecuteNonQuery();
                     con.Close();
@@ -128,7 +128,7 @@ namespace FypWeb
                     foodPackageID = Convert.ToInt32(strArr2[0]);
                     // inserting Food Details
                     con.Open();
-                    String foodQuery = "INSERT INTO FoodDetails values('" + Support.getOrderID() + "','" + foodPackageID + "')";
+                    String foodQuery = "INSERT INTO FoodDetails values('" + orderID + "','" + foodPackageID + "','" + Support.getFoodCost() + "')";
                     SqlCommand com1 = new SqlCommand(foodQuery, con);
                     row2 = com1.ExecuteNonQuery();
                     con.Close();
@@ -153,7 +153,7 @@ namespace FypWeb
                     for (int j = 0; j < entertainerID.Count(); j++)
                     {
 
-                        String entertainerQuery = "INSERT INTO EntertainerDetails values('" + Support.getOrderID() + "','" + entertainerID[j] + "')";
+                        String entertainerQuery = "INSERT INTO EntertainerDetails values('" + orderID + "','" + entertainerID[j] + "')";
                         SqlCommand com2 = new SqlCommand(entertainerQuery, con);
                         row3 = com2.ExecuteNonQuery();
 
@@ -163,7 +163,7 @@ namespace FypWeb
                 }
                 // Inserting into Place Orders
                 con.Open();
-                String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + Support.getOrderID() + "')";
+                String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + orderID + "')";
                 SqlCommand com3 = new SqlCommand(placeOrderQuery, con);
                 row4 = com3.ExecuteNonQuery();
                 con.Close();
@@ -182,7 +182,7 @@ namespace FypWeb
                     msg.From = new MailAddress("syed.khan7007@gmail.com");
                     msg.To.Add(txt_emailaddress.Text);
                     msg.Subject = "Confirmation From OnClickEvents";
-                    msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + Support.getTotalCost() + " Against the OrderID : " + Support.getOrderID() + ". Thanks\n -Team OnClick Event";
+                    msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + orderID + " Against the OrderID : " + Support.getOrderID() + ". Thanks\n -Team OnClick Event";
                     SmtpClient sc = new SmtpClient("smtp.gmail.com");
                     sc.Port = 587;
                     sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");

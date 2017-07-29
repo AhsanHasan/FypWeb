@@ -23,25 +23,31 @@ namespace FypWeb
             }
             else
             {
+                try {
 
-                budget = Convert.ToInt64(Request.Form["TextBox1"]);
-                guest = Convert.ToInt64(Request.Form["TextBox2"]);
-                //budget = Convert.ToInt64(Request.QueryString["budget"]);
-                //guest = Convert.ToInt64(Request.QueryString["guest"]);
-                venueCost = (budget * 40) / 100;
-                foodCost = (budget * 25) / 100;
-                entertainerCost = (budget * 25) / 100;
+                    budget = Convert.ToInt64(Request.Form["TextBox1"]);
+                    guest = Convert.ToInt64(Request.Form["TextBox2"]);
+                    //budget = Convert.ToInt64(Request.QueryString["budget"]);
+                    //guest = Convert.ToInt64(Request.QueryString["guest"]);
+                    venueCost = (budget * 40) / 100;
+                    foodCost = (budget * 25) / 100;
+                    entertainerCost = (budget * 25) / 100;
 
-                Session["budget"] = budget.ToString();
-                Session["guest"] = guest.ToString();
-                string b = Session["budget"].ToString();
+                    Session["budget"] = budget.ToString();
+                    Session["guest"] = guest.ToString();
+                    string b = Session["budget"].ToString();
 
-                Cart.setBudget(budget);
-                Cart.setVenueBudget(venueCost);
-                Cart.setFoodBudget(foodCost);
-                Cart.setEntertainerBudget(entertainerCost);
+                    Cart.setBudget(budget);
+                    Cart.setVenueBudget(venueCost);
+                    Cart.setFoodBudget(foodCost);
+                    Cart.setEntertainerBudget(entertainerCost);
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
             }
-
+          
           }
         
         protected void logout_click(object sender, EventArgs e)
