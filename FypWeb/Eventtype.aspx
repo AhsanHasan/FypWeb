@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server"><meta charset="utf-8"/>
+
     <link href="StyleSheet.css" rel="stylesheet" />
     <!-- Start WOWSlider.com HEAD section -->
 <link rel="stylesheet" type="text/css" href="engine3/style.css" />
@@ -171,6 +172,14 @@
     <script src="js/bootstrap.min.js"></script>
 </body>
 <!--<script src="js/JavaScript1.js"></script>-->
+    <script>
+    $(document).ready(function() {
+        function disableBack() { window.history.forward() }
+
+        window.onload = disableBack();
+        window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+    });
+</script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#mymodal').modal('show');

@@ -184,7 +184,7 @@
                   </ItemTemplate>
              </asp:DataList>
         <div class="col-md-6">
-            <p style="font-size:20px" class="text-danger"> Total:  <asp:Label ID="total_Cost" runat="server" Text=""></asp:Label> </p>
+            <p style="font-size:20px" > Total:  <asp:Label ID="total_Cost" runat="server" Text=""></asp:Label> </p>
         </div>
         <div class="col-md-6">
           <span class="pull-right"> <a href="CheckOutForm.aspx" type="button" class="btn btn-success" id="proceed">Proceed</a></span>

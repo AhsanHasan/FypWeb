@@ -23,25 +23,41 @@ namespace FypWeb
             }
             else
             {
-                try {
-
-                    budget = Convert.ToInt64(Request.Form["TextBox1"]);
-                    guest = Convert.ToInt64(Request.Form["TextBox2"]);
+                try
+                {
+                    if (!Request.Form["budgetamount"].ToString().Equals("") && !Request.Form["totalguests"].ToString().Equals(""))
+                    {
+                        budget = Convert.ToInt64(Request.Form["budgetamount"]);
+                    guest = Convert.ToInt64(Request.Form["totalguests"]);
                     //budget = Convert.ToInt64(Request.QueryString["budget"]);
                     //guest = Convert.ToInt64(Request.QueryString["guest"]);
-                    venueCost = (budget * 40) / 100;
-                    foodCost = (budget * 25) / 100;
-                    entertainerCost = (budget * 25) / 100;
 
-                    Session["budget"] = budget.ToString();
-                    Session["guest"] = guest.ToString();
-                    string b = Session["budget"].ToString();
+                   
+                        if (budget >= 500000 && guest >= 250)
+                        {
+                            venueCost = (budget * 40) / 100;
+                            foodCost = (budget * 25) / 100;
+                            entertainerCost = (budget * 25) / 100;
 
-                    Cart.setBudget(budget);
-                    Cart.setVenueBudget(venueCost);
-                    Cart.setFoodBudget(foodCost);
-                    Cart.setEntertainerBudget(entertainerCost);
+                            Session["budget"] = budget.ToString();
+                            Session["guest"] = guest.ToString();
+                            string b = Session["budget"].ToString();
+
+                            Cart.setBudget(budget);
+                            Cart.setVenueBudget(venueCost);
+                            Cart.setFoodBudget(foodCost);
+                            Cart.setEntertainerBudget(entertainerCost);
+                        }
+                        else
+                        {
+                            Response.Redirect("success.aspx");
+                        }
+                    }
+                    else {
+                        Response.Redirect("success.aspx");
+                    }
                 }
+                
                 catch (Exception ex)
                 {
                     Response.Write(ex.Message);

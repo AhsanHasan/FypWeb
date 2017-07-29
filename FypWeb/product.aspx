@@ -21,7 +21,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="background-image:url(pictures/bg3.jpg)">
     <form id="form1" runat="server">
     <div>
         <div class="navbar navbar-default navbar-fixed-top navbar-inverse"role="navigation" >
@@ -133,7 +133,7 @@
                 <div class="col-xs-4">
                     <table>
                        
-                         <tr><td> <td><th> <a href="productinfo.aspx?id=<%#Eval("VenueID") %>&price=<%#Eval("Price") %>&name=<%#Eval("Name") %>"><img src='<%#Eval("Picture") %>' height="200" width="300" style="border: solid" /></a></th></td></td></tr>
+                         <tr><td> <td><th> <a href="productinfo.aspx?id=<%#Eval("VenueID") %>&price=<%#Eval("Price") %>&name=<%#Eval("Name") %>"><img class="thumbnail zoom" src='<%#Eval("Picture") %>' height="200" width="300" style="border: solid" /></a></th></td></td></tr>
                         <tr><td><td><th>Name: <%#Eval("Name") %></th></td></td></tr>
                         <tr><td><td><th>Address: <%#Eval("Address") %> </th></td></td></tr>
                          <tr><td><td><th>Contact: <%#Eval("Contact") %> </th></td></td></tr>

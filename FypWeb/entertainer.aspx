@@ -11,6 +11,7 @@
 <link href="StyleSheet.css" rel="stylesheet" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet" />
     <link href="css/login.css" rel="stylesheet" />
 
 
@@ -21,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="background-image:url(pictures/bg3.jpg)">
     <form id="form1" runat="server">
     <div>
      <div class="navbar navbar-default navbar-fixed-top navbar-inverse"role="navigation" >
@@ -100,7 +101,7 @@
                <div class="col-xs-4" id="entdiv">
                     <table>
                         
-                       <tr><td><th><a href="entertainerinfo.aspx?id=<%#Eval("EntertainerID") %>"><img src='<%#Eval("Picture") %>' height="200" width="200" style="border: medium solid #000000" /></a></th></td></tr>
+                       <tr><td><th><a href="entertainerinfo.aspx?id=<%#Eval("EntertainerID") %>"><img class="thumbnail zoom" src='<%#Eval("Picture") %>' height="200" width="200" style="border: medium solid #000000" /></a></th></td></tr>
                        <tr><td><th> <%# Eval("Name") %></th></td></tr>
                          <tr>
                              <tr></tr>

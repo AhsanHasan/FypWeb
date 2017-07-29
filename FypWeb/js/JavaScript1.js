@@ -8,24 +8,28 @@ $(document).ready(function () {
     $('#budgetbtn').click(function () {
     var guest = $("#totalguests").val();
     var budget = $("#budgetamount").val();
-        
-    if (budget >= 500000 && guest >= 100 && guest <= 500) {
-        $('#myModal').modal('hide');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('#totalguests').val("");
-        $('#budgetamount').val("");
+    if (budget != "" && guest != "") {
+        if (budget >= 500000 && guest >= 100 && guest <= 500) {
+            $('#myModal').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+            $('#totalguests').val("");
+            $('#budgetamount').val("");
 
-        
-        
-        window.location = "Eventtype.aspx?budget="+budget+"&guest= "+guest;
-        //window.location = "Eventtype.aspx?budget=" + budget;
-        //window.location = "Eventtype.aspx?guest=" + guest;
-        
+
+
+            window.location = "Eventtype.aspx?budget=" + budget + "&guest= " + guest;
+            //window.location = "Eventtype.aspx?budget=" + budget;
+            //window.location = "Eventtype.aspx?guest=" + guest;
+
+        }
+        else {
+
+            window.location = "success.aspx";
+        }
     }
     else {
-        
-        window.location = "success.aspx";
+        alert("Fill up the Fields");
     }
     });
     

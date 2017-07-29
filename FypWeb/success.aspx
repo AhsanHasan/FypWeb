@@ -4,6 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server"><meta charset="utf-8"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js">
+        </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -19,8 +22,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <![endif]-->
-    <%-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--%>
-    <script src="js/jquery-3.2.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/JavaScript1.js"></script>
 
 </head>
 <body>
@@ -71,7 +75,7 @@
         <h1>Welcome here </h1>
         <p> Now you can select events of your own types from the Dropdown Event Type Menu and enter your budget! </p>
         <p>       <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="text-align:center;width:180px">Enter Budget</button>
-            <a  type="button" href="nonbudgetevent.aspx" class="btn btn-info btn-lg" style="text-align:center;width:200px">Enter Without Budget</a>
+            <a  type="button" href="Loader.html" class="btn btn-info btn-lg" style="text-align:center;width:200px">Enter Without Budget</a>
 
         </p>
     </div>
@@ -90,13 +94,13 @@
           <h4 class="modal-title">Enter Budget</h4>
         </div>
         <div class="modal-body">
-        
+        <label style="color:red">(Budget must be above 3 lacs)</label>
             <label class="col-xs-11"> <h4>Budget amount</h4></label>
             
-              <input name="TextBox1" type="number"  class="form-control" placeholder="Please Enter Budget More Then 100000" />
+              <input name="budgetamount" type="number"  class="form-control" placeholder="Please Enter Budget More Then 100000" />
           
             <label class="col-xs-11"> <h4>Number Of Guests</h4></label>
-              <input name="TextBox2" type="number"  class="form-control" placeholder="Enter Number Of Budget" />
+              <input name="totalguests" type="number"  class="form-control" placeholder="Enter Number Of Budget" />
             
         </div>
         <div class="modal-footer">
@@ -115,12 +119,15 @@
         
     </form>
     </body>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/JavaScript1.js"></script>
-     
-     <script src="js/bootstrap.min.js"></script>
+     <script>
+    $(document).ready(function() {
+        function disableBack() { window.history.forward() }
+
+        window.onload = disableBack();
+        window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+    });
+</script>
+         
      
 
     </html>

@@ -12,6 +12,7 @@
 <link href="StyleSheet.css" rel="stylesheet" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet" />
     <link href="css/login.css" rel="stylesheet" />
 
 
@@ -22,7 +23,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="background-image:url(pictures/bg3.jpg)">
     <form id="form1" runat="server">
         <div>
 
@@ -113,7 +114,7 @@
                 <div class="col-xs-4">
                     <table>
                        
-                          <tr><td> <td><th> <a href="foodinfos.aspx?id=<%#Eval("foodPackage_ID") %>&price=<%#Eval("Price") %>&name=<%#Eval("Names") %>"><img src='<%#Eval("Pictures") %>' height="200" width="300" style="border: solid" /></a></th></td></td></tr>
+                          <tr><td> <td><th> <a href="foodinfos.aspx?id=<%#Eval("foodPackage_ID") %>&price=<%#Eval("Price") %>&name=<%#Eval("Names") %>"><img class="thumbnail zoom"src='<%#Eval("Pictures") %>' height="200" width="300" style="border: solid" /></a></th></td></td></tr>
                         <tr><td><td><th>Name: <%#Eval("Names") %></th></td></td></tr>
                         <tr><td><td><th>Price: <%#Eval("Price") %> </th></td></td></tr>
                         
