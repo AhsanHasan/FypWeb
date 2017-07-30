@@ -54,7 +54,7 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="Welcome.aspx">Home</a></li>
+                            <li><a href="#">Home</a></li>
 
                             <li><a href="ViewCart1.aspx">View Cart</a></li>
 
@@ -112,16 +112,15 @@
                                 </tr>
                                  <tr>
                 <td></td>
-                <td>
-                    <h4><strong>Total</strong></h4></td>
-                <td>
-                    <h4><strong>1200 $</strong></h4></td>
-                <td>
-                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
-                    
+
                 </td>
                  <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
-            </tr>
+         <td><asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click" />
+</td>
+  <td>                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
+                    </td>
+                                     
+                                                                           </tr>
                 </ItemTemplate>
             </asp:Repeater>
             <!--/First row-->
@@ -147,8 +146,7 @@
                 </td>
                 <td><%--<button type="button" class="btn btn-primary">Complete purchase  <i class="fa fa-angle-right right"></i></button>--%></td>
                 <td>
-                                                            <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click" />
-
+                                                            
                     <%--<asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart" CssClass="btn btn-info" OnClick="btn_AddToCart" />--%>
                     
                 </td>

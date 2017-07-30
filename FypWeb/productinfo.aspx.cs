@@ -36,22 +36,27 @@ namespace FypWeb
 
             if (Session["user"] != null)
             {
-
-                id = Convert.ToInt32(Request.QueryString["id"].ToString());
-                price = Convert.ToInt32(Request.QueryString["price"].ToString());
-                // name = Request.QueryString["name"];
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select v.Name,v.Address,vt.Capacity,v.Price,v.Contact,v.Picture from VenueThemes as vt join Venues as v ON vt.VenueID=v.VenueID WHERE v.VenueID= '" + id + "'";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter ds = new SqlDataAdapter(cmd);
-                ds.Fill(dt);
-                d3.DataSource = dt;
-                d3.DataBind();
-                con.Close();
-                BindData();
+                try {
+                    id = Convert.ToInt32(Request.QueryString["id"].ToString());
+                    price = Convert.ToInt32(Request.QueryString["price"].ToString());
+                    // name = Request.QueryString["name"];
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "select v.Name,v.Address,vt.Capacity,v.Price,v.Contact,v.Picture from VenueThemes as vt join Venues as v ON vt.VenueID=v.VenueID WHERE v.VenueID= '" + id + "'";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                    ds.Fill(dt);
+                    d3.DataSource = dt;
+                    d3.DataBind();
+                    con.Close();
+                    BindData();
+                }
+                catch (Exception)
+                {
+                    //Something goes here
+                }
             }
             else if (Session["user"] == null)
             {
@@ -410,7 +415,7 @@ namespace FypWeb
 
             myCommand.ExecuteNonQuery();
             con.Close();
-            Response.Redirect("ViewCart1.aspx");
+            Response.Redirect("productinfo.aspx");
 
         }
 

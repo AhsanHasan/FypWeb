@@ -38,12 +38,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-             <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+             <a class="navbar-brand " href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
+                            <li> <a href="CheckOutForm.aspx">Checkout</a></li>
                             
                             
                             <li class="dropdown">
@@ -183,12 +182,12 @@
 </div>
                   </ItemTemplate>
              </asp:DataList>
-        <div class="col-md-6">
-            <p style="font-size:20px" > Total:  <asp:Label ID="total_Cost" runat="server" Text=""></asp:Label> </p>
-        </div>
-        <div class="col-md-6">
-          <span class="pull-right"> <a href="CheckOutForm.aspx" type="button" class="btn btn-success" id="proceed">Proceed</a></span>
-        </div>
+        <div style="margin-left:500px">
+            <p style="font-size:20px ; color:red" > Total: <b> <asp:Label ID="total_Cost" runat="server" Text=""></asp:Label></b> </p>
+                
+         <a href="CheckOutForm.aspx" type="button" class="btn btn-success" id="proceed" style="width:250px">Proceed</a>
+        
+            </div>
         <br />
         <br />
         

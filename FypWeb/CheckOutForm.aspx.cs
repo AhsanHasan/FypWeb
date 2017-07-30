@@ -39,10 +39,10 @@ namespace FypWeb
                         txt_name.Text = reader["CustName"].ToString();
                         txt_phonenumber.Text = reader["Contact"].ToString();
                         txt_address.Text = reader["CustAddress"].ToString();
-                        txt_cardnum.Text = reader["CustAccountNo"].ToString();
+                        //txt_cardnum.Text = reader["CustAccountNo"].ToString();
                         txt_city.Text = reader["CustCity"].ToString();
                         txt_emailaddress.Text = reader["Email"].ToString();
-                        txt_postalcode.Text = reader["CustPOBox"].ToString();
+                        //txt_postalcode.Text = reader["CustPOBox"].ToString();
                         Cnic.Text = reader["CustCNIC"].ToString();
 
                     }
@@ -83,7 +83,7 @@ namespace FypWeb
             CustID = (Int32)cmd1.ExecuteScalar();
 
             cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "update Customers set CustName='" + txt_name.Text + "',CustCNIC='" + Cnic.Text + "',Email='" + txt_emailaddress.Text + "',CustAccountNo='" + txt_cardnum.Text + "',CustAddress='" + txt_address.Text + "',CustPOBox='" + txt_postalcode.Text + "' where CustID=" + CustID + "";
+            cmd2.CommandText = "update Customers set CustName='" + txt_name.Text + "',CustCNIC='" + Cnic.Text + "',Email='" + txt_emailaddress.Text + "',CustAddress='" + txt_address.Text + "' where CustID= '" + CustID + "'";
             cmd2.ExecuteNonQuery();
 
             con.Close();
@@ -164,7 +164,7 @@ namespace FypWeb
                 }
                 // Inserting into Place Orders
                 con.Open();
-                String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + orderID + "')";
+                String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + orderID + "','" + Support.getTotalCost() + "' )";
                 SqlCommand com3 = new SqlCommand(placeOrderQuery, con);
                 row4 = com3.ExecuteNonQuery();
                 con.Close();
@@ -183,7 +183,7 @@ namespace FypWeb
                     msg.From = new MailAddress("syed.khan7007@gmail.com");
                     msg.To.Add(txt_emailaddress.Text);
                     msg.Subject = "Confirmation From OnClickEvents";
-                    msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + orderID + " Against the OrderID : " + Support.getOrderID() + ". Thanks\n -Team OnClick Event";
+                    msg.Body = "Hi Mr/Mrs " + txt_name.Text + " this is to confirm you that your request have been recieved we will get back to you ASAP and the sum of your shopping is RS " + Support.getTotalCost() + " Against the OrderID : " + orderID + ". Thanks\n -Team OnClick Event";
                     SmtpClient sc = new SmtpClient("smtp.gmail.com");
                     sc.Port = 587;
                     sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
@@ -217,19 +217,19 @@ namespace FypWeb
             Response.Redirect("Login.aspx");
         }
 
-        protected void OnCheckChanged(object sender, EventArgs e)
-        {
+        //protected void OnCheckChanged(object sender, EventArgs e)
+        //{
             
-                lblCC.Visible = false;
-                txt_cardnum.Visible = false;
+        //        lblCC.Visible = false;
+        //        txt_cardnum.Visible = false;
             
-        }
+        //}
 
-        protected void OnCheckChanged1(object sender, EventArgs e)
-        {
-            lblCC.Visible = true;
-            txt_cardnum.Visible = true;
+        //protected void OnCheckChanged1(object sender, EventArgs e)
+        //{
+        //    lblCC.Visible = true;
+        //    txt_cardnum.Visible = true;
 
-        }
+        //}
     }
 }

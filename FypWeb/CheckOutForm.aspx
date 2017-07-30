@@ -43,7 +43,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                    <a class="navbar-brand" href="Default.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+                    <a class="navbar-brand" href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -189,7 +189,7 @@
             <br />
             <br />
             
-        <li>
+        <%--<li>
             <asp:Label ID="lblCC"  runat="server" class="col-xs-11" Visible="true" > <b>Credit Card Number </b></asp:Label>
           <div class="col-xs-11">
               <asp:TextBox ID="txt_cardnum" runat="server" class="form-control" placeholder="" Visible="true"></asp:TextBox>
@@ -201,7 +201,7 @@
               <asp:TextBox ID="txt_postalcode" runat="server" class="form-control" placeholder=""></asp:TextBox>
               </div>
            </li>
-           
+        --%>   
         </ul>
       </div>
     </div>

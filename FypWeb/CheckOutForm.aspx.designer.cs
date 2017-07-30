@@ -103,33 +103,6 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.TextBox Cnic;
         
         /// <summary>
-        /// lblCC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCC;
-        
-        /// <summary>
-        /// txt_cardnum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_cardnum;
-        
-        /// <summary>
-        /// txt_postalcode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_postalcode;
-        
-        /// <summary>
         /// BtnSubmit control.
         /// </summary>
         /// <remarks>

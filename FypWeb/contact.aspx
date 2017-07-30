@@ -86,29 +86,39 @@
                  <h1 style="color:blueviolet">Contact Us! <span class="label label-default"></span></h1>
                      <label class="col-xs-5"> <h4>Name</h4></label>
           <div class="col-xs-11">
-              <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="abc"></asp:TextBox>
+              <asp:TextBox ID="name_textbox" runat="server" class="form-control" placeholder="Enter Name"></asp:TextBox>
           </div>
                  <label class="col-xs-5"> <h4>Email</h4></label>
           <div class="col-xs-11">
           <div class="input-group">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+                <%--<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">--%>
+              <asp:TextBox ID="email_textbox" runat="server" CssClass="form-control"></asp:TextBox>
                 <span class="input-group-addon" id="basic-addon2">@example.com</span>
                 </div> 
           </div>
                  <label class="col-xs-5"> <h4>Suggestions&Complains</h4></label>
           <div class="col-xs-11">
-              <textarea name = "comment" placeholder = "Message" id = "comment" style="height:250px;width:500px" ></textarea>
-             
+              <%--<textarea name = "comment" placeholder = "Message" id = "comment" style="height:250px;width:500px" ></textarea>
+             --%> <asp:TextBox ID="feedback_textbox" runat="server" TextMode="MultiLine" Height="100px" Width="500px" CssClass="form-control-feedback"></asp:TextBox>
+              <br /><br /><br /><br /><br /><br />
+              <div class="col-lg-12">
+              <asp:Button ID="btn_submit" runat="server" Text="Submit"  CssClass="btn btn-info" OnClick="btn_submit_Click"/>
+                     <asp:Label ID="response" runat="server" CssClass="label label-info" Text=""></asp:Label> 
+                  </div>
           </div>
-                 <div class="col-xs-11">
 
-                     <br />
-                  <a href="#"><input type="submit" name="dsubmit" id="commentSubmit" value="Submit Comment"></a>
-                <input style="width: 30px" type="checkbox" value="1" name="subscribe" id="subscribe" checked="checked">
-                    <p1><b>Notify me when new comments are added.</b></p1>
+                 </div>
+                 <div class="col-xs-12">
+
+                     
+                  <%--<a href="#"><input type="submit" name="dsubmit" id="commentSubmit" value="Submit Comment"></a>--%>
+                   
+                <br />
+                     
+                     
                          </div>
 
-            </div>
+            
 
 
 

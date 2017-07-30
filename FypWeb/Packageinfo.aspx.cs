@@ -176,7 +176,7 @@ namespace FypWeb
 
             myCommand.ExecuteNonQuery();
             con.Close();
-            Response.Redirect("ViewCart1.aspx");
+            Response.Redirect("Packageinfo.aspx");
 
         }
 
