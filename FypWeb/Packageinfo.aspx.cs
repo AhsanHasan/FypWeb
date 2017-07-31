@@ -143,12 +143,14 @@ namespace FypWeb
         }
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
+           
             TextBox1.Text = Calendar1.SelectedDate.ToShortDateString();
             TextBox2.Text = Calendar1.SelectedDate.ToShortTimeString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            
             DateTime date;
             date = Calendar1.SelectedDate;
             //if (Calendar1.Visible)
@@ -161,22 +163,29 @@ namespace FypWeb
             //}
 
             BindData();
-            con.Open();
+            try {
+                con.Open();
 
-            // Set the color of Selected Calendar Cells to Red
-            Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Red;
-            query = "INSERT INTO VenueSchedule (VenueID,Date,TimeSlot) values ('" + id + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
-            SqlCommand myCommand = new SqlCommand(query, con);
+                // Set the color of Selected Calendar Cells to Red
+                Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Red;
+                query = "INSERT INTO VenueSchedule (VenueID,Date,TimeSlot) values ('" + id + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
+                SqlCommand myCommand = new SqlCommand(query, con);
 
 
-            // myCommand.ExecuteNonQuery();
-            //myCommand.CommandType = CommandType.StoredProcedure;
-            //myCommand.Parameters.Add(new SqlParameter("@v_DateTime", SqlDbType.DateTime));
-            //myCommand.Parameters["@v_DateTime"].Value = selectedDate;
+                // myCommand.ExecuteNonQuery();
+                //myCommand.CommandType = CommandType.StoredProcedure;
+                //myCommand.Parameters.Add(new SqlParameter("@v_DateTime", SqlDbType.DateTime));
+                //myCommand.Parameters["@v_DateTime"].Value = selectedDate;
 
-            myCommand.ExecuteNonQuery();
-            con.Close();
-            Response.Redirect("Packageinfo.aspx");
+                myCommand.ExecuteNonQuery();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                //Something goes here
+            }
+            addtocart.Visible = true;
+           // Response.Redirect("Packageinfo.aspx");
 
         }
 

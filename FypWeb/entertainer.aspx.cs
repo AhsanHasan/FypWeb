@@ -22,19 +22,24 @@ namespace FypWeb
           
             else
             {
+                try {
 
-
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Entertainers";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter ds = new SqlDataAdapter(cmd);
-                ds.Fill(dt);
-                Rpt.DataSource = dt;
-                Rpt.DataBind();
-                con.Close();
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "select * from Entertainers";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                    ds.Fill(dt);
+                    Rpt.DataSource = dt;
+                    Rpt.DataBind();
+                    con.Close();
+                }
+                catch(Exception ex)
+                {
+                    //Something goes here
+                }
             }
         }
         protected void logout_click(object sender, EventArgs e)

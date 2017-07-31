@@ -29,7 +29,7 @@
 
                 <div class="container">
                 <div class="navbar-header" >
-                    <br />
+                    
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -62,7 +62,7 @@
             
             <label class="col-xs-11"> <b>D.O.B</b></label>
           <div class="col-xs-11">
-              <asp:TextBox ID="C3" runat="server" placeholder=""></asp:TextBox><br />
+              <asp:TextBox ID="C3" runat="server" class="form-control" placeholder="" TextMode="Date" Width="250px"></asp:TextBox><br />
                <asp:RequiredFieldValidator runat="server" id="reqdob" ControlToValidate="C3" ErrorMessage="Date Of Birth Required" ForeColor="Red"></asp:RequiredFieldValidator>
           </div>
             
@@ -83,7 +83,7 @@
 
                  <label class="col-xs-11"> <b>City</b></label>
           <div class="col-xs-11">
-              <asp:TextBox ID="C7" runat="server" placeholder=""></asp:TextBox><br />
+              <asp:TextBox ID="C7" runat="server" class="form-control" placeholder=""></asp:TextBox><br />
                <asp:RequiredFieldValidator runat="server" id="reqcity" ControlToValidate="C7" ErrorMessage="City Name Required" ForeColor="Red"></asp:RequiredFieldValidator>
           </div>
 
@@ -93,17 +93,18 @@
               </div>--%>
               <label class="col-xs-11"> <b>Email Address</b></label>
           <div class="col-xs-11">
-              <asp:TextBox ID="Email" runat="server" placeholder="" TextMode="Email"></asp:TextBox> <br />
+              <asp:TextBox ID="Email" runat="server" placeholder="" class="form-control" TextMode="Email"></asp:TextBox> <br />
                <asp:RequiredFieldValidator runat="server" id="reqemail" ControlToValidate="Email" ErrorMessage="Email Required" ForeColor="Red"></asp:RequiredFieldValidator>
               </div>
               <label class="col-xs-11"> <b>Password</b></label>
           <div class="col-xs-11">
-              <asp:TextBox ID="Pwd" runat="server" placeholder="" TextMode="Password"></asp:TextBox><br />
+              <asp:TextBox ID="Pwd" runat="server" placeholder="" class="form-control" TextMode="Password"></asp:TextBox><br />
                <asp:RequiredFieldValidator runat="server" id="reqpw" ControlToValidate="Pwd" ErrorMessage="Enter New Password" ForeColor="Red"></asp:RequiredFieldValidator>
-             <br />
+            
+              </div> <br />
               <label class="col-xs-11"> <b>Username</b></label>
           <div class="col-xs-11">
-              <asp:TextBox ID="username" runat="server" placeholder=""></asp:TextBox><br />
+              <asp:TextBox ID="username" runat="server" class="form-control" placeholder=""></asp:TextBox><br />
                <asp:RequiredFieldValidator runat="server" id="requsername" ControlToValidate="username" ErrorMessage="Enter Username" ForeColor="Red"></asp:RequiredFieldValidator>
               <br />
               <asp:Label ID="lblerror" runat="server" Text="" ForeColor="Red"></asp:Label>

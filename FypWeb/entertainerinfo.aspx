@@ -25,7 +25,7 @@
     <![endif]-->
     
 </head>
-<body style="padding:0px; margin:0px; background-color:#fff;font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
+<body style="padding:0px; margin:0px; background-image:url(pictures/bg3.jpg);font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
      <form id="form1" runat="server">
     <div>
     
@@ -115,21 +115,21 @@
          </asp:Calendar>
                 </td>
                
-               <td>                  <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click"  />
+               <td> <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click"  />
 </td>
                 <td>
-                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
+                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart" Visible="false"/>
                     
                 </td>
                  <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
             </tr>
   
-     <footer style="position:fixed; bottom:0; width:100%">
+    <%-- <footer style="position:fixed; bottom:0; width:100%">
              <br />
             <div class="container">
                 <p>&copy; 2016 OnClickEvent.com &middot; <a href="#">Home</a> &middot; <a href="#">About</a>&middot; </p>
             </div>
-        </footer>
+        </footer>--%>
          </form>
 </body>
     <script type="text/javascript">

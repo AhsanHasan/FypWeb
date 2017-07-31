@@ -23,6 +23,8 @@ namespace FypWeb
         string[] arr2 = new string[4];
         int row1, row2, row3, row4;
         int orderID = 0;
+        int total = Convert.ToInt32( Support.getTotalCost() );
+        int foodCost = Convert.ToInt32(Support.getFoodCost());
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,25 +32,31 @@ namespace FypWeb
             {
                 if (Session["user"] != null && Request.Cookies["venues"] != null || Request.Cookies["food"] != null || Request.Cookies["entertainer"] != null)
                 {
-                    con.Open();
-                    string query = "Select * from Customers where UserName ='" + Session["user"] + "'";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        txt_name.Text = reader["CustName"].ToString();
-                        txt_phonenumber.Text = reader["Contact"].ToString();
-                        txt_address.Text = reader["CustAddress"].ToString();
-                        //txt_cardnum.Text = reader["CustAccountNo"].ToString();
-                        txt_city.Text = reader["CustCity"].ToString();
-                        txt_emailaddress.Text = reader["Email"].ToString();
-                        //txt_postalcode.Text = reader["CustPOBox"].ToString();
-                        Cnic.Text = reader["CustCNIC"].ToString();
+                    try {
+                        con.Open();
+                        string query = "Select * from Customers where UserName ='" + Session["user"] + "'";
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            txt_name.Text = reader["CustName"].ToString();
+                            txt_phonenumber.Text = reader["Contact"].ToString();
+                            txt_address.Text = reader["CustAddress"].ToString();
+                            //txt_cardnum.Text = reader["CustAccountNo"].ToString();
+                            txt_city.Text = reader["CustCity"].ToString();
+                            txt_emailaddress.Text = reader["Email"].ToString();
+                            //txt_postalcode.Text = reader["CustPOBox"].ToString();
+                            Cnic.Text = reader["CustCNIC"].ToString();
 
+                        }
+
+
+                        con.Close();
                     }
-
-
-                    con.Close();
+                    catch(Exception ex)
+                    {
+                        //Something goes here
+                    }
 
                 }
                 else if(Session["user"] == null)
@@ -74,35 +82,45 @@ namespace FypWeb
         DateTime date;
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            con.Open();
+            try {
+                con.Open();
 
-            SqlCommand cmd2 = con.CreateCommand();
-            SqlCommand cmd1 = con.CreateCommand();
-            cmd1.CommandType = CommandType.Text;
-            cmd1.CommandText = "Select CustID from Customers where UserName = '" + Session["user"] + "'";
-            CustID = (Int32)cmd1.ExecuteScalar();
+                SqlCommand cmd2 = con.CreateCommand();
+                SqlCommand cmd1 = con.CreateCommand();
+                cmd1.CommandType = CommandType.Text;
+                cmd1.CommandText = "Select CustID from Customers where UserName = '" + Session["user"] + "'";
+                CustID = (Int32)cmd1.ExecuteScalar();
 
-            cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "update Customers set CustName='" + txt_name.Text + "',CustCNIC='" + Cnic.Text + "',Email='" + txt_emailaddress.Text + "',CustAddress='" + txt_address.Text + "' where CustID= '" + CustID + "'";
-            cmd2.ExecuteNonQuery();
+                cmd2.CommandType = CommandType.Text;
+                cmd2.CommandText = "update Customers set CustName='" + txt_name.Text + "',CustCNIC='" + Cnic.Text + "',Email='" + txt_emailaddress.Text + "',CustAddress='" + txt_address.Text + "' where CustID= '" + CustID + "'";
+                cmd2.ExecuteNonQuery();
 
-            con.Close();
-
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                //Something goes here
+            }
             // Generating Order
             Console.Write(orderID);
-            con.Open();
-            String query = "INSERT INTO Orders values('" + dateTime + "')";
-            SqlCommand comm = new SqlCommand(query, con);
-            comm.ExecuteNonQuery();
-            con.Close();
-            date = dateTime;
-            con.Open();
-            SqlCommand cmd3 = con.CreateCommand();
-            cmd3.CommandType = CommandType.Text;
-            cmd3.CommandText = "Select OrderID from Orders where OrderDateTime = '" + date + "'";
-            orderID = (Int32)cmd3.ExecuteScalar();
-            con.Close();
-
+            try {
+                con.Open();
+                String query = "INSERT INTO Orders values('" + dateTime + "')";
+                SqlCommand comm = new SqlCommand(query, con);
+                comm.ExecuteNonQuery();
+                con.Close();
+                date = dateTime;
+                con.Open();
+                SqlCommand cmd3 = con.CreateCommand();
+                cmd3.CommandType = CommandType.Text;
+                cmd3.CommandText = "Select OrderID from Orders where OrderDateTime = '" + date + "'";
+                orderID = (Int32)cmd3.ExecuteScalar();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                //Something goes here
+            }
             //Extracting IDs
             try
             {
@@ -129,7 +147,7 @@ namespace FypWeb
                     foodPackageID = Convert.ToInt32(strArr2[0]);
                     // inserting Food Details
                     con.Open();
-                    String foodQuery = "INSERT INTO FoodDetails values('" + orderID + "','" + foodPackageID + "','" + Support.getFoodCost() + "')";
+                    String foodQuery = "INSERT INTO FoodDetails values('" + orderID + "','" + foodPackageID + "')";
                     SqlCommand com1 = new SqlCommand(foodQuery, con);
                     row2 = com1.ExecuteNonQuery();
                     con.Close();
@@ -162,9 +180,10 @@ namespace FypWeb
                     con.Close();
 
                 }
+                
                 // Inserting into Place Orders
                 con.Open();
-                String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + orderID + "','" + Support.getTotalCost() + "' )";
+                String placeOrderQuery = "INSERT INTO PlaceOrder values('" + CustID + "','" + orderID + "','" + total + "' )";
                 SqlCommand com3 = new SqlCommand(placeOrderQuery, con);
                 row4 = com3.ExecuteNonQuery();
                 con.Close();
@@ -189,7 +208,7 @@ namespace FypWeb
                     sc.Credentials = new NetworkCredential("syed.khan7007@gmail.com", "ahsan_123");
                     sc.EnableSsl = true;
                     sc.Send(msg);
-                    Response.Write("mail send");
+                    Successlbl.Text = "Your Order is placed, please check your email for confirmation. Thank you for coming";
                 }
                 catch (Exception ex)
                 {

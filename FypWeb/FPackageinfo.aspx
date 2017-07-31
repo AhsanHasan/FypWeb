@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body >
+<body style="background-image:url(pictures/bg3.jpg)">
      <form id="form1" runat="server">
         <div>
 
@@ -36,14 +36,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-             <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+             <a class="navbar-brand " href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
                             <li> <a href="ViewCart1.aspx">View Cart</a></li>
-                            <li> <a href="contact.aspx">Contact</a></li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
@@ -98,10 +95,6 @@
             <!--/First row-->
              <tr>
                 <td></td>
-                <td>
-                    <h4><strong>Total</strong></h4></td>
-                <td>
-                    <h4><strong>1200 $</strong></h4></td>
                 <td>
                     <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
                     

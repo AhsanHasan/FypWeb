@@ -10,7 +10,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *afteOnClickEvent</title>
 <link href="StyleSheet.css" rel="stylesheet" />
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet" />
     <link href="css/login.css" rel="stylesheet" />
 
 
@@ -34,14 +35,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                    <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+                    <a class="navbar-brand " href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
-                            <li> <a href="contact.aspx">Contact</a></li>
-                            <li> <a href="#">Signout</a></li>
+                            <li> <a href="ViewCart1.aspx">ViewCart</a></li>
+                                <li><asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="Black" OnClick="logout_click">Logout</asp:LinkButton></li>
          
 			
                     </div> 
@@ -64,14 +63,14 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="pictures/ent1.png" alt="event" style="height:350px" width="100%"/>
+      <img src="pictures/r.jpg" alt="event" style="height:350px" width="100%"/>
       
     </div>
     <div class="item">
-      <img src="pictures/ent2.jpg" alt="Event" style="height:350px" width="100%"/>
+      <img src="pictures/t.jpg" alt="Event" style="height:350px" width="100%"/>
       </div>
       <div class="item">
-      <img src="pictures/ent3.jpg" alt="Event" style="height:350px" width="100%"/>
+      <img src="pictures/y.jpg" alt="Event" style="height:350px" width="100%"/>
        </div>
     
     ...
@@ -100,7 +99,7 @@
                <div class="col-xs-4" id="entdiv">
                     <table>
                         
-                       <tr><td><th><a href="epackageinfo.aspx?id=<%#Eval("EntertainerID") %>"><img src='<%#Eval("Picture") %>' height="200" width="200" style="border: medium solid #000000" /></a></th></td></tr>
+                       <tr><td><th><a href="epackageinfo.aspx?id=<%#Eval("EntertainerID") %>"><img class="thumbnail zoom" src='<%#Eval("Picture") %>' height="200" width="200" style="border: medium solid #000000" /></a></th></td></tr>
                        <tr><td><th> <%# Eval("Name") %></th></td></tr>
                          <tr>
                              <tr></tr>

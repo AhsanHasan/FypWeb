@@ -100,23 +100,28 @@ namespace FypWeb
         {
             DateTime date;
             date = Calendar1.SelectedDate;
+            try {
+                con.Open();
 
-            con.Open();
-
-            // Set the color of Selected Calendar Cells to Red
-            Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Red;
-            query = "INSERT INTO EntertainerSchedule (EntertainerID,Date,TimeSlot) values ('" + id + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
-            SqlCommand myCommand = new SqlCommand(query, con);
+                // Set the color of Selected Calendar Cells to Red
+                Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.Red;
+                query = "INSERT INTO EntertainerSchedule (EntertainerID,Date,TimeSlot) values ('" + id + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
+                SqlCommand myCommand = new SqlCommand(query, con);
 
 
-            // myCommand.ExecuteNonQuery();
-            //myCommand.CommandType = CommandType.StoredProcedure;
-            //myCommand.Parameters.Add(new SqlParameter("@v_DateTime", SqlDbType.DateTime));
-            //myCommand.Parameters["@v_DateTime"].Value = selectedDate;
+                // myCommand.ExecuteNonQuery();
+                //myCommand.CommandType = CommandType.StoredProcedure;
+                //myCommand.Parameters.Add(new SqlParameter("@v_DateTime", SqlDbType.DateTime));
+                //myCommand.Parameters["@v_DateTime"].Value = selectedDate;
 
-            myCommand.ExecuteNonQuery();
-            con.Close();
-            Response.Redirect("ViewCart1.aspx");
+                myCommand.ExecuteNonQuery();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                //Something goes here
+            }
+            Btn_AddToCart.Visible = true;
 
         }
         
@@ -125,21 +130,27 @@ namespace FypWeb
             id = Convert.ToInt32(Request.QueryString["id"].ToString());
             // price = Convert.ToInt32(Request.QueryString["price"].ToString());
             // name = Request.QueryString["name"];
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Entertainers where EntertainerID = '" + id + "'";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter ds = new SqlDataAdapter(cmd);
-            ds.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                Name = dr["Name"].ToString();
-                Picture = dr["Picture"].ToString();
-                Price = dr["Price"].ToString();
+            try {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from Entertainers where EntertainerID = '" + id + "'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                ds.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Name = dr["Name"].ToString();
+                    Picture = dr["Picture"].ToString();
+                    Price = dr["Price"].ToString();
+                }
+                con.Close();
             }
-            con.Close();
+            catch(Exception ex)
+            {
+                //Something goes here
+            }
             if (Request.Cookies["entertainer"] == null)
             {
                 Response.Cookies["entertainer"].Value = id.ToString() + "," + Name.ToString() + "," + Picture.ToString() + "," + Price.ToString();

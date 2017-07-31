@@ -15,18 +15,25 @@ namespace FypWeb
         string type;
         protected void Page_Load(object sender, EventArgs e)
         {
-            type = Session["eventType"].ToString();
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Venues where VenueType like '%" +type+"%'";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter ds = new SqlDataAdapter(cmd);
-            ds.Fill(dt);
-            abc.DataSource = dt;
-            abc.DataBind();
-            con.Close();
+            
+            try {
+                type = Session["eventType"].ToString();
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from Venues where VenueType like '%" + type + "%'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                ds.Fill(dt);
+                abc.DataSource = dt;
+                abc.DataBind();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                // Something goes here
+            }
         }
 
         protected void logout_click(object sender, EventArgs e)

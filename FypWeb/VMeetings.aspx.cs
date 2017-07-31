@@ -13,5 +13,10 @@ namespace FypWeb
         {
 
         }
+
+        protected void logout_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

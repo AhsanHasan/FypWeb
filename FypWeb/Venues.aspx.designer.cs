@@ -10,7 +10,7 @@
 namespace FypWeb {
     
     
-    public partial class cust {
+    public partial class Venues {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,13 @@ namespace FypWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// GridView1 control.
+        /// GridView3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GridView3;
         
         /// <summary>
         /// SqlDataSource1 control.
@@ -40,31 +40,31 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
-        /// CustName control.
+        /// Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustName;
+        protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
-        /// requsercustname control.
+        /// RequiredFieldValidator16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requsercustname;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator16;
         
         /// <summary>
-        /// CustAddress control.
+        /// add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustAddress;
+        protected global::System.Web.UI.WebControls.TextBox add;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -76,13 +76,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// CustDOB control.
+        /// Nl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustDOB;
+        protected global::System.Web.UI.WebControls.TextBox Nl;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -94,13 +94,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// CustAccountNo control.
+        /// longi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustAccountNo;
+        protected global::System.Web.UI.WebControls.TextBox longi;
         
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -112,13 +112,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// CustCNIC control.
+        /// lat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustCNIC;
+        protected global::System.Web.UI.WebControls.TextBox lat;
         
         /// <summary>
         /// RequiredFieldValidator4 control.
@@ -130,13 +130,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// CustPOBox control.
+        /// Con control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustPOBox;
+        protected global::System.Web.UI.WebControls.TextBox Con;
         
         /// <summary>
         /// RequiredFieldValidator5 control.
@@ -148,13 +148,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
-        /// CustCity control.
+        /// Pb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustCity;
+        protected global::System.Web.UI.WebControls.TextBox Pb;
         
         /// <summary>
         /// RequiredFieldValidator6 control.
@@ -166,13 +166,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// CustStatus control.
+        /// Rat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CustStatus;
+        protected global::System.Web.UI.WebControls.TextBox Rat;
         
         /// <summary>
         /// RequiredFieldValidator7 control.
@@ -184,13 +184,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
-        /// Pass control.
+        /// f1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Pass;
+        protected global::System.Web.UI.WebControls.FileUpload f1;
         
         /// <summary>
         /// RequiredFieldValidator8 control.
@@ -202,13 +202,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
-        /// Email control.
+        /// vt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.TextBox vt;
         
         /// <summary>
         /// RequiredFieldValidator9 control.
@@ -220,13 +220,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
         
         /// <summary>
-        /// Un control.
+        /// pr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Un;
+        protected global::System.Web.UI.WebControls.TextBox pr;
         
         /// <summary>
         /// RequiredFieldValidator10 control.
@@ -238,13 +238,13 @@ namespace FypWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
         
         /// <summary>
-        /// Con control.
+        /// pid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Con;
+        protected global::System.Web.UI.WebControls.TextBox pid;
         
         /// <summary>
         /// RequiredFieldValidator11 control.

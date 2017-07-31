@@ -11,6 +11,7 @@
 <link href="StyleSheet.css" rel="stylesheet" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet" />
     <link href="css/login.css" rel="stylesheet" />
 
 
@@ -21,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="background-image:url(pictures/bg3.jpg)">
     <form id="form1" runat="server">
     <div>
      <div class="navbar navbar-default navbar-fixed-top navbar-inverse"role="navigation" >
@@ -34,19 +35,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                    <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+             <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="Welcome.aspx">Home</a></li>
+                            <li ><a href="Welcome.aspx">Home</a></li>
                             <li> <a href="About.aspx">About</a></li>
                             <li> <a href="contact.aspx">Contact</a></li>
+                           
                             
-         
-			
+                           
+                        </ul> 
                     </div> 
                     </div>
- </div>   
+                </div>
             <br />
         
            
@@ -64,14 +66,14 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="pictures/ent1.png" alt="event" style="height:350px" width="100%"/>
+      <img src="pictures/r.jpg" alt="event" style="height:350px" width="100%"/>
       
     </div>
     <div class="item">
-      <img src="pictures/ent2.jpg" alt="Event" style="height:350px" width="100%"/>
+      <img src="pictures/t.jpg" alt="Event" style="height:350px" width="100%"/>
       </div>
       <div class="item">
-      <img src="pictures/ent3.jpg" alt="Event" style="height:350px" width="100%"/>
+      <img src="pictures/y.jpg" alt="Event" style="height:350px" width="100%"/>
        </div>
     
     ...
@@ -94,13 +96,13 @@
          <div class="col-lg-10" style="left:180px">
       
             
-            <asp:Repeater ID="Rpt" runat="server" DataSourceID="SqlDataSource1" >
+            <asp:Repeater ID="Rpt" runat="server" >
 
                 <ItemTemplate>
                <div class="col-xs-4" id="entdiv">
                     <table>
                         
-                       <tr><td><th><a href="entertainerinfo.aspx?id=<%#Eval("EntertainerID") %>"><img src='<%#Eval("Picture") %>' height="200" width="200" style="border: medium solid #000000" /></a></th></td></tr>
+                       <tr><td><th><a href="entertainerinfo.aspx?id=<%#Eval("EntertainerID") %>"><img class="thumbnail zoom" src='<%#Eval("Picture") %>' height="200" width="200" style="border: medium solid #000000" /></a></th></td></tr>
                        <tr><td><th> <%# Eval("Name") %></th></td></tr>
                          <tr>
                              <tr></tr>
@@ -112,16 +114,15 @@
                       
                      </ItemTemplate>
                      </asp:Repeater>
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OnClickEventsConnectionString2 %>" SelectCommand="SELECT * FROM [Entertainers]"></asp:SqlDataSource>
             </div>
             
-           <%-- <footer>
+          <%--  <footer style="position:fixed; bottom:0; width:100%">
             <br />
             <div class="container">
-                <p>&copy; 2016 OnClickEvent.com &middot; <a href="Welcome.aspx">Home</a> &middot; <a href="About.aspx">About</a>&middot; </p>
+                <p>&copy; 2016 OnClickEvent.com &middot; <a href="#">Home</a> &middot; <a href="#">About</a>&middot; </p>
             </div>
-        </footer>--%>
-        
+        </footer>
+        --%>
     </form>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

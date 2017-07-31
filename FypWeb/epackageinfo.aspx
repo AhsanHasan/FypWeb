@@ -25,7 +25,7 @@
     <![endif]-->
     
 </head>
-<body style="padding:0px; margin:0px; background-color:#fff;font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
+<body style="padding:0px; margin:0px; background-image:url(pictures/bg3.jpg);font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
      <form id="form1" runat="server">
     <div>
     
@@ -39,14 +39,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-                    <a class="navbar-brand" href="Default.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+                    <a class="navbar-brand" href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="Welcome.aspx">Home</a></li>
-                            <li class="active"> <a href="About.aspx">About</a></li>
-                            <li> <a href="contact.aspx">Contact</a></li>
-                            <li> <a href="#">Signout</a></li>
+                            <li> <a href="ViewCart1.aspx">Viewcart</a></li>
+                               <li> <asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="White" OnClick="logout_click">Logout</asp:LinkButton></li>
                            
                             
                         </ul> 
@@ -115,7 +113,7 @@
                 <td>
                     <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click"  />
                 <td>
-                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
+                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart" Visible="false"/>
                     
                 </td>
                  <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>

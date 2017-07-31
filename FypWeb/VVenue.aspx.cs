@@ -28,5 +28,9 @@ namespace FypWeb
             abc.DataBind();
             con.Close();
         }
+        protected void logout_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,6 +39,15 @@ public partial class contact {
     protected global::System.Web.UI.WebControls.TextBox name_textbox;
     
     /// <summary>
+    /// requsername control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requsername;
+    
+    /// <summary>
     /// email_textbox control.
     /// </summary>
     /// <remarks>
@@ -48,6 +57,15 @@ public partial class contact {
     protected global::System.Web.UI.WebControls.TextBox email_textbox;
     
     /// <summary>
+    /// RequiredFieldValidator1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+    
+    /// <summary>
     /// feedback_textbox control.
     /// </summary>
     /// <remarks>
@@ -55,6 +73,15 @@ public partial class contact {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox feedback_textbox;
+    
+    /// <summary>
+    /// RequiredFieldValidator2 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
     
     /// <summary>
     /// btn_submit control.

@@ -19,7 +19,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="background-image:url(pictures/bg3.jpg)">
     <form id="form1" runat="server">
     <div>
     
@@ -87,12 +87,16 @@
                      <label class="col-xs-5"> <h4>Name</h4></label>
           <div class="col-xs-11">
               <asp:TextBox ID="name_textbox" runat="server" class="form-control" placeholder="Enter Name"></asp:TextBox>
+               <asp:RequiredFieldValidator runat="server" id="requsername" ControlToValidate="name_textbox" ErrorMessage="Please enter field" ForeColor="Red"></asp:RequiredFieldValidator>
+			                
           </div>
                  <label class="col-xs-5"> <h4>Email</h4></label>
           <div class="col-xs-11">
           <div class="input-group">
                 <%--<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">--%>
               <asp:TextBox ID="email_textbox" runat="server" CssClass="form-control"></asp:TextBox>
+               <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator1" ControlToValidate="email_textbox" ErrorMessage="Please enter field" ForeColor="Red"></asp:RequiredFieldValidator>
+			  
                 <span class="input-group-addon" id="basic-addon2">@example.com</span>
                 </div> 
           </div>
@@ -100,9 +104,11 @@
           <div class="col-xs-11">
               <%--<textarea name = "comment" placeholder = "Message" id = "comment" style="height:250px;width:500px" ></textarea>
              --%> <asp:TextBox ID="feedback_textbox" runat="server" TextMode="MultiLine" Height="100px" Width="500px" CssClass="form-control-feedback"></asp:TextBox>
+              <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator2" ControlToValidate="feedback_textbox" ErrorMessage="Please enter field" ForeColor="Red"></asp:RequiredFieldValidator>
+			  
               <br /><br /><br /><br /><br /><br />
               <div class="col-lg-12">
-              <asp:Button ID="btn_submit" runat="server" Text="Submit"  CssClass="btn btn-info" OnClick="btn_submit_Click"/>
+              <asp:Button ID="btn_submit" runat="server" Text="Submit"  CssClass="btn btn-info" OnClick="btn_submit_Click" Width="120px"/>
                      <asp:Label ID="response" runat="server" CssClass="label label-info" Text=""></asp:Label> 
                   </div>
           </div>

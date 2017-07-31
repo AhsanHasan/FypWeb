@@ -10,9 +10,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *afteOnClickEvent</title>
 <link href="StyleSheet.css" rel="stylesheet" />
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+       <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/custom.css" rel="stylesheet" />
     <link href="css/login.css" rel="stylesheet" />
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,13 +35,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                      </button>
-             <a class="navbar-brand " href="Welcome.aspx"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
+             <a class="navbar-brand " href="#"><span><img alt="logo" src="pictures/logo.png" width="50"  /></span> OnClickEvent </a>
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
-                            <li> <a href="contact.aspx">Contact</a></li>
                             <li> <a href="ViewCart1.aspx">View Cart</a></li>
                             
                             <li class="dropdown">
@@ -98,7 +95,7 @@
         
            
 
-  <div id="dvm">
+  <div id="dvm" >
                   <div class="col-lg-3"> 
              </div>
 
@@ -114,7 +111,7 @@
                <div class="col-xs-4">
                     <table>
                         
-                       <tr><td><th><a href="FPackageinfo.aspx?id=<%#Eval("foodPackage_ID") %>&price=<%#Eval("Price") %>"><img src='<%#Eval("Pictures") %>' height="200" width="200" style="border: solid" /></a></th></td></tr>
+                       <tr><td><th><a href="FPackageinfo.aspx?id=<%#Eval("foodPackage_ID") %>&price=<%#Eval("Price") %>"><img class="thumbnail zoom" src='<%#Eval("Pictures") %>' height="200" width="200" style="border: solid" /></a></th></td></tr>
                        <tr><td><th><%#Eval("Package_Name") %> </th></td></tr>
                          <tr><td><th>Price: <%# Eval("Price") %></th></td></tr>
                         

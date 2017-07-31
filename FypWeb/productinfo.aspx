@@ -27,7 +27,7 @@
     <![endif]-->
 
 </head>
-<body style="padding: 0px; margin: 0px; background-color: #fff; font-family: 'Open Sans',sans-serif,arial,helvetica,verdana">
+<body style="padding: 0px; margin: 0px; background-image:url(pictures/bg3.jpg); font-family: 'Open Sans',sans-serif,arial,helvetica,verdana">
     <form id="form1" runat="server">
         <div>
 
@@ -134,7 +134,7 @@
 
                 </td>
                 <td>
-                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart" CssClass="btn btn-info" OnClick="btn_AddToCart" />
+                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart" CssClass="btn btn-info" OnClick="btn_AddToCart" Visible="false" />
 
                 </td>
                 <td>

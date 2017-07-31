@@ -35,7 +35,7 @@
     <![endif]-->
 
 </head>
-<body style="padding: 0px; margin: 0px; background-color: #fff; font-family: 'Open Sans',sans-serif,arial,helvetica,verdana">
+<body style="padding: 0px; margin: 0px; background-image:url(pictures/bg3.jpg); font-family: 'Open Sans',sans-serif,arial,helvetica,verdana">
     <form id="form1" runat="server">
         <div>
 
@@ -114,11 +114,8 @@
                 <td></td>
 
                 </td>
-                 <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping"/></td>
-         <td><asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click" />
-</td>
-  <td>                    <asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart"/>
-                    </td>
+                 <td></td>
+                 <td></td>
                                      
                                                                            </tr>
                 </ItemTemplate>
@@ -144,12 +141,10 @@
                 <td>
                     <h4><strong><%#Eval("Price") %> </strong></h4>
                 </td>
-                <td><%--<button type="button" class="btn btn-primary">Complete purchase  <i class="fa fa-angle-right right"></i></button>--%></td>
-                <td>
-                                                            
-                    <%--<asp:Button ID="Btn_AddToCart" runat="server" Text="AddToCart" CssClass="btn btn-info" OnClick="btn_AddToCart" />--%>
-                    
-                </td>
+                <td> <asp:Button ID="Button1" runat="server" Text="Book Your Date" class="btn btn-success" Height="40px" OnClick="Button1_Click" />      </td>
+                <td><asp:Button ID="addtocart" runat="server" Text="AddToCart"  CssClass="btn btn-info" OnClick="btn_AddToCart" Visible="false"/></td>
+                <td><asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping"  CssClass="btn btn-success" OnClick="btn_ContinueShopping" Height="40px"/></td>
+
                 <%--<td>
                     <asp:Button ID="Btn_Continue" runat="server" Text="Continue Shopping" CssClass="btn btn-success" OnClick="btn_ContinueShopping" OnClientClick="return false" /></td>--%>
             </tr>

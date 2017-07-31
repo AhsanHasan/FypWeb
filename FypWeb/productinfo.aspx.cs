@@ -415,7 +415,8 @@ namespace FypWeb
 
             myCommand.ExecuteNonQuery();
             con.Close();
-            Response.Redirect("productinfo.aspx");
+            Btn_AddToCart.Visible = true;
+            //Response.Redirect("productinfo.aspx");
 
         }
 

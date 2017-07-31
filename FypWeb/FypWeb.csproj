@@ -61,6 +61,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AccountSetting.aspx" />
+    <Content Include="AdminLogin.aspx" />
     <Content Include="AdminPanel.aspx" />
     <Content Include="Baraat.aspx" />
     <Content Include="BayParty.aspx" />
@@ -78,7 +79,6 @@
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\jquery-3.2.1.js" />
     <Content Include="BusinessMeetings.aspx" />
-    <Content Include="calender.aspx" />
     <Content Include="Category.aspx" />
     <Content Include="CheckOutForm.aspx" />
     <Content Include="contact.aspx" />
@@ -96,13 +96,14 @@
     <Content Include="css\login.css" />
     <Content Include="emp.aspx" />
     <Content Include="employees.aspx" />
+    <Content Include="en.aspx" />
     <Content Include="entertainer.aspx" />
     <Content Include="entertainerinfo.aspx" />
     <Content Include="EntertainerPackages.aspx" />
-    <Content Include="ent.aspx" />
     <Content Include="epackageinfo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="foodinfos.aspx" />
+    <Content Include="FoodItems.aspx" />
     <Content Include="Foods.aspx" />
     <Content Include="FPackageinfo.aspx" />
     <Content Include="FPackages.aspx" />
@@ -1382,6 +1383,8 @@
     <Content Include="VBayParty.aspx" />
     <Content Include="VEntertainers.aspx" />
     <Content Include="venuePackagesinfo.aspx" />
+    <Content Include="Venues.aspx" />
+    <Content Include="VenueSchedule.aspx" />
     <Content Include="VFoods.aspx" />
     <Content Include="ViewCart1.aspx" />
     <Content Include="VisitorEventType.aspx" />
@@ -1409,6 +1412,13 @@
     </Compile>
     <Compile Include="AccountSetting.aspx.designer.cs">
       <DependentUpon>AccountSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPanel.aspx.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
@@ -1439,13 +1449,6 @@
     </Compile>
     <Compile Include="BusinessMeetings.aspx.designer.cs">
       <DependentUpon>BusinessMeetings.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="calender.aspx.cs">
-      <DependentUpon>calender.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="calender.aspx.designer.cs">
-      <DependentUpon>calender.aspx</DependentUpon>
     </Compile>
     <Compile Include="Category.aspx.cs">
       <DependentUpon>Category.aspx</DependentUpon>
@@ -1482,6 +1485,13 @@
     <Compile Include="employees.aspx.designer.cs">
       <DependentUpon>employees.aspx</DependentUpon>
     </Compile>
+    <Compile Include="en.aspx.cs">
+      <DependentUpon>en.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="en.aspx.designer.cs">
+      <DependentUpon>en.aspx</DependentUpon>
+    </Compile>
     <Compile Include="entertainer.aspx.cs">
       <DependentUpon>entertainer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1503,13 +1513,6 @@
     <Compile Include="EntertainerPackages.aspx.designer.cs">
       <DependentUpon>EntertainerPackages.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ent.aspx.cs">
-      <DependentUpon>ent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ent.aspx.designer.cs">
-      <DependentUpon>ent.aspx</DependentUpon>
-    </Compile>
     <Compile Include="epackageinfo.aspx.cs">
       <DependentUpon>epackageinfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1523,6 +1526,13 @@
     </Compile>
     <Compile Include="foodinfos.aspx.designer.cs">
       <DependentUpon>foodinfos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FoodItems.aspx.cs">
+      <DependentUpon>FoodItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodItems.aspx.designer.cs">
+      <DependentUpon>FoodItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="Foods.aspx.cs">
       <DependentUpon>Foods.aspx</DependentUpon>
@@ -1693,6 +1703,20 @@
     </Compile>
     <Compile Include="venuePackagesinfo.aspx.designer.cs">
       <DependentUpon>venuePackagesinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Venues.aspx.cs">
+      <DependentUpon>Venues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Venues.aspx.designer.cs">
+      <DependentUpon>Venues.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VenueSchedule.aspx.cs">
+      <DependentUpon>VenueSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VenueSchedule.aspx.designer.cs">
+      <DependentUpon>VenueSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="VFoods.aspx.cs">
       <DependentUpon>VFoods.aspx</DependentUpon>

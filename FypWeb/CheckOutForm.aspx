@@ -209,7 +209,8 @@
            
         <div class="col-lg-5"> 
                <asp:Button ID="BtnSubmit" runat="server" Text="Submit" class="btn btn-success" Height="40px" OnClick="BtnSubmit_Click"  style="margin-top:30px;width:100px"/>
-                  </div>
+               <asp:Label ID="Successlbl" runat="server" Text="" CssClass="label label-success"></asp:Label>   
+        </div>
           </div>
               
         <footer style="position:fixed; bottom:0; width:100%">

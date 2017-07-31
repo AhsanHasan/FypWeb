@@ -17,41 +17,34 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+      <style type="text/css">
+          .auto-style1 {
+              margin-top: 0;
+              margin-bottom: 0;
+              font-size: 16px;
+              color: inherit;
+              text-decoration: underline;
+          }
+      </style>
   </head>
   <body>
   	  <form id="form1" runat="server">
   	<div class="header">
 	     <div class="container">
+             
 	        <div class="row">
 	           <div class="col-md-5">
 	              <div class="logo">
 	              <!-- Logo -->
-	                 <h1><a href="AdminPanel.aspx">OnCLickEvents Admin Panel</a></h1>
+	                 <h1><a href="AdminPanel.aspx">Admin Panel</a></h1>
 	              </div>
 	           </div>
-	           <div class="col-md-5">
-	              <div class="row">
-	                <div class="col-lg-12">
-	                  <div class="input-group form">
-	                       <input type="text" class="form-control" placeholder="Search...">
-	                       <span class="input-group-btn">
-	                         <button class="btn btn-primary" type="button">Search</button>
-	                       </span>
-	                  </div>
-	                </div>
-	              </div>
-	           </div>
-	           <div class="col-md-2">
+	          
+	           <div class="col-md-6">
 	              <div class="navbar navbar-inverse" role="banner">
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
-	                      <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
-	                        <ul class="dropdown-menu animated fadeInUp">
-	                          <li><a href="profile.html">Profile</a></li>
-	                          <li><a href="login.html">Logout</a></li>
-	                        </ul>
-	                      </li>
+	                      
 	                    </ul>
 	                  </nav>
 	              </div>
@@ -67,9 +60,7 @@
                 <ul class="nav">
                     <!-- Main menu -->
                     <li><a href="AdminPanel.aspx"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="calender.aspx"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
-                    <li><a href="Stats.aspx"><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
-                    
+                   
                     <li class="submenu">
                          <a href="#">
                             <i class="glyphicon glyphicon-list"></i> Tables
@@ -77,9 +68,13 @@
                          </a>
                          <!-- Sub menu -->
                          <ul>
-                            <li><a href="cust.aspx">Customers</a></li>
+                             <li><a href="cust.aspx">Customers</a></li>
                             <li><a href="emp.aspx">Employees</a></li>
-                             <li><a href="Entertainers.aspx">Entertainers</a></li>
+                             <li><a href="en.aspx">Entertainers</a></li>
+                             <li><a href="FoodItems.aspx">FOod Items</a></li>
+                             <li><a href="Venues.aspx">Venues</a></li>
+                              <li><a href="VenueSchedule.aspx">Venue Schedule</a></li>
+                             
 
                         </ul>
                     </li>
@@ -89,78 +84,67 @@
 		 <div class="col-md-10">
 		  	<div class="row">
 		  		<div class="col-md-6">
-		  			<div class="content-box-large">
+		  			<div class="content-box-large" style="width:800px;height:400px">
 		  				<div class="panel-heading">
-							<div class="panel-title">New vs Returning Visitors</div>
+							<div class="auto-style1">FeedBacks By Customer and Visitors </div>
+                             
 							
 							<div class="panel-options">
 								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
 								<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
 							</div>
+                          </div>  
+                          
+		  				<div class="panel-body ">
+		  					<br />
+                            <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataSourceID="SqlDataSource1" Width="581px">
+                                <EditItemTemplate>
+                                    Name:
+                                    <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                                    <br />
+                                    email:
+                                    <asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' />
+                                    <br />
+                                    feedback:
+                                    <asp:TextBox ID="feedbackTextBox" runat="server" Text='<%# Bind("feedback") %>' />
+                                    <br />
+                                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                </EditItemTemplate>
+                                <InsertItemTemplate>
+                                    Name:
+                                    <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                                    <br />
+                                    email:
+                                    <asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' />
+                                    <br />
+                                    feedback:
+                                    <asp:TextBox ID="feedbackTextBox" runat="server" Text='<%# Bind("feedback") %>' />
+                                    <br />
+                                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                </InsertItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("email") %>'></asp:Label>
+                                    <hr />Feedback:<br />&nbsp;<asp:Label ID="feedbackLabel" runat="server" style="font-style: italic; color: #FF33CC;" Text='<%# Bind("feedback") %>' />
+                                    <br />
+                                    <hr />
+                                </ItemTemplate>
+                            </asp:FormView>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OnClickEventsConnectionString2 %>" SelectCommand="SELECT [Name], [email], [feedback] FROM [Contact] ORDER BY [ID] DESC"></asp:SqlDataSource>
+                            <br />
+                            <br />
+                            <br />
+                              
+		  				</div>
+                           
 						</div>
-		  				<div class="panel-body">
-		  					...................................
-				  			<br /><br />
-				  			
-							<br /><br />
-		  				</div>
-		  			</div>
+		  			
 		  		</div>
+                  
 
-		  		<div class="col-md-6">
-		  			<div class="row">
-		  				<div class="col-md-12">
-		  					<div class="content-box-header">
-			  					<div class="panel-title">New vs Returning Visitors</div>
-								
-								<div class="panel-options">
-									<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-									<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-								</div>
-				  			</div>
-				  			<div class="content-box-large box-with-header">
-				  				
-					  			...........................................
-								<br /><br />
-							</div>
-		  				</div>
-		  			</div>
-		  			<div class="row">
-		  				<div class="col-md-12">
-		  					<div class="content-box-header">
-			  					<div class="panel-title">New vs Returning Visitors</div>
-								
-								<div class="panel-options">
-									<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-									<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-								</div>
-				  			</div>
-				  			<div class="content-box-large box-with-header">
-				  				
-					  			.........................................
-								<br /><br />
-							</div>
-		  				</div>
-		  			</div>
-		  		</div>
-		  	</div>
-
-		  	<div class="row">
-		  		<div class="col-md-12 panel-warning">
-		  			<div class="content-box-header panel-heading">
-	  					<div class="panel-title ">New vs Returning Visitors</div>
-						
-						<div class="panel-options">
-							<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-							<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-						</div>
-		  			</div>
-		  			<div class="content-box-large box-with-header">
-			  			........................................
-						<br /><br />
-					</div>
-		  		</div>
-		  	</div>
+		  		
 
 		  	
 		  </div>
@@ -173,9 +157,11 @@
                   </div>
   				
 
-
+                  </div>
 	
-
+             <br />
+             <br />
+             
     <footer>
          <div class="container">
          

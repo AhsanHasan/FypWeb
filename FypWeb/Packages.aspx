@@ -44,7 +44,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                 <li><a href="#">Account Setting</a></li>
+                                 <li><a href="AccountSetting.aspx">Account Setting</a></li>
                                  <%--<li><a href="#" >Logout</a></li>--%>
                                <li> <asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="Black" OnClick="logout_click">Logout</asp:LinkButton></li>
                         </ul> 

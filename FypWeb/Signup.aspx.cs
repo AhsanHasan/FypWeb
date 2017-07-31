@@ -34,7 +34,7 @@ namespace FypWeb
             if (Page.IsValid)
             {
                 string name = C1.Text.ToString();
-                string dob = C3.Text.ToString();
+                String dob =  C3.Text.ToString();
                 string city = C7.Text.ToString();
                 string email = Email.Text.ToString();
                 string pass = Pwd.Text.ToString();

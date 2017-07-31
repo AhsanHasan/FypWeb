@@ -72,12 +72,9 @@ window.cookieconsent.initialise({
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-								Login via
-								<div class="social-buttons">
-									<a href="www.facebook.com/ahsan.hasan18" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-			
-								</div>
-                                or
+								<label><b>Enter Your ID</b></label>
+								
+                                
 								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputEmail2">UserName</label>
@@ -91,7 +88,7 @@ window.cookieconsent.initialise({
                                               <asp:RequiredFieldValidator runat="server" id="reqpw" ControlToValidate="l2" ErrorMessage="Please enter password" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 										<div class="form-group">
-											 <asp:Button ID="login_btn" runat="server" Text="Login" OnClick="login_btn_Click" />
+											 <asp:Button ID="login_btn" runat="server" class="btn btn-lg btn-primary" Text="Login" OnClick="login_btn_Click" />
 										</div>
 										<div class="checkbox">
 											

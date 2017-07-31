@@ -46,17 +46,16 @@
                         </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="Welcome.aspx">Home</a></li>
-                            <li> <a href="About.aspx">About</a></li>
-                            <li> <a href="Contact.aspx">Contact</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
+                                <a href="AccountSetting.aspx" class="dropdown-toggle" data-toggle="dropdown">My Profile<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li> <a href="AccountSetting.aspx">Account Setting</a></li>
-                                <li> <asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="Black" OnClick="logout_click">Logout</asp:LinkButton></li>
-                                </ul>
-                                </li>
+            <li> <asp:LinkButton ID="LinkBtnlogout" runat="server" ForeColor="Black" OnClick="logout_click">Logout</asp:LinkButton></li>
+
+                            </ul>   
+                            </li>     
                         </ul> 
+                       
                     </div> 
                     </div>
  </div>   
@@ -94,7 +93,7 @@
           <h4 class="modal-title">Enter Budget</h4>
         </div>
         <div class="modal-body">
-        <label style="color:red">(Budget must be above 3 lacs)</label>
+        <label style="color:red">(Budget and guest must be above 5 lacs and 250)</label>
             <label class="col-xs-11"> <h4>Budget amount</h4></label>
             
               <input name="budgetamount" type="number"  class="form-control" placeholder="Please Enter Budget More Then 100000" />

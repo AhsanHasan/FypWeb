@@ -111,7 +111,9 @@ namespace FypWeb
 
 
 
+
         }
+   
         protected void btn_Skip(object sender, EventArgs e)
         {
             
@@ -137,5 +139,7 @@ namespace FypWeb
 
             Response.Redirect("Login.aspx");
         }
+
     }
+
 }
